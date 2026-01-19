@@ -119,9 +119,9 @@ db_path = os.path.join(app.instance_path, 'truthguard.db')
 app.config['SQLALCHEMY_DATABASE_URI'] = f"sqlite:///{db_path}"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
-app.config['UPLOAD_FOLDER'] = os.path.join('static', 'uploads')
+app.config['UPLOAD_FOLDER'] = os.path.join('../static', 'uploads')
 os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
-os.makedirs('logs', exist_ok=True)
+os.makedirs('../logs', exist_ok=True)
 
 # --- Cache for immediate response ---
 analysis_cache = {}
@@ -675,7 +675,7 @@ def save_analysis_background(user_id, content, result, url=None, title=None, is_
 
 # --- Logging setup ---
 def setup_logging():
-    file_handler = RotatingFileHandler('logs/truthguard.log', maxBytes=10 * 1024 * 1024, backupCount=10,
+    file_handler = RotatingFileHandler('../logs/truthguard.log', maxBytes=10 * 1024 * 1024, backupCount=10,
                                        encoding='utf-8')
     file_handler.setLevel(logging.INFO)
     file_handler.setFormatter(logging.Formatter('%(asctime)s %(levelname)s: %(message)s [in %(pathname)s:%(lineno)d]'))

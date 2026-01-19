@@ -1,0 +1,1297 @@
+{% extends &quot;base.html&quot; %}
+{% block title %}Contact - TruthGuard{% endblock %}
+{% block content %}
+&lt;!-- Animated Background --&gt;
+&lt;div class=&quot;contact-container&quot; style=&quot;
+background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #f5576c 100%);
+background-size: 400% 400%;
+animation: gradientBG 15s ease infinite;
+min-height: 100vh;
+padding: 20px;
+&quot;&gt;
+&lt;!-- Floating Particles --&gt;
+&lt;div class=&quot;contact-particles&quot;&gt;
+&lt;div class=&quot;particle&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;particle&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;particle&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;particle&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;particle&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;container py-5&quot;&gt;
+&lt;!-- Hero Header --&gt;
+&lt;div class=&quot;row mb-5&quot;&gt;
+&lt;div class=&quot;col-12&quot;&gt;
+&lt;div class=&quot;text-center&quot;&gt;
+&lt;div class=&quot;contact-hero-icon mb-4&quot;&gt;
+&lt;i class=&quot;fas fa-headset fa-4x text-white&quot;&gt;&lt;/i&gt;
+&lt;/div&gt;
+&lt;h1 class=&quot;display-4 fw-bold text-white mb-3&quot;&gt;
+Let&#39;s &lt;span class=&quot;text-gradient&quot;&gt;Connect&lt;/span&gt;
+&lt;/h1&gt;
+&lt;p class=&quot;lead text-white opacity-75 mb-0&quot; style=&quot;max-width: 800px; margin: 0 auto;&quot;&gt;
+Have questions, ideas, or need support? We&#39;re here to help you fight misinformation.
+Our team is ready to assist you 24/7!
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;row g-4&quot;&gt;
+&lt;!-- Left Column - Contact Cards --&gt;
+&lt;div class=&quot;col-lg-4&quot;&gt;
+&lt;!-- Contact Info Card --&gt;
+&lt;div class=&quot;card border-0 shadow-lg mb-4 glass-card&quot; style=&quot;border-radius: 20px;&quot;&gt;
+&lt;div class=&quot;card-body p-4&quot;&gt;
+&lt;div class=&quot;text-center mb-4&quot;&gt;
+
+&lt;div class=&quot;contact-icon-wrapper mb-3&quot;&gt;
+&lt;i class=&quot;fas fa-info-circle fa-2x text-white&quot;&gt;&lt;/i&gt;
+&lt;/div&gt;
+&lt;h3 class=&quot;h4 fw-bold text-gradient&quot;&gt;Contact Information&lt;/h3&gt;
+&lt;p class=&quot;text-muted&quot;&gt;Choose the right channel for your inquiry&lt;/p&gt;
+&lt;/div&gt;
+&lt;!-- Email Cards --&gt;
+&lt;div class=&quot;contact-info-item mb-4&quot; style=&quot;
+background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+border-radius: 15px;
+padding: 20px;
+color: white;
+transition: all 0.3s ease;
+&quot; onmouseover=&quot;hoverCard(this)&quot; onmouseout=&quot;unhoverCard(this)&quot;&gt;
+&lt;div class=&quot;d-flex align-items-center mb-2&quot;&gt;
+&lt;div class=&quot;contact-item-icon me-3&quot;&gt;
+&lt;i class=&quot;fas fa-envelope fa-lg&quot;&gt;&lt;/i&gt;
+&lt;/div&gt;
+&lt;div&gt;
+&lt;h5 class=&quot;fw-bold mb-0&quot;&gt;General Support&lt;/h5&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p class=&quot;mb-2&quot;&gt;support@truthguard.com&lt;/p&gt;
+&lt;small class=&quot;opacity-75&quot;&gt;For all inquiries and assistance&lt;/small&gt;
+&lt;/div&gt;
+&lt;div class=&quot;contact-info-item mb-4&quot; style=&quot;
+background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+border-radius: 15px;
+padding: 20px;
+color: white;
+transition: all 0.3s ease;
+&quot; onmouseover=&quot;hoverCard(this)&quot; onmouseout=&quot;unhoverCard(this)&quot;&gt;
+&lt;div class=&quot;d-flex align-items-center mb-2&quot;&gt;
+&lt;div class=&quot;contact-item-icon me-3&quot;&gt;
+&lt;i class=&quot;fas fa-handshake fa-lg&quot;&gt;&lt;/i&gt;
+&lt;/div&gt;
+&lt;div&gt;
+&lt;h5 class=&quot;fw-bold mb-0&quot;&gt;Partnerships&lt;/h5&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p class=&quot;mb-2&quot;&gt;partnerships@truthguard.com&lt;/p&gt;
+&lt;small class=&quot;opacity-75&quot;&gt;For organizations and collaborations&lt;/small&gt;
+&lt;/div&gt;
+&lt;div class=&quot;contact-info-item mb-4&quot; style=&quot;
+background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+
+border-radius: 15px;
+padding: 20px;
+color: white;
+transition: all 0.3s ease;
+&quot; onmouseover=&quot;hoverCard(this)&quot; onmouseout=&quot;unhoverCard(this)&quot;&gt;
+&lt;div class=&quot;d-flex align-items-center mb-2&quot;&gt;
+&lt;div class=&quot;contact-item-icon me-3&quot;&gt;
+&lt;i class=&quot;fas fa-newspaper fa-lg&quot;&gt;&lt;/i&gt;
+&lt;/div&gt;
+&lt;div&gt;
+&lt;h5 class=&quot;fw-bold mb-0&quot;&gt;Media &amp; Press&lt;/h5&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p class=&quot;mb-2&quot;&gt;press@truthguard.com&lt;/p&gt;
+&lt;small class=&quot;opacity-75&quot;&gt;For press and media inquiries&lt;/small&gt;
+&lt;/div&gt;
+&lt;!-- Location Card --&gt;
+&lt;div class=&quot;contact-location p-4&quot; style=&quot;
+background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+border-radius: 15px;
+color: white;
+&quot;&gt;
+&lt;div class=&quot;d-flex align-items-center mb-3&quot;&gt;
+&lt;div class=&quot;location-icon me-3&quot;&gt;
+&lt;i class=&quot;fas fa-map-marker-alt fa-2x text-warning&quot;&gt;&lt;/i&gt;
+&lt;/div&gt;
+&lt;div&gt;
+&lt;h5 class=&quot;fw-bold mb-1&quot;&gt;Our Location&lt;/h5&gt;
+&lt;small class=&quot;opacity-75&quot;&gt;Remote &amp; Global&lt;/small&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p class=&quot;mb-2&quot;&gt;
+&lt;i class=&quot;fas fa-globe-americas me-2 opacity-75&quot;&gt;&lt;/i&gt;
+123 Innovation Drive
+&lt;/p&gt;
+&lt;p class=&quot;mb-0&quot;&gt;
+&lt;i class=&quot;fas fa-city me-2 opacity-75&quot;&gt;&lt;/i&gt;
+Tech City, TC 12345
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;!-- Quick Links Card --&gt;
+&lt;div class=&quot;card border-0 shadow-lg glass-card&quot; style=&quot;border-radius: 20px;&quot;&gt;
+&lt;div class=&quot;card-header border-0&quot; style=&quot;
+background: linear-gradient(90deg, #ff6b6b, #ff9e6d);
+
+color: white;
+border-radius: 20px 20px 0 0;
+&quot;&gt;
+&lt;h5 class=&quot;mb-0 fw-bold&quot;&gt;
+&lt;i class=&quot;fas fa-bolt me-2&quot;&gt;&lt;/i&gt;Quick Access
+&lt;/h5&gt;
+&lt;/div&gt;
+&lt;div class=&quot;card-body p-4&quot;&gt;
+&lt;div class=&quot;quick-links-grid&quot;&gt;
+&lt;a href=&quot;#&quot; class=&quot;quick-link-item&quot;&gt;
+&lt;div class=&quot;quick-link-icon&quot; style=&quot;background: linear-gradient(135deg, #667eea,
+#764ba2);&quot;&gt;
+&lt;i class=&quot;fas fa-book&quot;&gt;&lt;/i&gt;
+&lt;/div&gt;
+&lt;div&gt;
+&lt;span class=&quot;fw-bold&quot;&gt;Documentation&lt;/span&gt;
+&lt;small class=&quot;text-muted&quot;&gt;User guides &amp; tutorials&lt;/small&gt;
+&lt;/div&gt;
+&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;quick-link-item&quot;&gt;
+&lt;div class=&quot;quick-link-icon&quot; style=&quot;background: linear-gradient(135deg, #06d6a0,
+#118ab2);&quot;&gt;
+&lt;i class=&quot;fas fa-code&quot;&gt;&lt;/i&gt;
+&lt;/div&gt;
+&lt;div&gt;
+&lt;span class=&quot;fw-bold&quot;&gt;API Docs&lt;/span&gt;
+&lt;small class=&quot;text-muted&quot;&gt;Developer resources&lt;/small&gt;
+&lt;/div&gt;
+&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;quick-link-item&quot;&gt;
+&lt;div class=&quot;quick-link-icon&quot; style=&quot;background: linear-gradient(135deg, #f093fb,
+#f5576c);&quot;&gt;
+&lt;i class=&quot;fas fa-question-circle&quot;&gt;&lt;/i&gt;
+&lt;/div&gt;
+&lt;div&gt;
+&lt;span class=&quot;fw-bold&quot;&gt;Help Center&lt;/span&gt;
+&lt;small class=&quot;text-muted&quot;&gt;Find answers fast&lt;/small&gt;
+&lt;/div&gt;
+&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;quick-link-item&quot;&gt;
+&lt;div class=&quot;quick-link-icon&quot; style=&quot;background: linear-gradient(135deg, #ffd166,
+#ff9e6d);&quot;&gt;
+&lt;i class=&quot;fas fa-bug&quot;&gt;&lt;/i&gt;
+&lt;/div&gt;
+&lt;div&gt;
+
+&lt;span class=&quot;fw-bold&quot;&gt;Report Bug&lt;/span&gt;
+&lt;small class=&quot;text-muted&quot;&gt;Found an issue?&lt;/small&gt;
+&lt;/div&gt;
+&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;quick-link-item&quot;&gt;
+&lt;div class=&quot;quick-link-icon&quot; style=&quot;background: linear-gradient(135deg, #4facfe,
+#00f2fe);&quot;&gt;
+&lt;i class=&quot;fas fa-lightbulb&quot;&gt;&lt;/i&gt;
+&lt;/div&gt;
+&lt;div&gt;
+&lt;span class=&quot;fw-bold&quot;&gt;Suggest Feature&lt;/span&gt;
+&lt;small class=&quot;text-muted&quot;&gt;Share your ideas&lt;/small&gt;
+&lt;/div&gt;
+&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;quick-link-item&quot;&gt;
+&lt;div class=&quot;quick-link-icon&quot; style=&quot;background: linear-gradient(135deg, #11998e,
+#38ef7d);&quot;&gt;
+&lt;i class=&quot;fas fa-download&quot;&gt;&lt;/i&gt;
+&lt;/div&gt;
+&lt;div&gt;
+&lt;span class=&quot;fw-bold&quot;&gt;Resources&lt;/span&gt;
+&lt;small class=&quot;text-muted&quot;&gt;Tools &amp; downloads&lt;/small&gt;
+&lt;/div&gt;
+&lt;/a&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;!-- Right Column - Contact Form &amp; FAQ --&gt;
+&lt;div class=&quot;col-lg-8&quot;&gt;
+&lt;!-- Contact Form Card --&gt;
+&lt;div class=&quot;card border-0 shadow-lg mb-4 glass-card&quot; style=&quot;border-radius: 20px;&quot;&gt;
+&lt;div class=&quot;card-header border-0&quot; style=&quot;
+background: linear-gradient(90deg, #667eea, #764ba2);
+color: white;
+border-radius: 20px 20px 0 0;
+&quot;&gt;
+&lt;h5 class=&quot;mb-0 fw-bold&quot;&gt;
+&lt;i class=&quot;fas fa-paper-plane me-2&quot;&gt;&lt;/i&gt;Send Us a Message
+&lt;/h5&gt;
+&lt;/div&gt;
+&lt;div class=&quot;card-body p-4 p-md-5&quot;&gt;
+&lt;form id=&quot;contactForm&quot;&gt;
+&lt;!-- Name &amp; Email Row --&gt;
+&lt;div class=&quot;row g-3 mb-4&quot;&gt;
+
+&lt;div class=&quot;col-md-6&quot;&gt;
+&lt;label for=&quot;contactName&quot; class=&quot;form-label fw-bold text-gradient&quot;&gt;
+&lt;i class=&quot;fas fa-user me-2&quot;&gt;&lt;/i&gt;Full Name
+&lt;/label&gt;
+&lt;div class=&quot;input-group&quot;&gt;
+&lt;span class=&quot;input-group-text bg-gradient-primary text-white border-0&quot;&gt;
+&lt;i class=&quot;fas fa-signature&quot;&gt;&lt;/i&gt;
+&lt;/span&gt;
+&lt;input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;contactName&quot; required
+style=&quot;border-left: 0;&quot; placeholder=&quot;Manjuladevi&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;col-md-6&quot;&gt;
+&lt;label for=&quot;contactEmail&quot; class=&quot;form-label fw-bold text-gradient&quot;&gt;
+&lt;i class=&quot;fas fa-envelope me-2&quot;&gt;&lt;/i&gt;Email Address
+&lt;/label&gt;
+&lt;div class=&quot;input-group&quot;&gt;
+&lt;span class=&quot;input-group-text bg-gradient-info text-white border-0&quot;&gt;
+&lt;i class=&quot;fas fa-at&quot;&gt;&lt;/i&gt;
+&lt;/span&gt;
+&lt;input type=&quot;email&quot; class=&quot;form-control&quot; id=&quot;contactEmail&quot; required
+style=&quot;border-left: 0;&quot; placeholder=&quot;manju@example.com&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;!-- Subject Selection --&gt;
+&lt;div class=&quot;mb-4&quot;&gt;
+&lt;label for=&quot;contactSubject&quot; class=&quot;form-label fw-bold text-gradient&quot;&gt;
+&lt;i class=&quot;fas fa-tag me-2&quot;&gt;&lt;/i&gt;Subject
+&lt;/label&gt;
+&lt;div class=&quot;subject-options&quot;&gt;
+&lt;div class=&quot;row g-2&quot;&gt;
+&lt;div class=&quot;col-md-3 col-6&quot;&gt;
+&lt;input type=&quot;radio&quot; name=&quot;contactSubject&quot; id=&quot;support&quot; value=&quot;support&quot;
+class=&quot;btn-check&quot; checked&gt;
+&lt;label for=&quot;support&quot; class=&quot;btn btn-subject w-100&quot;&gt;
+&lt;i class=&quot;fas fa-headset me-2&quot;&gt;&lt;/i&gt;Support
+&lt;/label&gt;
+&lt;/div&gt;
+&lt;div class=&quot;col-md-3 col-6&quot;&gt;
+&lt;input type=&quot;radio&quot; name=&quot;contactSubject&quot; id=&quot;feedback&quot;
+value=&quot;feedback&quot; class=&quot;btn-check&quot;&gt;
+&lt;label for=&quot;feedback&quot; class=&quot;btn btn-subject w-100&quot;&gt;
+&lt;i class=&quot;fas fa-comment-alt me-2&quot;&gt;&lt;/i&gt;Feedback
+&lt;/label&gt;
+&lt;/div&gt;
+&lt;div class=&quot;col-md-3 col-6&quot;&gt;
+
+&lt;input type=&quot;radio&quot; name=&quot;contactSubject&quot; id=&quot;partnership&quot;
+value=&quot;partnership&quot; class=&quot;btn-check&quot;&gt;
+&lt;label for=&quot;partnership&quot; class=&quot;btn btn-subject w-100&quot;&gt;
+&lt;i class=&quot;fas fa-handshake me-2&quot;&gt;&lt;/i&gt;Partnership
+&lt;/label&gt;
+&lt;/div&gt;
+&lt;div class=&quot;col-md-3 col-6&quot;&gt;
+&lt;input type=&quot;radio&quot; name=&quot;contactSubject&quot; id=&quot;other&quot; value=&quot;other&quot;
+class=&quot;btn-check&quot;&gt;
+&lt;label for=&quot;other&quot; class=&quot;btn btn-subject w-100&quot;&gt;
+&lt;i class=&quot;fas fa-ellipsis-h me-2&quot;&gt;&lt;/i&gt;Other
+&lt;/label&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;!-- Message Textarea --&gt;
+&lt;div class=&quot;mb-4&quot;&gt;
+&lt;label for=&quot;contactMessage&quot; class=&quot;form-label fw-bold text-gradient&quot;&gt;
+&lt;i class=&quot;fas fa-edit me-2&quot;&gt;&lt;/i&gt;Your Message
+&lt;/label&gt;
+&lt;div class=&quot;message-box-wrapper&quot;&gt;
+&lt;div class=&quot;textarea-header&quot;&gt;
+&lt;small class=&quot;text-muted&quot;&gt;
+&lt;i class=&quot;fas fa-info-circle me-1&quot;&gt;&lt;/i&gt;
+Please provide detailed information
+&lt;/small&gt;
+&lt;div class=&quot;char-counter&quot;&gt;
+&lt;span id=&quot;charCount&quot;&gt;0&lt;/span&gt;/1000
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;textarea class=&quot;form-control&quot; id=&quot;contactMessage&quot; rows=&quot;6&quot; required
+placeholder=&quot;Tell us how we can help you fight misinformation...&quot;
+maxlength=&quot;1000&quot;&gt;&lt;/textarea&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;!-- Priority &amp; Consent --&gt;
+&lt;div class=&quot;row g-3 mb-4&quot;&gt;
+&lt;div class=&quot;col-md-6&quot;&gt;
+&lt;label class=&quot;form-label fw-bold text-gradient&quot;&gt;
+&lt;i class=&quot;fas fa-exclamation-circle me-2&quot;&gt;&lt;/i&gt;Priority Level
+&lt;/label&gt;
+&lt;div class=&quot;priority-select&quot;&gt;
+&lt;select class=&quot;form-select&quot; style=&quot;border-radius: 10px;&quot;&gt;
+&lt;option value=&quot;normal&quot;&gt;Normal Priority&lt;/option&gt;
+&lt;option value=&quot;high&quot;&gt;High Priority&lt;/option&gt;
+
+&lt;option value=&quot;urgent&quot;&gt;Urgent - Need immediate help&lt;/option&gt;
+&lt;/select&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;col-md-6&quot;&gt;
+&lt;div class=&quot;consent-check p-3&quot; style=&quot;
+background: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
+border-radius: 10px;
+height: 100%;
+&quot;&gt;
+&lt;div class=&quot;form-check&quot;&gt;
+&lt;input class=&quot;form-check-input&quot; type=&quot;checkbox&quot; id=&quot;contactConsent&quot;
+required&gt;
+&lt;label class=&quot;form-check-label small&quot; for=&quot;contactConsent&quot;&gt;
+I agree to the
+&lt;a href=&quot;#&quot; data-bs-toggle=&quot;modal&quot; data-bs-
+target=&quot;#contactTermsModal&quot;
+class=&quot;text-decoration-none fw-bold text-gradient&quot;&gt;
+terms of communication
+&lt;/a&gt;
+&lt;/label&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;!-- Form Actions --&gt;
+&lt;div class=&quot;d-flex justify-content-between align-items-center&quot;&gt;
+&lt;div&gt;
+&lt;small class=&quot;text-muted&quot;&gt;
+&lt;i class=&quot;fas fa-clock me-1&quot;&gt;&lt;/i&gt;
+Average response time: &lt;strong&gt;4 hours&lt;/strong&gt;
+&lt;/small&gt;
+&lt;/div&gt;
+&lt;div&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-outline-danger me-2&quot; id=&quot;contactClear&quot;&gt;
+&lt;i class=&quot;fas fa-trash me-2&quot;&gt;&lt;/i&gt;Clear
+&lt;/button&gt;
+&lt;button type=&quot;submit&quot; class=&quot;btn btn-gradient-primary px-4 py-3 fw-bold&quot;&gt;
+&lt;i class=&quot;fas fa-paper-plane me-2&quot;&gt;&lt;/i&gt;Send Message
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/form&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;!-- FAQ Section --&gt;
+
+&lt;div class=&quot;card border-0 shadow-lg glass-card&quot; style=&quot;border-radius: 20px;&quot;&gt;
+&lt;div class=&quot;card-header border-0&quot; style=&quot;
+background: linear-gradient(90deg, #11998e 0%, #38ef7d 100%);
+color: white;
+border-radius: 20px 20px 0 0;
+&quot;&gt;
+&lt;h5 class=&quot;mb-0 fw-bold&quot;&gt;
+&lt;i class=&quot;fas fa-question-circle me-2&quot;&gt;&lt;/i&gt;Frequently Asked Questions
+&lt;/h5&gt;
+&lt;/div&gt;
+&lt;div class=&quot;card-body p-4&quot;&gt;
+&lt;div class=&quot;accordion&quot; id=&quot;contactFAQ&quot;&gt;
+&lt;!-- FAQ Item 1 --&gt;
+&lt;div class=&quot;accordion-item border-0 mb-3&quot; style=&quot;border-radius: 15px !important;&quot;&gt;
+&lt;h2 class=&quot;accordion-header&quot;&gt;
+&lt;button class=&quot;accordion-button collapsed fw-bold&quot; type=&quot;button&quot;
+data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;#faqContact1&quot;
+style=&quot;border-radius: 15px; background: linear-gradient(135deg, #f8f9fa,
+#e9ecef);&quot;&gt;
+&lt;i class=&quot;fas fa-clock text-primary me-3&quot;&gt;&lt;/i&gt;
+How quickly can I expect a response?
+&lt;/button&gt;
+&lt;/h2&gt;
+&lt;div id=&quot;faqContact1&quot; class=&quot;accordion-collapse collapse&quot; data-bs-
+parent=&quot;#contactFAQ&quot;&gt;
+&lt;div class=&quot;accordion-body&quot; style=&quot;
+background: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
+border-radius: 0 0 15px 15px;
+&quot;&gt;
+&lt;div class=&quot;d-flex&quot;&gt;
+&lt;div class=&quot;faq-icon me-3&quot;&gt;
+&lt;i class=&quot;fas fa-bolt text-warning fa-lg&quot;&gt;&lt;/i&gt;
+&lt;/div&gt;
+&lt;div&gt;
+&lt;p class=&quot;mb-0&quot;&gt;We typically respond within &lt;strong&gt;4 hours&lt;/strong&gt;
+during business days.
+For urgent technical issues, please select &quot;High Priority&quot; in the form
+above.&lt;/p&gt;
+&lt;small class=&quot;text-muted mt-2 d-block&quot;&gt;
+&lt;i class=&quot;fas fa-info-circle me-1&quot;&gt;&lt;/i&gt;
+Business hours: Mon-Fri, 9 AM - 6 PM EST
+&lt;/small&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- FAQ Item 2 --&gt;
+&lt;div class=&quot;accordion-item border-0 mb-3&quot; style=&quot;border-radius: 15px !important;&quot;&gt;
+&lt;h2 class=&quot;accordion-header&quot;&gt;
+&lt;button class=&quot;accordion-button collapsed fw-bold&quot; type=&quot;button&quot;
+data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;#faqContact2&quot;
+style=&quot;border-radius: 15px; background: linear-gradient(135deg, #f8f9fa,
+#e9ecef);&quot;&gt;
+&lt;i class=&quot;fas fa-building text-success me-3&quot;&gt;&lt;/i&gt;
+Do you offer enterprise solutions?
+&lt;/button&gt;
+&lt;/h2&gt;
+&lt;div id=&quot;faqContact2&quot; class=&quot;accordion-collapse collapse&quot; data-bs-
+parent=&quot;#contactFAQ&quot;&gt;
+&lt;div class=&quot;accordion-body&quot; style=&quot;
+background: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
+border-radius: 0 0 15px 15px;
+&quot;&gt;
+&lt;div class=&quot;d-flex&quot;&gt;
+&lt;div class=&quot;faq-icon me-3&quot;&gt;
+&lt;i class=&quot;fas fa-chart-line text-success fa-lg&quot;&gt;&lt;/i&gt;
+&lt;/div&gt;
+&lt;div&gt;
+&lt;p class=&quot;mb-0&quot;&gt;Yes! We offer custom enterprise solutions for:&lt;/p&gt;
+&lt;ul class=&quot;mb-0&quot;&gt;
+&lt;li&gt;Media organizations &amp; news outlets&lt;/li&gt;
+&lt;li&gt;Educational institutions&lt;/li&gt;
+&lt;li&gt;Government agencies&lt;/li&gt;
+&lt;li&gt;Corporate misinformation monitoring&lt;/li&gt;
+&lt;/ul&gt;
+&lt;small class=&quot;text-muted mt-2 d-block&quot;&gt;
+&lt;i class=&quot;fas fa-lightbulb me-1&quot;&gt;&lt;/i&gt;
+Select &quot;Partnership&quot; in the subject options above
+&lt;/small&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;!-- FAQ Item 3 --&gt;
+&lt;div class=&quot;accordion-item border-0 mb-3&quot; style=&quot;border-radius: 15px !important;&quot;&gt;
+&lt;h2 class=&quot;accordion-header&quot;&gt;
+&lt;button class=&quot;accordion-button collapsed fw-bold&quot; type=&quot;button&quot;
+data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;#faqContact3&quot;
+style=&quot;border-radius: 15px; background: linear-gradient(135deg, #f8f9fa,
+#e9ecef);&quot;&gt;
+&lt;i class=&quot;fas fa-code-branch text-info me-3&quot;&gt;&lt;/i&gt;
+Can I contribute to TruthGuard&#39;s development?
+
+&lt;/button&gt;
+&lt;/h2&gt;
+&lt;div id=&quot;faqContact3&quot; class=&quot;accordion-collapse collapse&quot; data-bs-
+parent=&quot;#contactFAQ&quot;&gt;
+&lt;div class=&quot;accordion-body&quot; style=&quot;
+background: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
+border-radius: 0 0 15px 15px;
+&quot;&gt;
+&lt;div class=&quot;d-flex&quot;&gt;
+&lt;div class=&quot;faq-icon me-3&quot;&gt;
+&lt;i class=&quot;fas fa-users text-info fa-lg&quot;&gt;&lt;/i&gt;
+&lt;/div&gt;
+&lt;div&gt;
+&lt;p class=&quot;mb-0&quot;&gt;We welcome contributions from:&lt;/p&gt;
+&lt;div class=&quot;row mt-2&quot;&gt;
+&lt;div class=&quot;col-md-6&quot;&gt;
+&lt;span class=&quot;badge bg-primary mb-2&quot;&gt;Researchers&lt;/span&gt;&lt;br&gt;
+&lt;span class=&quot;badge bg-success mb-2&quot;&gt;Developers&lt;/span&gt;&lt;br&gt;
+&lt;span class=&quot;badge bg-warning mb-2&quot;&gt;Data Scientists&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class=&quot;col-md-6&quot;&gt;
+&lt;span class=&quot;badge bg-danger mb-2&quot;&gt;Domain Experts&lt;/span&gt;&lt;br&gt;
+&lt;span class=&quot;badge bg-info mb-2&quot;&gt;Journalists&lt;/span&gt;&lt;br&gt;
+&lt;span class=&quot;badge bg-dark mb-2&quot;&gt;Translators&lt;/span&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;small class=&quot;text-muted mt-2 d-block&quot;&gt;
+&lt;i class=&quot;fas fa-envelope me-1&quot;&gt;&lt;/i&gt;
+Email partnerships@truthguard.com with your background
+&lt;/small&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;!-- FAQ Item 4 --&gt;
+&lt;div class=&quot;accordion-item border-0&quot; style=&quot;border-radius: 15px !important;&quot;&gt;
+&lt;h2 class=&quot;accordion-header&quot;&gt;
+&lt;button class=&quot;accordion-button collapsed fw-bold&quot; type=&quot;button&quot;
+data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;#faqContact4&quot;
+style=&quot;border-radius: 15px; background: linear-gradient(135deg, #f8f9fa,
+#e9ecef);&quot;&gt;
+&lt;i class=&quot;fas fa-shield-alt text-warning me-3&quot;&gt;&lt;/i&gt;
+How do you handle data privacy?
+&lt;/button&gt;
+&lt;/h2&gt;
+
+&lt;div id=&quot;faqContact4&quot; class=&quot;accordion-collapse collapse&quot; data-bs-
+parent=&quot;#contactFAQ&quot;&gt;
+&lt;div class=&quot;accordion-body&quot; style=&quot;
+background: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
+border-radius: 0 0 15px 15px;
+&quot;&gt;
+&lt;div class=&quot;d-flex&quot;&gt;
+&lt;div class=&quot;faq-icon me-3&quot;&gt;
+&lt;i class=&quot;fas fa-lock text-warning fa-lg&quot;&gt;&lt;/i&gt;
+&lt;/div&gt;
+&lt;div&gt;
+&lt;p class=&quot;mb-0&quot;&gt;We take data privacy seriously:&lt;/p&gt;
+&lt;ul class=&quot;mb-0&quot;&gt;
+&lt;li&gt;End-to-end encryption for all communications&lt;/li&gt;
+&lt;li&gt;GDPR &amp; CCPA compliant&lt;/li&gt;
+&lt;li&gt;No third-party data sharing&lt;/li&gt;
+&lt;li&gt;Regular security audits&lt;/li&gt;
+&lt;/ul&gt;
+&lt;small class=&quot;text-muted mt-2 d-block&quot;&gt;
+&lt;i class=&quot;fas fa-file-contract me-1&quot;&gt;&lt;/i&gt;
+Read our full privacy policy on the contact terms
+&lt;/small&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;!-- Live Support --&gt;
+&lt;div class=&quot;live-support mt-4 p-4&quot; style=&quot;
+background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+border-radius: 15px;
+color: white;
+&quot;&gt;
+&lt;div class=&quot;row align-items-center&quot;&gt;
+&lt;div class=&quot;col-md-8&quot;&gt;
+&lt;h6 class=&quot;fw-bold mb-2&quot;&gt;
+&lt;i class=&quot;fas fa-comments me-2&quot;&gt;&lt;/i&gt;Need Immediate Help?
+&lt;/h6&gt;
+&lt;p class=&quot;mb-0 opacity-75&quot;&gt;Chat with our AI assistant or schedule a call&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;col-md-4 text-end&quot;&gt;
+&lt;button class=&quot;btn btn-light me-2&quot; onclick=&quot;location.href=&#39;/chat&#39;&quot;&gt;
+&lt;i class=&quot;fas fa-robot me-1&quot;&gt;&lt;/i&gt;Chat Now
+&lt;/button&gt;
+&lt;button class=&quot;btn btn-outline-light&quot; data-bs-toggle=&quot;modal&quot; data-bs-
+target=&quot;#scheduleModal&quot;&gt;
+
+&lt;i class=&quot;fas fa-calendar me-1&quot;&gt;&lt;/i&gt;Schedule
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;!-- Statistics Section --&gt;
+&lt;div class=&quot;row mt-5&quot;&gt;
+&lt;div class=&quot;col-12&quot;&gt;
+&lt;div class=&quot;card border-0 shadow-lg glass-card&quot; style=&quot;border-radius: 20px;&quot;&gt;
+&lt;div class=&quot;card-body p-4&quot;&gt;
+&lt;h4 class=&quot;text-center fw-bold text-gradient mb-4&quot;&gt;
+&lt;i class=&quot;fas fa-chart-bar me-2&quot;&gt;&lt;/i&gt;Our Response Stats
+&lt;/h4&gt;
+&lt;div class=&quot;row text-center&quot;&gt;
+&lt;div class=&quot;col-md-3 mb-3&quot;&gt;
+&lt;div class=&quot;stat-number display-6 fw-bold text-primary&quot;&gt;4h&lt;/div&gt;
+&lt;div class=&quot;stat-label&quot;&gt;Average Response&lt;/div&gt;
+&lt;small class=&quot;text-muted&quot;&gt;Quick help when you need it&lt;/small&gt;
+&lt;/div&gt;
+&lt;div class=&quot;col-md-3 mb-3&quot;&gt;
+&lt;div class=&quot;stat-number display-6 fw-bold text-success&quot;&gt;98%&lt;/div&gt;
+&lt;div class=&quot;stat-label&quot;&gt;Satisfaction Rate&lt;/div&gt;
+&lt;small class=&quot;text-muted&quot;&gt;Happy customers worldwide&lt;/small&gt;
+&lt;/div&gt;
+&lt;div class=&quot;col-md-3 mb-3&quot;&gt;
+&lt;div class=&quot;stat-number display-6 fw-bold text-warning&quot;&gt;24/7&lt;/div&gt;
+&lt;div class=&quot;stat-label&quot;&gt;AI Support&lt;/div&gt;
+&lt;small class=&quot;text-muted&quot;&gt;Always available assistant&lt;/small&gt;
+&lt;/div&gt;
+&lt;div class=&quot;col-md-3 mb-3&quot;&gt;
+&lt;div class=&quot;stat-number display-6 fw-bold text-danger&quot;&gt;10k+&lt;/div&gt;
+&lt;div class=&quot;stat-label&quot;&gt;Queries Solved&lt;/div&gt;
+&lt;small class=&quot;text-muted&quot;&gt;Successfully helped users&lt;/small&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;!-- Contact Terms Modal --&gt;
+
+&lt;div class=&quot;modal fade&quot; id=&quot;contactTermsModal&quot; tabindex=&quot;-1&quot;&gt;
+&lt;div class=&quot;modal-dialog modal-lg modal-dialog-centered&quot;&gt;
+&lt;div class=&quot;modal-content border-0 shadow-lg&quot; style=&quot;border-radius: 25px;&quot;&gt;
+&lt;div class=&quot;modal-header border-0&quot; style=&quot;
+background: linear-gradient(90deg, #667eea, #764ba2);
+color: white;
+border-radius: 25px 25px 0 0;
+&quot;&gt;
+&lt;h5 class=&quot;modal-title fw-bold&quot;&gt;
+&lt;i class=&quot;fas fa-file-contract me-2&quot;&gt;&lt;/i&gt;Communication Terms
+&lt;/h5&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn-close btn-close-white&quot; data-bs-
+dismiss=&quot;modal&quot;&gt;&lt;/button&gt;
+&lt;/div&gt;
+&lt;div class=&quot;modal-body p-4&quot;&gt;
+&lt;div class=&quot;terms-content&quot;&gt;
+&lt;div class=&quot;term-section mb-4&quot;&gt;
+&lt;h6 class=&quot;fw-bold text-gradient&quot;&gt;
+&lt;i class=&quot;fas fa-bullseye me-2&quot;&gt;&lt;/i&gt;1. Purpose of Communication
+&lt;/h6&gt;
+&lt;p&gt;By contacting TruthGuard, you agree that your communication may be used to
+improve our services,
+provide you with support, and help combat misinformation globally.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;term-section mb-4&quot;&gt;
+&lt;h6 class=&quot;fw-bold text-gradient&quot;&gt;
+&lt;i class=&quot;fas fa-clock me-2&quot;&gt;&lt;/i&gt;2. Response Time Commitment
+&lt;/h6&gt;
+&lt;p&gt;We strive to respond to all inquiries within 4 hours during business days
+(Monday-Friday, 9 AM - 6 PM EST). Urgent requests receive priority attention.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;term-section mb-4&quot;&gt;
+&lt;h6 class=&quot;fw-bold text-gradient&quot;&gt;
+&lt;i class=&quot;fas fa-lock me-2&quot;&gt;&lt;/i&gt;3. Privacy &amp; Data Protection
+&lt;/h6&gt;
+&lt;p&gt;Your contact information will only be used to respond to your inquiry and will never
+be shared with third parties. All communications are encrypted and secured.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;term-section mb-4&quot;&gt;
+&lt;h6 class=&quot;fw-bold text-gradient&quot;&gt;
+&lt;i class=&quot;fas fa-comment-alt me-2&quot;&gt;&lt;/i&gt;4. Content Guidelines
+&lt;/h6&gt;
+&lt;p&gt;Please ensure your messages are respectful and relevant to TruthGuard&#39;s mission
+of
+
+combating misinformation. We reserve the right to refuse service for inappropriate
+content.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;term-section&quot;&gt;
+&lt;h6 class=&quot;fw-bold text-gradient&quot;&gt;
+&lt;i class=&quot;fas fa-database me-2&quot;&gt;&lt;/i&gt;5. Data Usage
+&lt;/h6&gt;
+&lt;p&gt;Anonymous, aggregated data from communications may be used to improve our AI
+models
+and detection algorithms, always respecting your privacy.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;modal-footer border-0&quot;&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-secondary&quot; data-bs-
+dismiss=&quot;modal&quot;&gt;Close&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-gradient-primary&quot; onclick=&quot;acceptTerms()&quot;&gt;
+&lt;i class=&quot;fas fa-check me-2&quot;&gt;&lt;/i&gt;I Accept Terms
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;!-- Schedule Call Modal --&gt;
+&lt;div class=&quot;modal fade&quot; id=&quot;scheduleModal&quot; tabindex=&quot;-1&quot;&gt;
+&lt;div class=&quot;modal-dialog modal-dialog-centered&quot;&gt;
+&lt;div class=&quot;modal-content border-0 shadow-lg&quot; style=&quot;border-radius: 25px;&quot;&gt;
+&lt;div class=&quot;modal-header border-0&quot; style=&quot;
+background: linear-gradient(90deg, #11998e, #38ef7d);
+color: white;
+border-radius: 25px 25px 0 0;
+&quot;&gt;
+&lt;h5 class=&quot;modal-title fw-bold&quot;&gt;
+&lt;i class=&quot;fas fa-calendar me-2&quot;&gt;&lt;/i&gt;Schedule a Call
+&lt;/h5&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn-close btn-close-white&quot; data-bs-
+dismiss=&quot;modal&quot;&gt;&lt;/button&gt;
+&lt;/div&gt;
+&lt;div class=&quot;modal-body p-4&quot;&gt;
+&lt;div class=&quot;text-center mb-4&quot;&gt;
+&lt;div class=&quot;schedule-icon mb-3&quot;&gt;
+&lt;i class=&quot;fas fa-video fa-3x text-success&quot;&gt;&lt;/i&gt;
+&lt;/div&gt;
+&lt;p&gt;Schedule a 30-minute consultation call with our experts&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;mb-3&quot;&gt;
+&lt;label class=&quot;form-label fw-bold&quot;&gt;Preferred Date &amp; Time&lt;/label&gt;
+&lt;input type=&quot;datetime-local&quot; class=&quot;form-control&quot;&gt;
+&lt;/div&gt;
+&lt;div class=&quot;mb-3&quot;&gt;
+&lt;label class=&quot;form-label fw-bold&quot;&gt;Meeting Type&lt;/label&gt;
+&lt;select class=&quot;form-select&quot;&gt;
+&lt;option&gt;Video Call (Zoom/Meet)&lt;/option&gt;
+&lt;option&gt;Phone Call&lt;/option&gt;
+&lt;option&gt;Live Chat&lt;/option&gt;
+&lt;/select&gt;
+&lt;/div&gt;
+&lt;div class=&quot;mb-3&quot;&gt;
+&lt;label class=&quot;form-label fw-bold&quot;&gt;Topics to Discuss&lt;/label&gt;
+&lt;textarea class=&quot;form-control&quot; rows=&quot;3&quot;
+placeholder=&quot;What would you like to discuss?&quot;&gt;&lt;/textarea&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;modal-footer border-0&quot;&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-secondary&quot; data-bs-
+dismiss=&quot;modal&quot;&gt;Cancel&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-gradient-success&quot;&gt;
+&lt;i class=&quot;fas fa-calendar-check me-2&quot;&gt;&lt;/i&gt;Schedule Call
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+{% endblock %}
+{% block extra_css %}
+&lt;style&gt;
+@keyframes gradientBG {
+0% { background-position: 0% 50%; }
+50% { background-position: 100% 50%; }
+100% { background-position: 0% 50%; }
+}
+@keyframes float {
+0%, 100% { transform: translateY(0px); }
+50% { transform: translateY(-10px); }
+}
+@keyframes pulse {
+0%, 100% { transform: scale(1); }
+50% { transform: scale(1.05); }
+
+}
+.text-gradient {
+background: linear-gradient(90deg, #667eea, #764ba2);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-size: 300% 300%;
+animation: gradientBG 8s ease infinite;
+}
+.btn-gradient-primary {
+background: linear-gradient(90deg, #667eea, #764ba2);
+color: white;
+border: none;
+transition: all 0.3s ease;
+box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+.btn-gradient-primary:hover {
+transform: translateY(-2px);
+box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+}
+.btn-gradient-success {
+background: linear-gradient(90deg, #06d6a0, #118ab2);
+color: white;
+border: none;
+transition: all 0.3s ease;
+}
+.glass-card {
+background: rgba(255, 255, 255, 0.95);
+backdrop-filter: blur(10px);
+border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.contact-particles {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+pointer-events: none;
+z-index: 1;
+}
+.contact-particles .particle {
+position: absolute;
+
+background: rgba(255, 255, 255, 0.1);
+border-radius: 50%;
+animation: float 6s ease-in-out infinite;
+}
+.contact-particles .particle:nth-child(1) {
+width: 100px; height: 100px;
+top: 10%; left: 5%;
+animation-delay: 0s;
+background: rgba(255, 107, 107, 0.1);
+}
+.contact-particles .particle:nth-child(2) {
+width: 150px; height: 150px;
+bottom: 20%; right: 10%;
+animation-delay: 2s;
+background: rgba(6, 214, 160, 0.1);
+}
+.contact-particles .particle:nth-child(3) {
+width: 80px; height: 80px;
+top: 60%; left: 20%;
+animation-delay: 4s;
+background: rgba(255, 209, 102, 0.1);
+}
+.contact-particles .particle:nth-child(4) {
+width: 120px; height: 120px;
+top: 30%; right: 20%;
+animation-delay: 1s;
+background: rgba(118, 75, 162, 0.1);
+}
+.contact-particles .particle:nth-child(5) {
+width: 90px; height: 90px;
+bottom: 10%; left: 15%;
+animation-delay: 3s;
+background: rgba(17, 138, 178, 0.1);
+}
+.contact-hero-icon {
+animation: pulse 2s ease-in-out infinite;
+}
+.contact-icon-wrapper {
+width: 70px;
+height: 70px;
+background: linear-gradient(135deg, #667eea, #764ba2);
+
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+margin: 0 auto 20px;
+box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+}
+.contact-item-icon {
+width: 40px;
+height: 40px;
+background: rgba(255, 255, 255, 0.2);
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.quick-links-grid {
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+gap: 15px;
+}
+.quick-link-item {
+display: flex;
+align-items: center;
+padding: 12px;
+border-radius: 10px;
+background: #f8f9fa;
+text-decoration: none;
+color: #333;
+transition: all 0.3s ease;
+border: 1px solid transparent;
+}
+.quick-link-item:hover {
+transform: translateY(-3px);
+box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+border-color: #667eea;
+background: white;
+}
+.quick-link-icon {
+width: 40px;
+height: 40px;
+border-radius: 10px;
+display: flex;
+
+align-items: center;
+justify-content: center;
+margin-right: 12px;
+color: white;
+}
+.btn-subject {
+height: 100px;
+border: 2px solid #dee2e6;
+border-radius: 15px;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+transition: all 0.3s ease;
+}
+.btn-check:checked + .btn-subject {
+background: linear-gradient(135deg, #667eea, #764ba2);
+color: white;
+border-color: #667eea;
+transform: scale(1.05);
+}
+.btn-subject:hover {
+border-color: #667eea;
+transform: translateY(-2px);
+}
+.message-box-wrapper {
+border: 2px solid #dee2e6;
+border-radius: 10px;
+overflow: hidden;
+}
+.textarea-header {
+background: #f8f9fa;
+padding: 10px 15px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+border-bottom: 1px solid #dee2e6;
+}
+.char-counter {
+background: #e9ecef;
+padding: 3px 10px;
+border-radius: 15px;
+
+font-size: 0.9rem;
+}
+#contactMessage {
+border: none;
+border-radius: 0;
+resize: none;
+}
+#contactMessage:focus {
+box-shadow: none;
+}
+.priority-select .form-select {
+border-radius: 10px;
+border: 2px solid #dee2e6;
+padding: 10px;
+}
+.priority-select .form-select:focus {
+border-color: #667eea;
+box-shadow: 0 0 0 0.25rem rgba(102, 126, 234, 0.25);
+}
+.faq-icon {
+width: 40px;
+height: 40px;
+background: rgba(102, 126, 234, 0.1);
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.accordion-button:not(.collapsed) {
+color: #667eea;
+background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+}
+.accordion-button:focus {
+border-color: #667eea;
+box-shadow: 0 0 0 0.25rem rgba(102, 126, 234, 0.25);
+}
+.stat-number {
+font-size: 3.5rem;
+font-weight: bold;
+margin-bottom: 10px;
+
+}
+.stat-label {
+font-size: 1.1rem;
+font-weight: 600;
+margin-bottom: 5px;
+}
+.schedule-icon {
+width: 80px;
+height: 80px;
+background: linear-gradient(135deg, #06d6a0, #118ab2);
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+margin: 0 auto;
+color: white;
+animation: pulse 2s ease-in-out infinite;
+}
+.location-icon {
+width: 50px;
+height: 50px;
+background: rgba(255, 193, 7, 0.2);
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+/* Responsive Design */
+@media (max-width: 768px) {
+.quick-links-grid {
+grid-template-columns: 1fr;
+}
+.btn-subject {
+height: 80px;
+font-size: 0.9rem;
+}
+.stat-number {
+font-size: 2.5rem;
+}
+.contact-hero-icon {
+font-size: 2.5rem;
+
+}
+}
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+width: 8px;
+}
+::-webkit-scrollbar-track {
+background: #f1f1f1;
+border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+background: linear-gradient(135deg, #667eea, #764ba2);
+border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+background: linear-gradient(135deg, #764ba2, #667eea);
+}
+/* Form Validation Styling */
+.is-invalid {
+border-color: #ff6b6b !important;
+}
+.is-valid {
+border-color: #06d6a0 !important;
+}
+/* Loading Animation */
+.loading-spinner {
+width: 40px;
+height: 40px;
+border: 4px solid #f3f3f3;
+border-top: 4px solid #667eea;
+border-radius: 50%;
+animation: spin 1s linear infinite;
+margin: 20px auto;
+}
+@keyframes spin {
+0% { transform: rotate(0deg); }
+100% { transform: rotate(360deg); }
+}
+&lt;/style&gt;
+{% endblock %}
+
+{% block extra_js %}
+&lt;script&gt;
+$(document).ready(function() {
+// Character counter for message textarea
+$(&#39;#contactMessage&#39;).on(&#39;input&#39;, function() {
+const charCount = $(this).val().length;
+$(&#39;#charCount&#39;).text(charCount);
+if (charCount &gt; 900) {
+$(&#39;#charCount&#39;).css(&#39;color&#39;, &#39;#ff6b6b&#39;);
+} else if (charCount &gt; 500) {
+$(&#39;#charCount&#39;).css(&#39;color&#39;, &#39;#ffd166&#39;);
+} else {
+$(&#39;#charCount&#39;).css(&#39;color&#39;, &#39;#06d6a0&#39;);
+}
+});
+// Contact form submission with animation
+$(&#39;#contactForm&#39;).on(&#39;submit&#39;, function(e) {
+e.preventDefault();
+// Validate form
+if (!validateContactForm()) {
+return;
+}
+const submitBtn = $(this).find(&#39;button[type=&quot;submit&quot;]&#39;);
+const originalText = submitBtn.html();
+// Disable button and show loading
+submitBtn.prop(&#39;disabled&#39;, true).html(&#39;&lt;span class=&quot;spinner-border spinner-border-sm me-
+2&quot;&gt;&lt;/span&gt;Sending...&#39;);
+// Add loading animation to form
+$(this).addClass(&#39;loading&#39;);
+// Simulate API call with animation
+setTimeout(() =&gt; {
+// Show success animation
+const formData = {
+name: $(&#39;#contactName&#39;).val(),
+email: $(&#39;#contactEmail&#39;).val(),
+subject: $(&#39;input[name=&quot;contactSubject&quot;]:checked&#39;).val(),
+message: $(&#39;#contactMessage&#39;).val()
+};
+// Save to localStorage (simulating submission)
+
+const submissions = JSON.parse(localStorage.getItem(&#39;contactSubmissions&#39;) || &#39;[]&#39;);
+submissions.push({
+...formData,
+timestamp: new Date().toISOString(),
+status: &#39;sent&#39;
+});
+localStorage.setItem(&#39;contactSubmissions&#39;, JSON.stringify(submissions));
+// Show success message with confetti
+showContactSuccess(formData);
+// Reset form
+$(&#39;#contactForm&#39;)[0].reset();
+$(&#39;#charCount&#39;).text(&#39;0&#39;).css(&#39;color&#39;, &#39;#06d6a0&#39;);
+// Reset button
+submitBtn.prop(&#39;disabled&#39;, false).html(originalText);
+$(this).removeClass(&#39;loading&#39;);
+}, 2000);
+});
+// Clear form with confirmation
+$(&#39;#contactClear&#39;).click(function() {
+if (confirm(&#39;Are you sure you want to clear the form? All entered data will be lost.&#39;)) {
+$(&#39;#contactForm&#39;)[0].reset();
+$(&#39;#charCount&#39;).text(&#39;0&#39;).css(&#39;color&#39;, &#39;#06d6a0&#39;);
+$(&#39;.btn-subject&#39;).removeClass(&#39;active&#39;);
+$(&#39;input[name=&quot;contactSubject&quot;]&#39;).prop(&#39;checked&#39;, false);
+$(&#39;#support&#39;).prop(&#39;checked&#39;, true);
+$(&#39;#support + .btn-subject&#39;).addClass(&#39;active&#39;);
+}
+});
+// Subject button styling
+$(&#39;.btn-subject&#39;).click(function() {
+$(&#39;.btn-subject&#39;).removeClass(&#39;active&#39;);
+$(this).addClass(&#39;active&#39;);
+});
+// Initialize with support selected
+$(&#39;#support + .btn-subject&#39;).addClass(&#39;active&#39;);
+// Form validation
+function validateContactForm() {
+let isValid = true;
+// Validate name
+
+const name = $(&#39;#contactName&#39;).val().trim();
+if (name.length &lt; 2) {
+showAlert(&#39;Please enter your full name&#39;, &#39;warning&#39;);
+$(&#39;#contactName&#39;).addClass(&#39;is-invalid&#39;);
+isValid = false;
+} else {
+$(&#39;#contactName&#39;).removeClass(&#39;is-invalid&#39;).addClass(&#39;is-valid&#39;);
+}
+// Validate email
+const email = $(&#39;#contactEmail&#39;).val().trim();
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+if (!emailRegex.test(email)) {
+showAlert(&#39;Please enter a valid email address&#39;, &#39;warning&#39;);
+$(&#39;#contactEmail&#39;).addClass(&#39;is-invalid&#39;);
+isValid = false;
+} else {
+$(&#39;#contactEmail&#39;).removeClass(&#39;is-invalid&#39;).addClass(&#39;is-valid&#39;);
+}
+// Validate message
+const message = $(&#39;#contactMessage&#39;).val().trim();
+if (message.length &lt; 10) {
+showAlert(&#39;Please enter a message (minimum 10 characters)&#39;, &#39;warning&#39;);
+$(&#39;#contactMessage&#39;).addClass(&#39;is-invalid&#39;);
+isValid = false;
+} else {
+$(&#39;#contactMessage&#39;).removeClass(&#39;is-invalid&#39;).addClass(&#39;is-valid&#39;);
+}
+// Validate consent
+if (!$(&#39;#contactConsent&#39;).is(&#39;:checked&#39;)) {
+showAlert(&#39;Please agree to the terms of communication&#39;, &#39;warning&#39;);
+isValid = false;
+}
+return isValid;
+}
+// Contact success animation
+function showContactSuccess(formData) {
+// Create success modal
+const successModal = `
+&lt;div class=&quot;modal fade&quot; id=&quot;successModal&quot; tabindex=&quot;-1&quot;&gt;
+&lt;div class=&quot;modal-dialog modal-dialog-centered&quot;&gt;
+&lt;div class=&quot;modal-content border-0 shadow-lg&quot; style=&quot;border-radius: 25px;&quot;&gt;
+&lt;div class=&quot;modal-header border-0&quot; style=&quot;
+background: linear-gradient(90deg, #06d6a0, #118ab2);
+
+color: white;
+border-radius: 25px 25px 0 0;
+&quot;&gt;
+&lt;h5 class=&quot;modal-title fw-bold&quot;&gt;
+&lt;i class=&quot;fas fa-check-circle me-2&quot;&gt;&lt;/i&gt;Message Sent Successfully!
+&lt;/h5&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn-close btn-close-white&quot; data-bs-
+dismiss=&quot;modal&quot;&gt;&lt;/button&gt;
+&lt;/div&gt;
+&lt;div class=&quot;modal-body p-4 text-center&quot;&gt;
+&lt;div class=&quot;success-icon mb-3&quot;&gt;
+&lt;i class=&quot;fas fa-paper-plane fa-4x text-success&quot;&gt;&lt;/i&gt;
+&lt;/div&gt;
+&lt;h4 class=&quot;fw-bold mb-3&quot;&gt;Thank You, ${formData.name}!&lt;/h4&gt;
+&lt;p&gt;Your message has been sent successfully. We&#39;ll get back to you within 4
+hours.&lt;/p&gt;
+&lt;div class=&quot;confirmation-details p-3 mb-3&quot; style=&quot;
+background: #f8f9fa;
+border-radius: 10px;
+text-align: left;
+&quot;&gt;
+&lt;small class=&quot;d-block&quot;&gt;
+&lt;strong&gt;Subject:&lt;/strong&gt; ${formData.subject.toUpperCase()}
+&lt;/small&gt;
+&lt;small class=&quot;d-block mt-1&quot;&gt;
+&lt;strong&gt;Reference:&lt;/strong&gt; #${Date.now().toString().slice(-6)}
+&lt;/small&gt;
+&lt;small class=&quot;d-block mt-1&quot;&gt;
+&lt;strong&gt;Time:&lt;/strong&gt; ${new Date().toLocaleTimeString()}
+&lt;/small&gt;
+&lt;/div&gt;
+&lt;p class=&quot;text-muted small mb-0&quot;&gt;
+&lt;i class=&quot;fas fa-info-circle me-1&quot;&gt;&lt;/i&gt;
+A confirmation email has been sent to ${formData.email}
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;modal-footer border-0&quot;&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-gradient-primary&quot; data-bs-dismiss=&quot;modal&quot;&gt;
+&lt;i class=&quot;fas fa-check me-2&quot;&gt;&lt;/i&gt;Got it!
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+`;
+// Add modal to page
+$(&#39;body&#39;).append(successModal);
+
+// Show modal
+const modal = new bootstrap.Modal(document.getElementById(&#39;successModal&#39;));
+modal.show();
+// Remove modal after hiding
+$(&#39;#successModal&#39;).on(&#39;hidden.bs.modal&#39;, function () {
+$(this).remove();
+});
+// Create confetti effect
+createConfetti();
+}
+// Confetti animation
+function createConfetti() {
+const colors = [&#39;#667eea&#39;, &#39;#764ba2&#39;, &#39;#f093fb&#39;, &#39;#f5576c&#39;, &#39;#ff6b6b&#39;, &#39;#ffd166&#39;, &#39;#06d6a0&#39;,
+&#39;#118ab2&#39;];
+for (let i = 0; i &lt; 100; i++) {
+const confetti = document.createElement(&#39;div&#39;);
+confetti.style.position = &#39;fixed&#39;;
+confetti.style.width = &#39;10px&#39;;
+confetti.style.height = &#39;10px&#39;;
+confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+confetti.style.borderRadius = &#39;50%&#39;;
+confetti.style.top = &#39;0&#39;;
+confetti.style.left = Math.random() * 100 + &#39;vw&#39;;
+confetti.style.opacity = &#39;0.8&#39;;
+confetti.style.zIndex = &#39;9999&#39;;
+confetti.style.pointerEvents = &#39;none&#39;;
+document.body.appendChild(confetti);
+// Animate
+const animation = confetti.animate([
+{ transform: &#39;translateY(0) rotate(0deg)&#39;, opacity: 1 },
+{ transform: `translateY(${window.innerHeight}px) rotate(${Math.random() * 360}deg)`,
+opacity: 0 }
+], {
+duration: 2000 + Math.random() * 1000,
+easing: &#39;cubic-bezier(0.215, 0.610, 0.355, 1)&#39;
+});
+animation.onfinish = () =&gt; confetti.remove();
+}
+}
+// Accept terms function
+
+window.acceptTerms = function() {
+$(&#39;#contactConsent&#39;).prop(&#39;checked&#39;, true);
+showAlert(&#39;Terms accepted successfully!&#39;, &#39;success&#39;);
+$(&#39;#contactTermsModal&#39;).modal(&#39;hide&#39;);
+};
+// Card hover effect
+window.hoverCard = function(element) {
+element.style.transform = &#39;translateY(-5px)&#39;;
+element.style.boxShadow = &#39;0 10px 30px rgba(0,0,0,0.2)&#39;;
+};
+window.unhoverCard = function(element) {
+element.style.transform = &#39;translateY(0)&#39;;
+element.style.boxShadow = &#39;none&#39;;
+};
+// Custom alert function
+function showAlert(message, type) {
+const alertClass = type === &#39;success&#39; ? &#39;alert-success&#39; :
+type === &#39;warning&#39; ? &#39;alert-warning&#39; :
+type === &#39;danger&#39; ? &#39;alert-danger&#39; : &#39;alert-info&#39;;
+const alertHtml = `
+&lt;div class=&quot;alert ${alertClass} alert-dismissible fade show position-fixed top-0 start-50
+translate-middle-x mt-3 shadow-lg&quot;
+style=&quot;z-index: 9999; min-width: 300px; border-radius: 15px;&quot; role=&quot;alert&quot;&gt;
+&lt;div class=&quot;d-flex align-items-center&quot;&gt;
+&lt;i class=&quot;fas ${type === &#39;success&#39; ? &#39;fa-check-circle&#39; :
+type === &#39;warning&#39; ? &#39;fa-exclamation-triangle&#39; :
+type === &#39;danger&#39; ? &#39;fa-exclamation-circle&#39; : &#39;fa-info-circle&#39;} me-2&quot;&gt;&lt;/i&gt;
+&lt;div&gt;${message}&lt;/div&gt;
+&lt;/div&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn-close&quot; data-bs-dismiss=&quot;alert&quot;&gt;&lt;/button&gt;
+&lt;/div&gt;
+`;
+$(&#39;body&#39;).append(alertHtml);
+// Auto-remove after 5 seconds
+setTimeout(() =&gt; {
+$(&#39;.alert&#39;).alert(&#39;close&#39;);
+}, 5000);
+}
+// Initialize tooltips
+$(&#39;[data-bs-toggle=&quot;tooltip&quot;]&#39;).tooltip();
+});
+
+&lt;/script&gt;
+{% endblock %}

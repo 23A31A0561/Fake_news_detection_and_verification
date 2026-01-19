@@ -1,0 +1,899 @@
+{% extends &quot;base.html&quot; %}
+{% block title %}Dashboard - TruthGuard{% endblock %}
+{% block extra_css %}
+&lt;link rel=&quot;stylesheet&quot;
+href=&quot;https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css&quot;&gt;
+&lt;style&gt;
+:root {
+--primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+--success-gradient: linear-gradient(135deg, #1cc88a 0%, #13855c 100%);
+--warning-gradient: linear-gradient(135deg, #f6c23e 0%, #dda20a 100%);
+--danger-gradient: linear-gradient(135deg, #e74a3b 0%, #be2617 100%);
+--info-gradient: linear-gradient(135deg, #36b9cc 0%, #258391 100%);
+}
+.gradient-welcome {
+background: var(--primary-gradient);
+}
+.gradient-primary {
+background: var(--primary-gradient);
+}
+.gradient-success {
+background: var(--success-gradient);
+}
+.gradient-warning {
+background: var(--warning-gradient);
+}
+.gradient-danger {
+background: var(--danger-gradient);
+}
+.gradient-info {
+background: var(--info-gradient);
+}
+.gradient-dark {
+background: linear-gradient(135deg, #5a5c69 0%, #373840 100%);
+}
+.avatar-circle {
+width: 100px;
+height: 100px;
+border-radius: 50%;
+
+box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+display: flex;
+align-items: center;
+justify-content: center;
+background: white;
+}
+.btn-icon {
+text-align: left;
+padding: 15px 20px;
+border-radius: 10px;
+transition: all 0.3s ease;
+position: relative;
+overflow: hidden;
+}
+.btn-icon:hover {
+transform: translateY(-2px);
+box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+.btn-icon i {
+font-size: 1.2em;
+vertical-align: middle;
+}
+.analysis-row:hover {
+background-color: rgba(78, 115, 223, 0.05);
+cursor: pointer;
+transform: translateX(5px);
+transition: all 0.3s ease;
+}
+.analysis-icon {
+width: 40px;
+height: 40px;
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+background: rgba(0,0,0,0.05);
+}
+.insight-card {
+transition: all 0.3s ease;
+border: 1px solid transparent;
+}
+
+.insight-card:hover {
+transform: translateY(-5px);
+border-color: #4e73df;
+box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+.insight-icon {
+width: 80px;
+height: 80px;
+border-radius: 50%;
+display: inline-flex;
+align-items: center;
+justify-content: center;
+background: rgba(0,0,0,0.05);
+}
+.empty-state {
+padding: 40px 20px;
+text-align: center;
+}
+.badge-pill {
+border-radius: 20px;
+padding: 8px 16px;
+font-weight: 600;
+}
+.table-hover tbody tr:hover {
+background-color: rgba(0,0,0,0.02);
+}
+.card {
+border-radius: 15px;
+overflow: hidden;
+border: none;
+box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+.card-header {
+border-radius: 15px 15px 0 0 !important;
+border: none;
+}
+.progress {
+border-radius: 10px;
+overflow: hidden;
+}
+
+.progress-bar {
+border-radius: 10px;
+}
+/* Chart Container Styles */
+.chart-wrapper {
+position: relative;
+height: 250px;
+width: 100%;
+margin: 0 auto;
+}
+.chart-wrapper-large {
+height: 300px;
+}
+/* Ensure charts are visible */
+.chart-canvas {
+display: block !important;
+width: 100% !important;
+height: 100% !important;
+}
+/* Chart card specific styles */
+.chart-card {
+min-height: 400px;
+}
+.chart-card .card-body {
+padding-bottom: 0;
+}
+&lt;/style&gt;
+{% endblock %}
+{% block content %}
+&lt;div class=&quot;container-fluid py-4&quot;&gt;
+&lt;!-- Welcome Header --&gt;
+&lt;div class=&quot;row mb-4&quot;&gt;
+&lt;div class=&quot;col-lg-12&quot;&gt;
+&lt;div class=&quot;card shadow-lg border-0 animate__animated animate__fadeIn&quot;&gt;
+&lt;div class=&quot;card-body gradient-welcome p-5 rounded&quot;&gt;
+&lt;div class=&quot;row align-items-center&quot;&gt;
+&lt;div class=&quot;col-md-8&quot;&gt;
+&lt;h1 class=&quot;text-white display-4 mb-2&quot;&gt;Welcome back, {{ user.name }}! ��&lt;/h1&gt;
+&lt;p class=&quot;text-white-75 mb-0 lead&quot;&gt;Here&#39;s your personal misinformation analysis
+dashboard&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;col-md-4 text-right&quot;&gt;
+
+&lt;div class=&quot;avatar-circle text-primary&quot;&gt;
+&lt;i class=&quot;fas fa-user-shield fa-3x&quot;&gt;&lt;/i&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;!-- Quick Stats Cards --&gt;
+&lt;div class=&quot;row mb-4&quot;&gt;
+&lt;div class=&quot;col-xl-3 col-md-6 mb-4&quot;&gt;
+&lt;div class=&quot;card gradient-primary shadow-lg border-0 animate__animated
+animate__fadeInUp&quot;&gt;
+&lt;div class=&quot;card-body&quot;&gt;
+&lt;div class=&quot;row align-items-center&quot;&gt;
+&lt;div class=&quot;col mr-2&quot;&gt;
+&lt;div class=&quot;text-xs font-weight-bold text-white text-uppercase mb-1&quot;&gt;
+Total Analyses&lt;/div&gt;
+&lt;div class=&quot;h2 mb-0 font-weight-bold text-white&quot;&gt;{{ stats.total }}&lt;/div&gt;
+&lt;div class=&quot;mt-2&quot;&gt;
+&lt;span class=&quot;text-white-75 small&quot;&gt;All time&lt;/span&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;col-auto&quot;&gt;
+&lt;i class=&quot;fas fa-chart-bar fa-3x text-white-50&quot;&gt;&lt;/i&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;card-footer bg-transparent border-0 pt-0&quot;&gt;
+&lt;div class=&quot;progress progress-sm&quot;&gt;
+&lt;div class=&quot;progress-bar bg-white&quot; style=&quot;width: 100%&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;col-xl-3 col-md-6 mb-4&quot;&gt;
+&lt;div class=&quot;card gradient-success shadow-lg border-0 animate__animated
+animate__fadeInUp animate__delay-1s&quot;&gt;
+&lt;div class=&quot;card-body&quot;&gt;
+&lt;div class=&quot;row align-items-center&quot;&gt;
+&lt;div class=&quot;col mr-2&quot;&gt;
+&lt;div class=&quot;text-xs font-weight-bold text-white text-uppercase mb-1&quot;&gt;
+Reliable Content&lt;/div&gt;
+&lt;div class=&quot;h2 mb-0 font-weight-bold text-white&quot;&gt;{{ stats.reliable }}&lt;/div&gt;
+&lt;div class=&quot;mt-2&quot;&gt;
+
+&lt;span class=&quot;text-white-75 small&quot;&gt;{{ stats.reliable_percent }}% of total&lt;/span&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;col-auto&quot;&gt;
+&lt;i class=&quot;fas fa-check-circle fa-3x text-white-50&quot;&gt;&lt;/i&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;card-footer bg-transparent border-0 pt-0&quot;&gt;
+&lt;div class=&quot;progress progress-sm&quot;&gt;
+&lt;div class=&quot;progress-bar bg-white&quot; style=&quot;width: {{ stats.reliable_percent }}%&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;col-xl-3 col-md-6 mb-4&quot;&gt;
+&lt;div class=&quot;card gradient-warning shadow-lg border-0 animate__animated
+animate__fadeInUp animate__delay-2s&quot;&gt;
+&lt;div class=&quot;card-body&quot;&gt;
+&lt;div class=&quot;row align-items-center&quot;&gt;
+&lt;div class=&quot;col mr-2&quot;&gt;
+&lt;div class=&quot;text-xs font-weight-bold text-white text-uppercase mb-1&quot;&gt;
+Suspicious&lt;/div&gt;
+&lt;div class=&quot;h2 mb-0 font-weight-bold text-white&quot;&gt;{{ stats.suspicious }}&lt;/div&gt;
+&lt;div class=&quot;mt-2&quot;&gt;
+{% if stats.total &gt; 0 %}
+&lt;span class=&quot;text-white-75 small&quot;&gt;{{ ((stats.suspicious / stats.total) *
+100)|round(1) }}% of total&lt;/span&gt;
+{% else %}
+&lt;span class=&quot;text-white-75 small&quot;&gt;0% of total&lt;/span&gt;
+{% endif %}
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;col-auto&quot;&gt;
+&lt;i class=&quot;fas fa-exclamation-triangle fa-3x text-white-50&quot;&gt;&lt;/i&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;card-footer bg-transparent border-0 pt-0&quot;&gt;
+&lt;div class=&quot;progress progress-sm&quot;&gt;
+&lt;div class=&quot;progress-bar bg-white&quot; style=&quot;width:
+{% if stats.total &gt; 0 %}{{ ((stats.suspicious / stats.total) * 100)|round(1) }}%
+{% else %}0%{% endif %}&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class=&quot;col-xl-3 col-md-6 mb-4&quot;&gt;
+&lt;div class=&quot;card gradient-danger shadow-lg border-0 animate__animated animate__fadeInUp
+animate__delay-3s&quot;&gt;
+&lt;div class=&quot;card-body&quot;&gt;
+&lt;div class=&quot;row align-items-center&quot;&gt;
+&lt;div class=&quot;col mr-2&quot;&gt;
+&lt;div class=&quot;text-xs font-weight-bold text-white text-uppercase mb-1&quot;&gt;
+Fake Content&lt;/div&gt;
+&lt;div class=&quot;h2 mb-0 font-weight-bold text-white&quot;&gt;{{ stats.fake }}&lt;/div&gt;
+&lt;div class=&quot;mt-2&quot;&gt;
+&lt;span class=&quot;text-white-75 small&quot;&gt;{{ stats.fake_percent }}% of total&lt;/span&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;col-auto&quot;&gt;
+&lt;i class=&quot;fas fa-times-circle fa-3x text-white-50&quot;&gt;&lt;/i&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;card-footer bg-transparent border-0 pt-0&quot;&gt;
+&lt;div class=&quot;progress progress-sm&quot;&gt;
+&lt;div class=&quot;progress-bar bg-white&quot; style=&quot;width: {{ stats.fake_percent }}%&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;!-- Charts Section --&gt;
+&lt;div class=&quot;row mb-4&quot;&gt;
+&lt;!-- Analysis Distribution Chart --&gt;
+&lt;div class=&quot;col-xl-6 col-lg-6&quot;&gt;
+&lt;div class=&quot;card shadow-lg border-0 chart-card animate__animated animate__fadeInLeft&quot;&gt;
+&lt;div class=&quot;card-header bg-gradient-primary py-3 border-0&quot;&gt;
+&lt;h6 class=&quot;m-0 font-weight-bold text-white&quot;&gt;
+&lt;i class=&quot;fas fa-chart-pie mr-2&quot;&gt;&lt;/i&gt;Analysis Distribution
+&lt;/h6&gt;
+&lt;/div&gt;
+&lt;div class=&quot;card-body&quot;&gt;
+&lt;div class=&quot;chart-wrapper&quot;&gt;
+&lt;canvas id=&quot;analysisChart&quot; class=&quot;chart-canvas&quot;&gt;&lt;/canvas&gt;
+&lt;/div&gt;
+&lt;div class=&quot;mt-4 text-center&quot;&gt;
+&lt;div class=&quot;row&quot;&gt;
+&lt;div class=&quot;col-3&quot;&gt;
+&lt;span class=&quot;d-block&quot;&gt;&lt;i class=&quot;fas fa-circle text-success&quot;&gt;&lt;/i&gt; Reliable&lt;/span&gt;
+&lt;span class=&quot;font-weight-bold&quot;&gt;{{ stats.reliable }}&lt;/span&gt;
+
+&lt;/div&gt;
+&lt;div class=&quot;col-3&quot;&gt;
+&lt;span class=&quot;d-block&quot;&gt;&lt;i class=&quot;fas fa-circle text-warning&quot;&gt;&lt;/i&gt; Suspicious&lt;/span&gt;
+&lt;span class=&quot;font-weight-bold&quot;&gt;{{ stats.suspicious }}&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class=&quot;col-3&quot;&gt;
+&lt;span class=&quot;d-block&quot;&gt;&lt;i class=&quot;fas fa-circle text-danger&quot;&gt;&lt;/i&gt; Fake&lt;/span&gt;
+&lt;span class=&quot;font-weight-bold&quot;&gt;{{ stats.fake }}&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class=&quot;col-3&quot;&gt;
+&lt;span class=&quot;d-block&quot;&gt;&lt;i class=&quot;fas fa-circle text-secondary&quot;&gt;&lt;/i&gt; Other&lt;/span&gt;
+&lt;span class=&quot;font-weight-bold&quot;&gt;{{ stats.total - stats.reliable - stats.suspicious -
+stats.fake }}&lt;/span&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;!-- Monthly Activity Chart --&gt;
+&lt;div class=&quot;col-xl-6 col-lg-6&quot;&gt;
+&lt;div class=&quot;card shadow-lg border-0 chart-card animate__animated animate__fadeInRight&quot;&gt;
+&lt;div class=&quot;card-header bg-gradient-info py-3 border-0&quot;&gt;
+&lt;h6 class=&quot;m-0 font-weight-bold text-white&quot;&gt;
+&lt;i class=&quot;fas fa-chart-line mr-2&quot;&gt;&lt;/i&gt;Monthly Activity
+&lt;/h6&gt;
+&lt;/div&gt;
+&lt;div class=&quot;card-body&quot;&gt;
+&lt;div class=&quot;chart-wrapper&quot;&gt;
+&lt;canvas id=&quot;activityChart&quot; class=&quot;chart-canvas&quot;&gt;&lt;/canvas&gt;
+&lt;/div&gt;
+&lt;div class=&quot;mt-3 text-center&quot;&gt;
+&lt;small class=&quot;text-muted&quot;&gt;
+&lt;i class=&quot;fas fa-info-circle mr-1&quot;&gt;&lt;/i&gt;
+Track your analysis patterns over time
+&lt;/small&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;!-- Quick Actions &amp; Recent Analyses --&gt;
+&lt;div class=&quot;row&quot;&gt;
+&lt;!-- Quick Actions --&gt;
+&lt;div class=&quot;col-lg-4 mb-4&quot;&gt;
+&lt;div class=&quot;card shadow-lg border-0 animate__animated animate__fadeInUp&quot;&gt;
+
+&lt;div class=&quot;card-header bg-gradient-dark py-3 border-0&quot;&gt;
+&lt;h6 class=&quot;m-0 font-weight-bold text-white&quot;&gt;
+&lt;i class=&quot;fas fa-bolt mr-2&quot;&gt;&lt;/i&gt;Quick Actions
+&lt;/h6&gt;
+&lt;/div&gt;
+&lt;div class=&quot;card-body p-4&quot;&gt;
+&lt;div class=&quot;d-grid gap-3&quot;&gt;
+&lt;a href=&quot;/analyze&quot; class=&quot;btn btn-primary btn-lg btn-block btn-icon&quot;&gt;
+&lt;i class=&quot;fas fa-bolt mr-2&quot;&gt;&lt;/i&gt;New Analysis
+&lt;small class=&quot;d-block text-white-75 mt-1&quot;&gt;Ultra-fast content checking&lt;/small&gt;
+&lt;/a&gt;
+&lt;a href=&quot;/history&quot; class=&quot;btn btn-info btn-lg btn-block btn-icon&quot;&gt;
+&lt;i class=&quot;fas fa-history mr-2&quot;&gt;&lt;/i&gt;Analysis History
+&lt;small class=&quot;d-block text-white-75 mt-1&quot;&gt;View all past analyses&lt;/small&gt;
+&lt;/a&gt;
+&lt;a href=&quot;/profile&quot; class=&quot;btn btn-success btn-lg btn-block btn-icon&quot;&gt;
+&lt;i class=&quot;fas fa-user-cog mr-2&quot;&gt;&lt;/i&gt;Profile Settings
+&lt;small class=&quot;d-block text-white-75 mt-1&quot;&gt;Manage your account&lt;/small&gt;
+&lt;/a&gt;
+&lt;a href=&quot;/test-chat-fixed&quot; class=&quot;btn btn-warning btn-lg btn-block btn-icon&quot;&gt;
+&lt;i class=&quot;fas fa-robot mr-2&quot;&gt;&lt;/i&gt;AI Assistant
+&lt;small class=&quot;d-block text-white-75 mt-1&quot;&gt;Get help from our chatbot&lt;/small&gt;
+&lt;/a&gt;
+&lt;/div&gt;
+&lt;div class=&quot;mt-4 pt-3 border-top&quot;&gt;
+&lt;h6 class=&quot;font-weight-bold mb-3&quot;&gt;Quick Stats&lt;/h6&gt;
+&lt;div class=&quot;row text-center&quot;&gt;
+&lt;div class=&quot;col-4&quot;&gt;
+&lt;div class=&quot;border rounded p-2 bg-light&quot;&gt;
+&lt;div class=&quot;text-primary font-weight-bold&quot;&gt;
+{% if avg_confidence %}{{ avg_confidence|round(1) }}%{% else %}0%{% endif
+%}
+&lt;/div&gt;
+&lt;small class=&quot;text-muted&quot;&gt;Avg Confidence&lt;/small&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;col-4&quot;&gt;
+&lt;div class=&quot;border rounded p-2 bg-light&quot;&gt;
+&lt;div class=&quot;text-success font-weight-bold&quot;&gt;{{ recent_count|default(0) }}&lt;/div&gt;
+&lt;small class=&quot;text-muted&quot;&gt;Last 7 Days&lt;/small&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;col-4&quot;&gt;
+&lt;div class=&quot;border rounded p-2 bg-light&quot;&gt;
+
+&lt;div class=&quot;text-info font-weight-bold&quot;&gt;
+{% if max_confidence %}{{ max_confidence|round(1) }}%{% else %}0%{% endif
+%}
+&lt;/div&gt;
+&lt;small class=&quot;text-muted&quot;&gt;Best Score&lt;/small&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;!-- Recent Analyses --&gt;
+&lt;div class=&quot;col-lg-8 mb-4&quot;&gt;
+&lt;div class=&quot;card shadow-lg border-0 animate__animated animate__fadeInUp&quot;&gt;
+&lt;div class=&quot;card-header bg-gradient-primary py-3 border-0 d-flex justify-content-between
+align-items-center&quot;&gt;
+&lt;h6 class=&quot;m-0 font-weight-bold text-white&quot;&gt;
+&lt;i class=&quot;fas fa-clock mr-2&quot;&gt;&lt;/i&gt;Recent Analyses
+&lt;/h6&gt;
+&lt;a href=&quot;/history&quot; class=&quot;btn btn-sm btn-light&quot;&gt;
+View All &lt;i class=&quot;fas fa-arrow-right ml-1&quot;&gt;&lt;/i&gt;
+&lt;/a&gt;
+&lt;/div&gt;
+&lt;div class=&quot;card-body p-0&quot;&gt;
+{% if analyses %}
+&lt;div class=&quot;table-responsive&quot;&gt;
+&lt;table class=&quot;table table-hover mb-0&quot;&gt;
+&lt;thead class=&quot;thead-light&quot;&gt;
+&lt;tr&gt;
+&lt;th class=&quot;border-top-0&quot;&gt;Analysis&lt;/th&gt;
+&lt;th class=&quot;border-top-0&quot;&gt;Result&lt;/th&gt;
+&lt;th class=&quot;border-top-0&quot;&gt;Confidence&lt;/th&gt;
+&lt;th class=&quot;border-top-0&quot;&gt;Time&lt;/th&gt;
+&lt;th class=&quot;border-top-0&quot;&gt;Actions&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+{% for analysis in analyses %}
+&lt;tr class=&quot;analysis-row&quot; data-id=&quot;{{ analysis.id }}&quot;&gt;
+&lt;td&gt;
+&lt;div class=&quot;d-flex align-items-center&quot;&gt;
+&lt;div class=&quot;analysis-icon mr-3&quot;&gt;
+{% if analysis.classification == &#39;RELIABLE&#39; %}
+&lt;i class=&quot;fas fa-check-circle text-success fa-lg&quot;&gt;&lt;/i&gt;
+{% elif analysis.classification == &#39;SUSPICIOUS&#39; %}
+&lt;i class=&quot;fas fa-exclamation-triangle text-warning fa-lg&quot;&gt;&lt;/i&gt;
+
+{% elif analysis.classification == &#39;FAKE&#39; %}
+&lt;i class=&quot;fas fa-times-circle text-danger fa-lg&quot;&gt;&lt;/i&gt;
+{% else %}
+&lt;i class=&quot;fas fa-question-circle text-secondary fa-lg&quot;&gt;&lt;/i&gt;
+{% endif %}
+&lt;/div&gt;
+&lt;div&gt;
+&lt;div class=&quot;font-weight-bold&quot;&gt;{{ analysis.title or &#39;Untitled Analysis&#39;
+}}&lt;/div&gt;
+&lt;small class=&quot;text-muted&quot;&gt;
+{{ analysis.content[:60] }}...
+{% if analysis.source_url %}
+&lt;br&gt;&lt;i class=&quot;fas fa-link text-primary mr-1&quot;&gt;&lt;/i&gt;
+&lt;span class=&quot;text-primary&quot;&gt;{{ analysis.source_url|truncate(30)
+}}&lt;/span&gt;
+{% endif %}
+&lt;/small&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/td&gt;
+&lt;td&gt;
+{% if analysis.classification == &#39;RELIABLE&#39; %}
+&lt;span class=&quot;badge badge-success badge-pill px-3 py-2&quot;&gt;
+&lt;i class=&quot;fas fa-check mr-1&quot;&gt;&lt;/i&gt;Reliable
+&lt;/span&gt;
+{% elif analysis.classification == &#39;SUSPICIOUS&#39; %}
+&lt;span class=&quot;badge badge-warning badge-pill px-3 py-2&quot;&gt;
+&lt;i class=&quot;fas fa-exclamation mr-1&quot;&gt;&lt;/i&gt;Suspicious
+&lt;/span&gt;
+{% elif analysis.classification == &#39;FAKE&#39; %}
+&lt;span class=&quot;badge badge-danger badge-pill px-3 py-2&quot;&gt;
+&lt;i class=&quot;fas fa-times mr-1&quot;&gt;&lt;/i&gt;Fake
+&lt;/span&gt;
+{% else %}
+&lt;span class=&quot;badge badge-secondary badge-pill px-3 py-2&quot;&gt;
+&lt;i class=&quot;fas fa-question mr-1&quot;&gt;&lt;/i&gt;{{ analysis.classification }}
+&lt;/span&gt;
+{% endif %}
+&lt;/td&gt;
+&lt;td&gt;
+{% if analysis.confidence_score %}
+&lt;div class=&quot;d-flex align-items-center&quot;&gt;
+&lt;div class=&quot;progress flex-grow-1 mr-2&quot; style=&quot;height: 8px;&quot;&gt;
+&lt;div class=&quot;progress-bar
+{% if analysis.confidence_score &gt;= 0.7 %}bg-success
+{% elif analysis.confidence_score &gt;= 0.4 %}bg-warning
+{% else %}bg-danger{% endif %}&quot;
+style=&quot;width: {{ analysis.confidence_score * 100 }}%&quot;&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;span class=&quot;font-weight-bold&quot;&gt;{{ (analysis.confidence_score *
+100)|round(1) }}%&lt;/span&gt;
+&lt;/div&gt;
+{% else %}
+&lt;span class=&quot;text-muted&quot;&gt;N/A&lt;/span&gt;
+{% endif %}
+&lt;/td&gt;
+&lt;td&gt;
+&lt;small class=&quot;text-muted&quot; title=&quot;{{ analysis.created_at }}&quot;&gt;
+{{ analysis.created_at.strftime(&#39;%b %d, %H:%M&#39;) }}
+&lt;/small&gt;
+&lt;/td&gt;
+&lt;td&gt;
+&lt;div class=&quot;btn-group btn-group-sm&quot; role=&quot;group&quot;&gt;
+&lt;a href=&quot;/analysis/{{ analysis.id }}&quot; class=&quot;btn btn-outline-primary&quot;
+title=&quot;View Details&quot;&gt;
+&lt;i class=&quot;fas fa-eye&quot;&gt;&lt;/i&gt;
+&lt;/a&gt;
+&lt;button class=&quot;btn btn-outline-success copy-analysis&quot; data-id=&quot;{{ analysis.id
+}}&quot; title=&quot;Copy Link&quot;&gt;
+&lt;i class=&quot;fas fa-link&quot;&gt;&lt;/i&gt;
+&lt;/button&gt;
+&lt;button class=&quot;btn btn-outline-info reanalyze-btn&quot; data-id=&quot;{{ analysis.id }}&quot;
+title=&quot;Re-analyze&quot;&gt;
+&lt;i class=&quot;fas fa-redo&quot;&gt;&lt;/i&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+{% endfor %}
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+{% else %}
+&lt;div class=&quot;text-center py-5&quot;&gt;
+&lt;div class=&quot;empty-state&quot;&gt;
+&lt;i class=&quot;fas fa-search fa-4x text-muted mb-3&quot;&gt;&lt;/i&gt;
+&lt;h4 class=&quot;text-muted&quot;&gt;No Analyses Yet&lt;/h4&gt;
+&lt;p class=&quot;text-muted mb-4&quot;&gt;Start by analyzing your first piece of content!&lt;/p&gt;
+&lt;a href=&quot;/analyze&quot; class=&quot;btn btn-primary btn-lg&quot;&gt;
+&lt;i class=&quot;fas fa-plus mr-2&quot;&gt;&lt;/i&gt;Start Your First Analysis
+&lt;/a&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+{% endif %}
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;!-- Tips &amp; Insights --&gt;
+&lt;div class=&quot;row mt-4&quot;&gt;
+&lt;div class=&quot;col-12&quot;&gt;
+&lt;div class=&quot;card shadow-lg border-0 animate__animated animate__fadeIn&quot;&gt;
+&lt;div class=&quot;card-header bg-gradient-info py-3 border-0&quot;&gt;
+&lt;h6 class=&quot;m-0 font-weight-bold text-white&quot;&gt;
+&lt;i class=&quot;fas fa-lightbulb mr-2&quot;&gt;&lt;/i&gt;Tips &amp; Insights
+&lt;/h6&gt;
+&lt;/div&gt;
+&lt;div class=&quot;card-body&quot;&gt;
+&lt;div class=&quot;row&quot;&gt;
+&lt;div class=&quot;col-md-3 mb-3&quot;&gt;
+&lt;div class=&quot;card insight-card h-100 border-0 shadow-sm&quot;&gt;
+&lt;div class=&quot;card-body text-center p-4&quot;&gt;
+&lt;div class=&quot;insight-icon mb-3&quot;&gt;
+&lt;i class=&quot;fas fa-clipboard-check fa-3x text-success&quot;&gt;&lt;/i&gt;
+&lt;/div&gt;
+&lt;h5 class=&quot;font-weight-bold&quot;&gt;Verify Sources&lt;/h5&gt;
+&lt;p class=&quot;text-muted small&quot;&gt;Always check the credibility of sources before
+sharing content.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;col-md-3 mb-3&quot;&gt;
+&lt;div class=&quot;card insight-card h-100 border-0 shadow-sm&quot;&gt;
+&lt;div class=&quot;card-body text-center p-4&quot;&gt;
+&lt;div class=&quot;insight-icon mb-3&quot;&gt;
+&lt;i class=&quot;fas fa-chart-line fa-3x text-primary&quot;&gt;&lt;/i&gt;
+&lt;/div&gt;
+&lt;h5 class=&quot;font-weight-bold&quot;&gt;Track Patterns&lt;/h5&gt;
+&lt;p class=&quot;text-muted small&quot;&gt;Monitor your analysis history to identify
+misinformation patterns.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;col-md-3 mb-3&quot;&gt;
+&lt;div class=&quot;card insight-card h-100 border-0 shadow-sm&quot;&gt;
+&lt;div class=&quot;card-body text-center p-4&quot;&gt;
+&lt;div class=&quot;insight-icon mb-3&quot;&gt;
+&lt;i class=&quot;fas fa-shield-alt fa-3x text-warning&quot;&gt;&lt;/i&gt;
+&lt;/div&gt;
+&lt;h5 class=&quot;font-weight-bold&quot;&gt;Stay Protected&lt;/h5&gt;
+&lt;p class=&quot;text-muted small&quot;&gt;Use our AI assistant for real-time fact-checking
+assistance.&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;col-md-3 mb-3&quot;&gt;
+&lt;div class=&quot;card insight-card h-100 border-0 shadow-sm&quot;&gt;
+&lt;div class=&quot;card-body text-center p-4&quot;&gt;
+&lt;div class=&quot;insight-icon mb-3&quot;&gt;
+&lt;i class=&quot;fas fa-bolt fa-3x text-danger&quot;&gt;&lt;/i&gt;
+&lt;/div&gt;
+&lt;h5 class=&quot;font-weight-bold&quot;&gt;Fast Analysis&lt;/h5&gt;
+&lt;p class=&quot;text-muted small&quot;&gt;Get results in under 50ms with our ultra-fast
+detection system.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+{% endblock %}
+{% block extra_js %}
+&lt;script src=&quot;https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+// Initialize charts after page load
+window.addEventListener(&#39;load&#39;, function() {
+console.log(&#39;Page loaded, initializing charts...&#39;);
+// Initialize tooltips
+$(function () {
+$(&#39;[title]&#39;).tooltip();
+});
+// =========== ANALYSIS CHART (Doughnut) ===========
+const analysisCanvas = document.getElementById(&#39;analysisChart&#39;);
+if (analysisCanvas) {
+console.log(&#39;Creating analysis chart...&#39;);
+// Calculate data
+const reliableCount = {{ stats.reliable }};
+const suspiciousCount = {{ stats.suspicious }};
+const fakeCount = {{ stats.fake }};
+const otherCount = Math.max(0, {{ stats.total }} - reliableCount - suspiciousCount - fakeCount);
+const analysisCtx = analysisCanvas.getContext(&#39;2d&#39;);
+
+// Set explicit dimensions
+analysisCanvas.width = analysisCanvas.parentElement.clientWidth;
+analysisCanvas.height = 250;
+// Create chart with better visibility
+new Chart(analysisCtx, {
+type: &#39;doughnut&#39;,
+data: {
+labels: [&#39;Reliable&#39;, &#39;Suspicious&#39;, &#39;Fake&#39;, &#39;Other&#39;],
+datasets: [{
+data: [reliableCount, suspiciousCount, fakeCount, otherCount],
+backgroundColor: [
+&#39;rgba(40, 167, 69, 0.9)&#39;,
+&#39;rgba(255, 193, 7, 0.9)&#39;,
+&#39;rgba(220, 53, 69, 0.9)&#39;,
+&#39;rgba(108, 117, 125, 0.9)&#39;
+],
+borderColor: [
+&#39;rgba(40, 167, 69, 1)&#39;,
+&#39;rgba(255, 193, 7, 1)&#39;,
+&#39;rgba(220, 53, 69, 1)&#39;,
+&#39;rgba(108, 117, 125, 1)&#39;
+],
+borderWidth: 2,
+hoverBorderWidth: 3,
+hoverOffset: 15
+}]
+},
+options: {
+responsive: true,
+maintainAspectRatio: false,
+cutout: &#39;65%&#39;,
+plugins: {
+legend: {
+display: false
+},
+tooltip: {
+backgroundColor: &#39;rgba(0, 0, 0, 0.8)&#39;,
+titleColor: &#39;#fff&#39;,
+bodyColor: &#39;#fff&#39;,
+borderColor: &#39;#667eea&#39;,
+borderWidth: 1,
+callbacks: {
+label: function(context) {
+const label = context.label || &#39;&#39;;
+const value = context.raw || 0;
+const total = context.dataset.data.reduce((a, b) =&gt; a + b, 0);
+const percentage = total &gt; 0 ? Math.round((value / total) * 100) : 0;
+
+return `${label}: ${value} (${percentage}%)`;
+}
+}
+}
+},
+animation: {
+animateScale: true,
+animateRotate: true,
+duration: 1500,
+easing: &#39;easeOutQuart&#39;
+}
+}
+});
+console.log(&#39;Analysis chart created successfully&#39;);
+} else {
+console.error(&#39;Analysis chart canvas not found&#39;);
+}
+// =========== ACTIVITY CHART (Line) ===========
+const activityCanvas = document.getElementById(&#39;activityChart&#39;);
+if (activityCanvas) {
+console.log(&#39;Creating activity chart...&#39;);
+const activityCtx = activityCanvas.getContext(&#39;2d&#39;);
+// Set explicit dimensions
+activityCanvas.width = activityCanvas.parentElement.clientWidth;
+activityCanvas.height = 250;
+// Sample data for better visualization
+const months = [&#39;Jan&#39;, &#39;Feb&#39;, &#39;Mar&#39;, &#39;Apr&#39;, &#39;May&#39;, &#39;Jun&#39;, &#39;Jul&#39;, &#39;Aug&#39;, &#39;Sep&#39;, &#39;Oct&#39;, &#39;Nov&#39;, &#39;Dec&#39;];
+const activityData = [12, 19, 15, 25, 22, 30, 28, 35, 32, 40, 38, 45];
+// Create gradient for line fill
+const gradient = activityCtx.createLinearGradient(0, 0, 0, 400);
+gradient.addColorStop(0, &#39;rgba(78, 115, 223, 0.2)&#39;);
+gradient.addColorStop(1, &#39;rgba(78, 115, 223, 0.05)&#39;);
+// Create chart
+new Chart(activityCtx, {
+type: &#39;line&#39;,
+data: {
+labels: months,
+datasets: [{
+label: &#39;Analyses&#39;,
+data: activityData,
+backgroundColor: gradient,
+borderColor: &#39;rgba(78, 115, 223, 1)&#39;,
+
+borderWidth: 3,
+pointBackgroundColor: &#39;rgba(78, 115, 223, 1)&#39;,
+pointBorderColor: &#39;#fff&#39;,
+pointBorderWidth: 2,
+pointRadius: 6,
+pointHoverRadius: 10,
+tension: 0.4,
+fill: true
+}]
+},
+options: {
+responsive: true,
+maintainAspectRatio: false,
+plugins: {
+legend: {
+display: false
+},
+tooltip: {
+backgroundColor: &#39;rgba(0, 0, 0, 0.8)&#39;,
+titleColor: &#39;#fff&#39;,
+bodyColor: &#39;#fff&#39;,
+borderColor: &#39;#667eea&#39;,
+borderWidth: 1,
+mode: &#39;index&#39;,
+intersect: false
+}
+},
+scales: {
+y: {
+beginAtZero: true,
+grid: {
+color: &#39;rgba(0, 0, 0, 0.05)&#39;,
+drawBorder: false
+},
+ticks: {
+font: {
+size: 12,
+family: &quot;&#39;Segoe UI&#39;, Roboto, &#39;Helvetica Neue&#39;, Arial&quot;
+},
+color: &#39;#6c757d&#39;
+}
+},
+x: {
+grid: {
+display: false,
+drawBorder: false
+},
+ticks: {
+
+font: {
+size: 12,
+family: &quot;&#39;Segoe UI&#39;, Roboto, &#39;Helvetica Neue&#39;, Arial&quot;
+},
+color: &#39;#6c757d&#39;
+}
+}
+},
+interaction: {
+intersect: false,
+mode: &#39;nearest&#39;
+},
+animation: {
+duration: 2000,
+easing: &#39;easeOutQuart&#39;
+},
+elements: {
+line: {
+tension: 0.4
+}
+}
+}
+});
+console.log(&#39;Activity chart created successfully&#39;);
+} else {
+console.error(&#39;Activity chart canvas not found&#39;);
+}
+// =========== EVENT HANDLERS ===========
+// Copy analysis link
+$(&#39;.copy-analysis&#39;).click(function() {
+const analysisId = $(this).data(&#39;id&#39;);
+const url = window.location.origin + &#39;/analysis/&#39; + analysisId;
+navigator.clipboard.writeText(url).then(() =&gt; {
+showNotification(&#39;Link copied to clipboard!&#39;, &#39;success&#39;);
+});
+});
+// Re-analyze button
+$(&#39;.reanalyze-btn&#39;).click(function() {
+const analysisId = $(this).data(&#39;id&#39;);
+showNotification(&#39;Redirecting to analysis...&#39;, &#39;info&#39;);
+setTimeout(() =&gt; {
+window.location.href = &#39;/analyze?reanalyze=&#39; + analysisId;
+}, 1000);
+});
+
+// Row click to view details
+$(&#39;.analysis-row&#39;).click(function(e) {
+if (!$(e.target).closest(&#39;.btn&#39;).length) {
+const analysisId = $(this).data(&#39;id&#39;);
+window.location.href = &#39;/analysis/&#39; + analysisId;
+}
+});
+console.log(&#39;Dashboard initialization complete&#39;);
+});
+// Show notification
+function showNotification(message, type = &#39;info&#39;) {
+const notification = document.createElement(&#39;div&#39;);
+notification.className = `alert alert-${type} alert-dismissible fade show position-fixed`;
+notification.style.cssText = &#39;position: fixed; top: 20px; right: 20px; z-index: 9999; min-width: 300px;
+box-shadow: 0 5px 20px rgba(0,0,0,0.2);&#39;;
+notification.innerHTML = `
+&lt;strong&gt;${type.charAt(0).toUpperCase() + type.slice(1)}:&lt;/strong&gt; ${message}
+&lt;button type=&quot;button&quot; class=&quot;btn-close&quot; data-bs-dismiss=&quot;alert&quot;&gt;&lt;/button&gt;
+`;
+document.body.appendChild(notification);
+setTimeout(() =&gt; {
+notification.remove();
+}, 3000);
+}
+// Debug function to check charts
+function debugCharts() {
+console.log(&#39;=== CHART DEBUG INFO ===&#39;);
+// Check if Chart.js is loaded
+console.log(&#39;Chart.js loaded:&#39;, typeof Chart !== &#39;undefined&#39;);
+// Check canvas elements
+const analysisCanvas = document.getElementById(&#39;analysisChart&#39;);
+const activityCanvas = document.getElementById(&#39;activityChart&#39;);
+console.log(&#39;Analysis canvas found:&#39;, !!analysisCanvas);
+console.log(&#39;Activity canvas found:&#39;, !!activityCanvas);
+if (analysisCanvas) {
+console.log(&#39;Analysis canvas dimensions:&#39;, {
+width: analysisCanvas.width,
+height: analysisCanvas.height,
+clientWidth: analysisCanvas.clientWidth,
+
+clientHeight: analysisCanvas.clientHeight,
+parentWidth: analysisCanvas.parentElement.clientWidth
+});
+}
+if (activityCanvas) {
+console.log(&#39;Activity canvas dimensions:&#39;, {
+width: activityCanvas.width,
+height: activityCanvas.height,
+clientWidth: activityCanvas.clientWidth,
+clientHeight: activityCanvas.clientHeight
+});
+}
+// Check if charts are created
+const analysisChart = Chart.getChart(&#39;analysisChart&#39;);
+const activityChart = Chart.getChart(&#39;activityChart&#39;);
+console.log(&#39;Analysis chart instance:&#39;, !!analysisChart);
+console.log(&#39;Activity chart instance:&#39;, !!activityChart);
+// Force redraw if charts exist
+if (analysisChart) analysisChart.resize();
+if (activityChart) activityChart.resize();
+}
+// Run debug on page load
+setTimeout(debugCharts, 1000);
+// Handle window resize
+window.addEventListener(&#39;resize&#39;, function() {
+const analysisChart = Chart.getChart(&#39;analysisChart&#39;);
+const activityChart = Chart.getChart(&#39;activityChart&#39;);
+if (analysisChart) {
+analysisChart.resize();
+analysisChart.update(&#39;none&#39;);
+}
+if (activityChart) {
+activityChart.resize();
+activityChart.update(&#39;none&#39;);
+}
+});
+&lt;/script&gt;
+{% endblock %}

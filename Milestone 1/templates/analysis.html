@@ -1,0 +1,1779 @@
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+&lt;title&gt;TruthGuard - Analyze Content&lt;/title&gt;
+&lt;link href=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css&quot;
+rel=&quot;stylesheet&quot;&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/font-
+awesome/6.0.0/css/all.min.css&quot;&gt;
+&lt;link rel=&quot;stylesheet&quot;
+href=&quot;https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css&quot;&gt;
+&lt;style&gt;
+:root {
+--primary-color: #6366f1;
+--primary-dark: #4f46e5;
+--primary-light: #818cf8;
+--secondary-color: #8b5cf6;
+--success-color: #10b981;
+--warning-color: #f59e0b;
+--danger-color: #ef4444;
+--info-color: #06b6d4;
+--accent-color: #ec4899;
+--dark-color: #1e293b;
+--light-color: #f8fafc;
+--gradient-primary: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+--gradient-success: linear-gradient(135deg, #10b981 0%, #34d399 100%);
+--gradient-warning: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%);
+--gradient-danger: linear-gradient(135deg, #ef4444 0%, #f87171 100%);
+--gradient-info: linear-gradient(135deg, #06b6d4 0%, #22d3ee 100%);
+--gradient-accent: linear-gradient(135deg, #ec4899 0%, #f472b6 100%);
+--gradient-dark: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+--gradient-rainbow: linear-gradient(90deg,
+#6366f1 0%,
+#8b5cf6 25%,
+#ec4899 50%,
+#f59e0b 75%,
+#10b981 100%
+);
+}
+body {
+background: linear-gradient(135deg, #f0f4ff 0%, #e6f7ff 100%);
+min-height: 100vh;
+font-family: &#39;Segoe UI&#39;, system-ui, -apple-system, sans-serif;
+animation: backgroundPulse 15s ease infinite;
+background-size: 200% 200%;
+
+}
+@keyframes backgroundPulse {
+0% { background-position: 0% 50%; }
+50% { background-position: 100% 50%; }
+100% { background-position: 0% 50%; }
+}
+.nav-gradient {
+background: var(--gradient-rainbow);
+box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+border-bottom: none;
+animation: navShimmer 3s ease infinite;
+}
+@keyframes navShimmer {
+0% { background-position: 0% 50%; }
+50% { background-position: 100% 50%; }
+100% { background-position: 0% 50%; }
+}
+.main-card {
+border-radius: 20px;
+border: 2px solid transparent;
+background: linear-gradient(white, white) padding-box,
+var(--gradient-primary) border-box;
+box-shadow: 0 15px 40px rgba(99, 102, 241, 0.15);
+overflow: hidden;
+margin-bottom: 35px;
+transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+animation: cardFloat 6s ease-in-out infinite;
+}
+@keyframes cardFloat {
+0%, 100% { transform: translateY(0) rotate(0deg); }
+33% { transform: translateY(-10px) rotate(0.5deg); }
+66% { transform: translateY(-5px) rotate(-0.5deg); }
+}
+.main-card:hover {
+transform: translateY(-10px) scale(1.01);
+box-shadow: 0 25px 60px rgba(99, 102, 241, 0.25);
+animation-play-state: paused;
+}
+
+.card-header-gradient {
+background: var(--gradient-rainbow);
+padding: 30px;
+border: none;
+position: relative;
+overflow: hidden;
+}
+.card-header-gradient::before {
+content: &#39;&#39;;
+position: absolute;
+top: 0;
+left: -100%;
+width: 100%;
+height: 100%;
+background: linear-gradient(90deg,
+transparent,
+rgba(255, 255, 255, 0.4),
+transparent
+);
+animation: shine 3s infinite;
+}
+@keyframes shine {
+0% { left: -100%; }
+100% { left: 100%; }
+}
+.result-card {
+background: white;
+border-radius: 20px;
+padding: 35px;
+margin: 30px 0;
+box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+border: 3px solid transparent;
+background-clip: padding-box;
+position: relative;
+overflow: hidden;
+transition: all 0.4s ease;
+animation: slideUp 0.6s ease-out;
+}
+@keyframes slideUp {
+from {
+
+opacity: 0;
+transform: translateY(30px);
+}
+to {
+opacity: 1;
+transform: translateY(0);
+}
+}
+.result-card::before {
+content: &#39;&#39;;
+position: absolute;
+top: -3px;
+left: -3px;
+right: -3px;
+bottom: -3px;
+border-radius: 23px;
+z-index: -1;
+opacity: 0;
+transition: opacity 0.4s ease;
+}
+.result-card:hover::before {
+opacity: 1;
+}
+.result-reliable {
+border-image: var(--gradient-success) 1;
+}
+.result-reliable::before { background: var(--gradient-success); }
+.result-suspicious {
+border-image: var(--gradient-warning) 1;
+}
+.result-suspicious::before { background: var(--gradient-warning); }
+.result-fake {
+border-image: var(--gradient-danger) 1;
+}
+.result-fake::before { background: var(--gradient-danger); }
+.result-unknown {
+border-image: var(--gradient-primary) 1;
+
+}
+.result-unknown::before { background: var(--gradient-primary); }
+.loading-overlay {
+position: fixed;
+top: 0; left: 0; right: 0; bottom: 0;
+background: rgba(255, 255, 255, 0.98);
+display: none;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+z-index: 9999;
+backdrop-filter: blur(10px);
+}
+.spinner-container {
+position: relative;
+width: 100px;
+height: 100px;
+}
+.spinner {
+position: absolute;
+width: 100%;
+height: 100%;
+border: 8px solid transparent;
+border-radius: 50%;
+animation: spin 1.5s linear infinite;
+}
+.spinner-1 {
+border-top: 8px solid var(--primary-color);
+animation-delay: 0s;
+}
+.spinner-2 {
+border-top: 8px solid var(--secondary-color);
+animation-delay: 0.2s;
+}
+.spinner-3 {
+border-top: 8px solid var(--accent-color);
+animation-delay: 0.4s;
+}
+
+@keyframes spin {
+0% { transform: rotate(0deg); }
+100% { transform: rotate(360deg); }
+}
+.stats-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+gap: 20px;
+margin: 25px 0;
+}
+.stat-item {
+background: white;
+padding: 25px;
+border-radius: 15px;
+text-align: center;
+box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+transition: all 0.4s ease;
+border: 2px solid transparent;
+position: relative;
+overflow: hidden;
+animation: statPulse 4s ease infinite;
+}
+@keyframes statPulse {
+0%, 100% { transform: translateY(0); }
+50% { transform: translateY(-5px); }
+}
+.stat-item::before {
+content: &#39;&#39;;
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+height: 5px;
+}
+.stat-item:hover {
+transform: translateY(-8px) scale(1.05);
+box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+animation-play-state: paused;
+
+}
+.stat-item.credibility::before { background: var(--gradient-success); }
+.stat-item.sensationalism::before { background: var(--gradient-warning); }
+.stat-item.words::before { background: var(--gradient-info); }
+.stat-item.time::before { background: var(--gradient-primary); }
+.stat-label {
+font-size: 13px;
+color: var(--secondary-color);
+text-transform: uppercase;
+font-weight: 700;
+letter-spacing: 1px;
+margin-bottom: 10px;
+}
+.stat-value {
+font-size: 32px;
+font-weight: 800;
+background: var(--gradient-primary);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+margin: 10px 0;
+font-family: &#39;Inter&#39;, system-ui, -apple-system, sans-serif;
+}
+.score-circle {
+width: 140px;
+height: 140px;
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 32px;
+font-weight: bold;
+color: white;
+margin: 0 auto;
+box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+position: relative;
+overflow: hidden;
+animation: scorePulse 2s ease-in-out infinite;
+}
+@keyframes scorePulse {
+
+0%, 100% { transform: scale(1); box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2); }
+50% { transform: scale(1.05); box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3); }
+}
+.score-circle::after {
+content: &#39;&#39;;
+position: absolute;
+inset: 5px;
+background: inherit;
+border-radius: 50%;
+z-index: 1;
+}
+.score-circle span {
+position: relative;
+z-index: 2;
+text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+.score-high { background: var(--gradient-success); }
+.score-medium { background: var(--gradient-warning); }
+.score-low { background: var(--gradient-danger); }
+.finding-item {
+background: white;
+border-radius: 15px;
+padding: 22px;
+margin-bottom: 18px;
+box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+transition: all 0.4s ease;
+border: 2px solid transparent;
+position: relative;
+overflow: hidden;
+animation: slideIn 0.5s ease-out;
+animation-fill-mode: both;
+}
+@keyframes slideIn {
+from {
+opacity: 0;
+transform: translateX(-20px);
+}
+to {
+opacity: 1;
+transform: translateX(0);
+
+}
+}
+.finding-item:nth-child(1) { animation-delay: 0.1s; }
+.finding-item:nth-child(2) { animation-delay: 0.2s; }
+.finding-item:nth-child(3) { animation-delay: 0.3s; }
+.finding-item:nth-child(4) { animation-delay: 0.4s; }
+.finding-item::before {
+content: &#39;&#39;;
+position: absolute;
+left: 0;
+top: 0;
+bottom: 0;
+width: 8px;
+}
+.finding-item:hover {
+transform: translateX(10px) translateY(-5px);
+box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+.finding-positive { border-color: #10b981; }
+.finding-positive::before { background: var(--gradient-success); }
+.finding-warning { border-color: #f59e0b; }
+.finding-warning::before { background: var(--gradient-warning); }
+.finding-danger { border-color: #ef4444; }
+.finding-danger::before { background: var(--gradient-danger); }
+.btn-primary-glow {
+background: var(--gradient-primary);
+border: none;
+color: white;
+padding: 18px 35px;
+font-size: 18px;
+font-weight: 700;
+border-radius: 12px;
+transition: all 0.4s ease;
+box-shadow: 0 10px 30px rgba(99, 102, 241, 0.4);
+position: relative;
+overflow: hidden;
+animation: buttonGlow 2s ease-in-out infinite;
+}
+
+@keyframes buttonGlow {
+0%, 100% { box-shadow: 0 10px 30px rgba(99, 102, 241, 0.4); }
+50% { box-shadow: 0 10px 40px rgba(99, 102, 241, 0.6); }
+}
+.btn-primary-glow::before {
+content: &#39;&#39;;
+position: absolute;
+top: 0;
+left: -100%;
+width: 100%;
+height: 100%;
+background: linear-gradient(90deg,
+transparent,
+rgba(255, 255, 255, 0.3),
+transparent
+);
+transition: left 0.7s;
+}
+.btn-primary-glow:hover::before {
+left: 100%;
+}
+.btn-primary-glow:hover {
+transform: translateY(-5px) scale(1.03);
+box-shadow: 0 15px 40px rgba(99, 102, 241, 0.6);
+animation-play-state: paused;
+}
+.btn-outline-glow {
+border: 3px solid transparent;
+background: linear-gradient(white, white) padding-box,
+var(--gradient-primary) border-box;
+color: var(--primary-color);
+padding: 14px 28px;
+font-size: 16px;
+font-weight: 700;
+border-radius: 12px;
+transition: all 0.4s ease;
+position: relative;
+overflow: hidden;
+}
+
+.btn-outline-glow:hover {
+background: linear-gradient(white, white) padding-box,
+var(--gradient-rainbow) border-box;
+color: var(--primary-color);
+transform: translateY(-5px);
+box-shadow: 0 10px 30px rgba(99, 102, 241, 0.2);
+}
+.form-control-glow {
+border: 3px solid transparent;
+background: linear-gradient(white, white) padding-box,
+var(--gradient-primary) border-box;
+border-radius: 12px;
+padding: 16px;
+font-size: 16px;
+transition: all 0.3s ease;
+}
+.form-control-glow:focus {
+box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.2);
+transform: translateY(-2px);
+}
+.analysis-icon {
+font-size: 80px;
+background: var(--gradient-rainbow);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+margin-bottom: 25px;
+text-align: center;
+animation: iconFloat 3s ease-in-out infinite;
+}
+@keyframes iconFloat {
+0%, 100% { transform: translateY(0) rotate(0deg); }
+33% { transform: translateY(-15px) rotate(2deg); }
+66% { transform: translateY(-8px) rotate(-2deg); }
+}
+.text-gradient {
+background: var(--gradient-rainbow);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+
+font-weight: 800;
+}
+.result-header {
+display: flex;
+align-items: center;
+justify-content: space-between;
+margin-bottom: 30px;
+padding-bottom: 25px;
+border-bottom: 3px solid #e2e8f0;
+position: relative;
+}
+.result-header::after {
+content: &#39;&#39;;
+position: absolute;
+bottom: -3px;
+left: 0;
+width: 150px;
+height: 3px;
+background: var(--gradient-rainbow);
+border-radius: 3px;
+animation: slideRight 3s ease-in-out infinite;
+}
+@keyframes slideRight {
+0% { left: 0; width: 150px; }
+50% { left: calc(100% - 150px); width: 150px; }
+100% { left: 0; width: 150px; }
+}
+.result-title {
+font-size: 32px;
+font-weight: 800;
+margin: 0;
+background: var(--gradient-rainbow);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+}
+.performance-badge {
+background: var(--gradient-rainbow);
+color: white;
+padding: 10px 24px;
+
+border-radius: 50px;
+font-size: 15px;
+font-weight: 700;
+box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+animation: badgePulse 2s ease-in-out infinite;
+}
+@keyframes badgePulse {
+0%, 100% { transform: scale(1); }
+50% { transform: scale(1.05); }
+}
+.feature-card {
+background: white;
+border-radius: 15px;
+padding: 28px;
+margin-bottom: 25px;
+box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+transition: all 0.4s ease;
+border: 3px solid transparent;
+background-clip: padding-box;
+position: relative;
+overflow: hidden;
+animation: featureFloat 6s ease-in-out infinite;
+}
+@keyframes featureFloat {
+0%, 100% { transform: translateY(0); }
+50% { transform: translateY(-10px); }
+}
+.feature-card::before {
+content: &#39;&#39;;
+position: absolute;
+top: -3px;
+left: -3px;
+right: -3px;
+bottom: -3px;
+border-radius: 18px;
+z-index: -1;
+opacity: 0;
+transition: opacity 0.4s ease;
+}
+.feature-card:hover::before {
+
+opacity: 1;
+}
+.feature-card:hover {
+transform: translateY(-12px) scale(1.03);
+box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+animation-play-state: paused;
+}
+.feature-1::before { background: var(--gradient-primary); }
+.feature-2::before { background: var(--gradient-success); }
+.feature-3::before { background: var(--gradient-accent); }
+.feature-1 .feature-icon {
+color: #6366f1;
+background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(99, 102, 241, 0.05)
+100%);
+padding: 20px;
+border-radius: 15px;
+}
+.feature-2 .feature-icon {
+color: #10b981;
+background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(16, 185, 129, 0.05)
+100%);
+padding: 20px;
+border-radius: 15px;
+}
+.feature-3 .feature-icon {
+color: #ec4899;
+background: linear-gradient(135deg, rgba(236, 72, 153, 0.1) 0%, rgba(236, 72, 153, 0.05)
+100%);
+padding: 20px;
+border-radius: 15px;
+}
+.emoji-badge {
+font-size: 28px;
+margin-right: 15px;
+animation: emojiBounce 2s infinite;
+}
+@keyframes emojiBounce {
+0%, 100% { transform: translateY(0) rotate(0deg); }
+25% { transform: translateY(-8px) rotate(5deg); }
+
+75% { transform: translateY(-4px) rotate(-5deg); }
+}
+/* Professional Divider */
+.professional-divider {
+height: 3px;
+background: var(--gradient-rainbow);
+border-radius: 3px;
+margin: 35px 0;
+position: relative;
+overflow: hidden;
+}
+.professional-divider::after {
+content: &#39;&#39;;
+position: absolute;
+top: 0;
+left: -100%;
+width: 100%;
+height: 100%;
+background: linear-gradient(90deg,
+transparent,
+rgba(255, 255, 255, 0.8),
+transparent
+);
+animation: shine 2s infinite;
+}
+/* Colorful scrollbar */
+::-webkit-scrollbar {
+width: 12px;
+}
+::-webkit-scrollbar-track {
+background: linear-gradient(180deg,
+#6366f1,
+#8b5cf6,
+#ec4899,
+#f59e0b,
+#10b981
+);
+border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+background: var(--gradient-rainbow);
+border-radius: 10px;
+border: 3px solid transparent;
+background-clip: content-box;
+}
+::-webkit-scrollbar-thumb:hover {
+background: var(--gradient-primary);
+border: 2px solid transparent;
+background-clip: content-box;
+}
+/* Badge styles */
+.badge-professional {
+padding: 10px 20px;
+border-radius: 8px;
+font-weight: 700;
+font-size: 14px;
+animation: badgeFloat 3s ease-in-out infinite;
+}
+@keyframes badgeFloat {
+0%, 100% { transform: translateY(0); }
+50% { transform: translateY(-5px); }
+}
+/* Input group styles */
+.input-group-text {
+background: var(--gradient-primary);
+border: 3px solid transparent;
+border-right: none;
+color: white;
+font-weight: 600;
+}
+.form-control {
+border-left: none;
+}
+/* Status indicators */
+.status-indicator {
+display: inline-flex;
+align-items: center;
+
+padding: 8px 16px;
+border-radius: 25px;
+font-size: 13px;
+font-weight: 700;
+text-transform: uppercase;
+letter-spacing: 0.5px;
+animation: indicatorPulse 3s ease-in-out infinite;
+}
+@keyframes indicatorPulse {
+0%, 100% { transform: scale(1); }
+50% { transform: scale(1.05); }
+}
+.status-reliable {
+background: var(--gradient-success);
+color: white;
+box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+}
+.status-suspicious {
+background: var(--gradient-warning);
+color: white;
+box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+}
+.status-fake {
+background: var(--gradient-danger);
+color: white;
+box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3);
+}
+/* Professional footer */
+.footer-professional {
+background: var(--gradient-dark);
+position: relative;
+overflow: hidden;
+}
+.footer-professional::before {
+content: &#39;&#39;;
+position: absolute;
+top: 0;
+left: 0;
+
+right: 0;
+height: 3px;
+background: var(--gradient-rainbow);
+animation: slideRight 4s linear infinite;
+}
+/* Floating particles */
+.floating-particles {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+pointer-events: none;
+z-index: 1;
+overflow: hidden;
+}
+.particle {
+position: absolute;
+width: 6px;
+height: 6px;
+border-radius: 50%;
+opacity: 0.6;
+animation: particleFloat 20s infinite linear;
+}
+@keyframes particleFloat {
+0% {
+transform: translateY(100vh) translateX(0) rotate(0deg);
+opacity: 0;
+}
+10% {
+opacity: 0.6;
+}
+90% {
+opacity: 0.6;
+}
+100% {
+transform: translateY(-100px) translateX(100px) rotate(720deg);
+opacity: 0;
+}
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+.stats-grid {
+grid-template-columns: repeat(2, 1fr);
+}
+.result-card {
+padding: 25px;
+}
+.score-circle {
+width: 120px;
+height: 120px;
+font-size: 28px;
+}
+.analysis-icon {
+font-size: 60px;
+}
+.result-title {
+font-size: 26px;
+}
+.btn-primary-glow {
+padding: 16px 28px;
+font-size: 16px;
+}
+}
+/* Typography improvements */
+h1, h2, h3, h4, h5, h6 {
+font-family: &#39;Inter&#39;, system-ui, -apple-system, sans-serif;
+font-weight: 700;
+color: var(--dark-color);
+}
+.lead {
+color: var(--secondary-color);
+font-weight: 500;
+font-size: 1.25rem;
+
+}
+/* Success animation */
+.animate-success {
+animation: successPop 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+@keyframes successPop {
+0% { transform: scale(0.8); opacity: 0; }
+70% { transform: scale(1.1); }
+100% { transform: scale(1); opacity: 1; }
+}
+/* Shine effect */
+.shine-effect {
+position: relative;
+overflow: hidden;
+}
+.shine-effect::after {
+content: &#39;&#39;;
+position: absolute;
+top: -50%;
+left: -50%;
+width: 200%;
+height: 200%;
+background: linear-gradient(
+to right,
+rgba(255, 255, 255, 0) 0%,
+rgba(255, 255, 255, 0.3) 50%,
+rgba(255, 255, 255, 0) 100%
+);
+transform: rotate(30deg);
+animation: shineMove 3s infinite;
+}
+@keyframes shineMove {
+0% { left: -50%; }
+100% { left: 150%; }
+}
+/* Colorful hover effects */
+.color-hover:hover {
+filter: brightness(1.1);
+
+transition: filter 0.3s ease;
+}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;!-- Floating Particles --&gt;
+&lt;div class=&quot;floating-particles&quot; id=&quot;particles&quot;&gt;&lt;/div&gt;
+&lt;!-- Navigation --&gt;
+&lt;nav class=&quot;navbar navbar-expand-lg navbar-dark nav-gradient fixed-top&quot;&gt;
+&lt;div class=&quot;container&quot;&gt;
+&lt;a class=&quot;navbar-brand&quot; href=&quot;/&quot; style=&quot;color: white;&quot;&gt;
+&lt;i class=&quot;fas fa-shield-alt fa-lg me-2&quot;&gt;&lt;/i&gt;
+&lt;span class=&quot;fw-bold&quot; style=&quot;font-family: &#39;Inter&#39;, sans-serif;&quot;&gt;TruthGuard&lt;/span&gt;
+&lt;/a&gt;
+&lt;button class=&quot;navbar-toggler&quot; type=&quot;button&quot; data-bs-toggle=&quot;collapse&quot; data-bs-
+target=&quot;#navbarNav&quot;&gt;
+&lt;span class=&quot;navbar-toggler-icon&quot;&gt;&lt;/span&gt;
+&lt;/button&gt;
+&lt;div class=&quot;collapse navbar-collapse&quot; id=&quot;navbarNav&quot;&gt;
+&lt;ul class=&quot;navbar-nav ms-auto&quot;&gt;
+&lt;li class=&quot;nav-item&quot;&gt;
+&lt;a class=&quot;nav-link&quot; href=&quot;/dashboard&quot;&gt;
+&lt;i class=&quot;fas fa-tachometer-alt me-1&quot;&gt;&lt;/i&gt; Dashboard
+&lt;/a&gt;
+&lt;/li&gt;
+&lt;li class=&quot;nav-item&quot;&gt;
+&lt;a class=&quot;nav-link active&quot; href=&quot;/analyze&quot;&gt;
+&lt;i class=&quot;fas fa-search me-1&quot;&gt;&lt;/i&gt; Analyze
+&lt;/a&gt;
+&lt;/li&gt;
+&lt;li class=&quot;nav-item&quot;&gt;
+&lt;a class=&quot;nav-link&quot; href=&quot;/history&quot;&gt;
+&lt;i class=&quot;fas fa-history me-1&quot;&gt;&lt;/i&gt; History
+&lt;/a&gt;
+&lt;/li&gt;
+&lt;li class=&quot;nav-item&quot;&gt;
+&lt;a class=&quot;nav-link&quot; href=&quot;/profile&quot;&gt;
+&lt;i class=&quot;fas fa-user me-1&quot;&gt;&lt;/i&gt; Profile
+&lt;/a&gt;
+&lt;/li&gt;
+&lt;li class=&quot;nav-item&quot;&gt;
+&lt;a class=&quot;nav-link&quot; href=&quot;/logout&quot;&gt;
+&lt;i class=&quot;fas fa-sign-out-alt me-1&quot;&gt;&lt;/i&gt; Logout
+&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/nav&gt;
+&lt;!-- Main Content --&gt;
+&lt;div class=&quot;container mt-5 pt-4&quot;&gt;
+&lt;div class=&quot;row&quot;&gt;
+&lt;div class=&quot;col-lg-10 mx-auto&quot;&gt;
+&lt;!-- Header --&gt;
+&lt;div class=&quot;text-center mb-5 animate__animated animate__fadeIn&quot;&gt;
+&lt;div class=&quot;analysis-icon&quot;&gt;
+&lt;i class=&quot;fas fa-search&quot;&gt;&lt;/i&gt;
+&lt;/div&gt;
+&lt;h1 class=&quot;display-5 fw-bold mb-3 text-gradient&quot;&gt;Analyze Content for
+Misinformation&lt;/h1&gt;
+&lt;p class=&quot;lead mb-4&quot;&gt;Paste text or a URL to get immediate analysis using our AI-powered
+detection system&lt;/p&gt;
+&lt;!-- Features --&gt;
+&lt;div class=&quot;row mb-4&quot;&gt;
+&lt;div class=&quot;col-md-4&quot;&gt;
+&lt;div class=&quot;feature-card feature-1&quot;&gt;
+&lt;div class=&quot;text-center mb-3&quot;&gt;
+&lt;i class=&quot;fas fa-bolt fa-3x feature-icon mb-3&quot;&gt;&lt;/i&gt;
+&lt;h5 class=&quot;fw-bold&quot;&gt;Ultra-Fast Analysis&lt;/h5&gt;
+&lt;/div&gt;
+&lt;p class=&quot;text-muted mb-0&quot;&gt;Get results in under 50ms with our optimized
+detection engine&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;col-md-4&quot;&gt;
+&lt;div class=&quot;feature-card feature-2&quot;&gt;
+&lt;div class=&quot;text-center mb-3&quot;&gt;
+&lt;i class=&quot;fas fa-robot fa-3x feature-icon mb-3&quot;&gt;&lt;/i&gt;
+&lt;h5 class=&quot;fw-bold&quot;&gt;AI-Powered Detection&lt;/h5&gt;
+&lt;/div&gt;
+&lt;p class=&quot;text-muted mb-0&quot;&gt;Advanced machine learning models trained on
+thousands of examples&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;col-md-4&quot;&gt;
+&lt;div class=&quot;feature-card feature-3&quot;&gt;
+&lt;div class=&quot;text-center mb-3&quot;&gt;
+&lt;i class=&quot;fas fa-chart-line fa-3x feature-icon mb-3&quot;&gt;&lt;/i&gt;
+&lt;h5 class=&quot;fw-bold&quot;&gt;Detailed Insights&lt;/h5&gt;
+&lt;/div&gt;
+
+&lt;p class=&quot;text-muted mb-0&quot;&gt;Comprehensive analysis with credibility scores and
+key findings&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;!-- Professional Divider --&gt;
+&lt;div class=&quot;professional-divider&quot;&gt;&lt;/div&gt;
+&lt;!-- Analysis Form --&gt;
+&lt;div class=&quot;main-card animate__animated animate__fadeInUp&quot;&gt;
+&lt;div class=&quot;card-header-gradient text-white&quot;&gt;
+&lt;div class=&quot;d-flex justify-content-between align-items-center&quot;&gt;
+&lt;div&gt;
+&lt;h4 class=&quot;mb-1&quot;&gt;&lt;i class=&quot;fas fa-search me-2&quot;&gt;&lt;/i&gt; Content Analysis&lt;/h4&gt;
+&lt;p class=&quot;mb-0 opacity-90&quot;&gt;Analyze articles, social media posts, or any text for
+misinformation&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;performance-badge&quot;&gt;
+&lt;i class=&quot;fas fa-rocket me-1&quot;&gt;&lt;/i&gt; Fast Analysis Mode
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;card-body p-4&quot;&gt;
+&lt;form id=&quot;analysisForm&quot;&gt;
+&lt;div class=&quot;mb-4&quot;&gt;
+&lt;label for=&quot;url&quot; class=&quot;form-label fw-bold text-dark mb-3&quot;&gt;
+&lt;i class=&quot;fas fa-link me-2 text-primary&quot;&gt;&lt;/i&gt; URL Analysis
+&lt;/label&gt;
+&lt;div class=&quot;input-group&quot;&gt;
+&lt;span class=&quot;input-group-text&quot;&gt;
+&lt;i class=&quot;fas fa-globe&quot;&gt;&lt;/i&gt;
+&lt;/span&gt;
+&lt;input type=&quot;url&quot; class=&quot;form-control form-control-glow&quot; id=&quot;url&quot; name=&quot;url&quot;
+placeholder=&quot;https://example.com/news-article&quot;&gt;
+&lt;/div&gt;
+&lt;small class=&quot;text-muted mt-2 d-block&quot;&gt;
+&lt;i class=&quot;fas fa-info-circle me-1&quot;&gt;&lt;/i&gt; We&#39;ll automatically extract and analyze
+content from any URL
+&lt;/small&gt;
+&lt;/div&gt;
+&lt;div class=&quot;text-center my-4&quot;&gt;
+&lt;div class=&quot;professional-divider&quot; style=&quot;width: 40%; margin: 0 auto 10px;&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;my-3&quot;&gt;
+
+&lt;span class=&quot;badge bg-secondary bg-opacity-10 text-secondary&quot; style=&quot;font-
+size: 16px; padding: 10px 20px;&quot;&gt;
+&lt;i class=&quot;fas fa-exchange-alt me-1&quot;&gt;&lt;/i&gt; OR
+&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class=&quot;professional-divider&quot; style=&quot;width: 40%; margin: 10px auto 0;&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;mb-4&quot;&gt;
+&lt;label for=&quot;content&quot; class=&quot;form-label fw-bold text-dark mb-3&quot;&gt;
+&lt;i class=&quot;fas fa-align-left me-2 text-primary&quot;&gt;&lt;/i&gt; Direct Text Analysis
+&lt;/label&gt;
+&lt;textarea class=&quot;form-control form-control-glow&quot; id=&quot;content&quot; name=&quot;content&quot;
+rows=&quot;6&quot; placeholder=&quot;Paste the text you want to analyze
+here...&quot;&gt;&lt;/textarea&gt;
+&lt;div class=&quot;d-flex justify-content-between mt-2&quot;&gt;
+&lt;small class=&quot;text-muted&quot;&gt;
+&lt;i class=&quot;fas fa-info-circle me-1&quot;&gt;&lt;/i&gt; Minimum 50 characters required
+&lt;/small&gt;
+&lt;small class=&quot;text-muted&quot;&gt;
+&lt;span id=&quot;charCount&quot;&gt;0&lt;/span&gt; characters
+&lt;/small&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;d-grid gap-3 mt-4&quot;&gt;
+&lt;button type=&quot;submit&quot; class=&quot;btn btn-primary-glow&quot;&gt;
+&lt;i class=&quot;fas fa-search me-2&quot;&gt;&lt;/i&gt; Analyze Content
+&lt;small class=&quot;d-block opacity-75 mt-1&quot;&gt;Get immediate results with our
+detection engine&lt;/small&gt;
+&lt;/button&gt;
+&lt;div class=&quot;d-flex gap-2&quot;&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-outline-glow flex-grow-1&quot;
+onclick=&quot;clearForm()&quot;&gt;
+&lt;i class=&quot;fas fa-trash me-2&quot;&gt;&lt;/i&gt; Clear Form
+&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-outline-glow flex-grow-1&quot;
+onclick=&quot;loadSample()&quot;&gt;
+&lt;i class=&quot;fas fa-vial me-2&quot;&gt;&lt;/i&gt; Try Sample
+&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-outline-glow flex-grow-1&quot;
+onclick=&quot;triggerConfetti()&quot;&gt;
+&lt;i class=&quot;fas fa-fireworks me-2&quot;&gt;&lt;/i&gt; Celebrate
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/form&gt;
+
+&lt;!-- Loading Overlay --&gt;
+&lt;div id=&quot;loading&quot; class=&quot;loading-overlay&quot;&gt;
+&lt;div class=&quot;text-center&quot;&gt;
+&lt;div class=&quot;spinner-container&quot;&gt;
+&lt;div class=&quot;spinner spinner-1&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;spinner spinner-2&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;spinner spinner-3&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;h4 class=&quot;mt-4 fw-bold text-gradient&quot;&gt;Analyzing Content&lt;/h4&gt;
+&lt;p class=&quot;text-muted&quot;&gt;Our AI is scanning the content for misinformation
+indicators...&lt;/p&gt;
+&lt;div class=&quot;mt-4&quot;&gt;
+&lt;div class=&quot;professional-divider&quot; style=&quot;width: 300px; margin: 0 auto;&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;mt-4&quot;&gt;
+&lt;div class=&quot;badge-professional&quot; style=&quot;background: var(--gradient-primary);
+color: white;&quot;&gt;
+&lt;i class=&quot;fas fa-cog fa-spin me-2&quot;&gt;&lt;/i&gt; Processing Analysis
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;!-- Results Container --&gt;
+&lt;div id=&quot;results&quot; class=&quot;mt-4&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;!-- Tips Section --&gt;
+&lt;div class=&quot;main-card animate__animated animate__fadeInUp animate__delay-1s&quot;&gt;
+&lt;div class=&quot;card-body p-4&quot;&gt;
+&lt;h4 class=&quot;fw-bold mb-4 text-gradient&quot;&gt;
+&lt;i class=&quot;fas fa-lightbulb me-2&quot;&gt;&lt;/i&gt; Analysis Tips
+&lt;/h4&gt;
+&lt;div class=&quot;row&quot;&gt;
+&lt;div class=&quot;col-md-6 mb-3&quot;&gt;
+&lt;div class=&quot;d-flex align-items-start hover-lift p-3 rounded-3&quot; style=&quot;background:
+linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(99, 102, 241, 0.05) 100%); border: 2px solid
+rgba(99, 102, 241, 0.2);&quot;&gt;
+&lt;div class=&quot;me-3&quot;&gt;
+&lt;div class=&quot;rounded-circle d-flex align-items-center justify-content-center
+shine-effect&quot;
+style=&quot;width: 50px; height: 50px; background: var(--gradient-primary);&quot;&gt;
+&lt;i class=&quot;fas fa-check text-white&quot;&gt;&lt;/i&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+&lt;h6 class=&quot;fw-bold mb-2&quot;&gt;Provide Full Context&lt;/h6&gt;
+&lt;p class=&quot;text-muted small mb-0&quot;&gt;Include headlines, main arguments, and
+conclusions for better accuracy.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;col-md-6 mb-3&quot;&gt;
+&lt;div class=&quot;d-flex align-items-start hover-lift p-3 rounded-3&quot; style=&quot;background:
+linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(16, 185, 129, 0.05) 100%); border: 2px solid
+rgba(16, 185, 129, 0.2);&quot;&gt;
+&lt;div class=&quot;me-3&quot;&gt;
+&lt;div class=&quot;rounded-circle d-flex align-items-center justify-content-center
+shine-effect&quot;
+style=&quot;width: 50px; height: 50px; background: var(--gradient-success);&quot;&gt;
+&lt;i class=&quot;fas fa-link text-white&quot;&gt;&lt;/i&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div&gt;
+&lt;h6 class=&quot;fw-bold mb-2&quot;&gt;Use URLs When Possible&lt;/h6&gt;
+&lt;p class=&quot;text-muted small mb-0&quot;&gt;We can extract and analyze content
+directly from most news websites.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;col-md-6 mb-3&quot;&gt;
+&lt;div class=&quot;d-flex align-items-start hover-lift p-3 rounded-3&quot; style=&quot;background:
+linear-gradient(135deg, rgba(245, 158, 11, 0.1) 0%, rgba(245, 158, 11, 0.05) 100%); border: 2px solid
+rgba(245, 158, 11, 0.2);&quot;&gt;
+&lt;div class=&quot;me-3&quot;&gt;
+&lt;div class=&quot;rounded-circle d-flex align-items-center justify-content-center
+shine-effect&quot;
+style=&quot;width: 50px; height: 50px; background: var(--gradient-warning);&quot;&gt;
+&lt;i class=&quot;fas fa-chart-bar text-white&quot;&gt;&lt;/i&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div&gt;
+&lt;h6 class=&quot;fw-bold mb-2&quot;&gt;Check Multiple Sources&lt;/h6&gt;
+&lt;p class=&quot;text-muted small mb-0&quot;&gt;Always verify suspicious content with
+trusted fact-checking sources.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;col-md-6 mb-3&quot;&gt;
+&lt;div class=&quot;d-flex align-items-start hover-lift p-3 rounded-3&quot; style=&quot;background:
+linear-gradient(135deg, rgba(236, 72, 153, 0.1) 0%, rgba(236, 72, 153, 0.05) 100%); border: 2px solid
+rgba(236, 72, 153, 0.2);&quot;&gt;
+&lt;div class=&quot;me-3&quot;&gt;
+
+&lt;div class=&quot;rounded-circle d-flex align-items-center justify-content-center
+shine-effect&quot;
+style=&quot;width: 50px; height: 50px; background: var(--gradient-accent);&quot;&gt;
+&lt;i class=&quot;fas fa-robot text-white&quot;&gt;&lt;/i&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div&gt;
+&lt;h6 class=&quot;fw-bold mb-2&quot;&gt;Use AI Assistant&lt;/h6&gt;
+&lt;p class=&quot;text-muted small mb-0&quot;&gt;Get additional insights and explanations
+from our AI assistant.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;!-- Footer --&gt;
+&lt;footer class=&quot;footer-professional text-white mt-5 py-4&quot;&gt;
+&lt;div class=&quot;container&quot;&gt;
+&lt;div class=&quot;row align-items-center&quot;&gt;
+&lt;div class=&quot;col-md-6&quot;&gt;
+&lt;h5 class=&quot;mb-3&quot;&gt;
+&lt;i class=&quot;fas fa-shield-alt me-2 text-primary&quot;&gt;&lt;/i&gt; TruthGuard
+&lt;/h5&gt;
+&lt;p class=&quot;text-white-50 mb-0&quot;&gt;Advanced AI-powered platform to detect fake news and
+misinformation.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;col-md-6 text-md-end&quot;&gt;
+&lt;div class=&quot;social-links&quot;&gt;
+&lt;a href=&quot;#&quot; class=&quot;text-white-50 me-3 hover-lift d-inline-block&quot; style=&quot;font-size:
+22px;&quot;&gt;&lt;i class=&quot;fab fa-twitter&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;text-white-50 me-3 hover-lift d-inline-block&quot; style=&quot;font-size:
+22px;&quot;&gt;&lt;i class=&quot;fab fa-linkedin&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;text-white-50 hover-lift d-inline-block&quot; style=&quot;font-size: 22px;&quot;&gt;&lt;i
+class=&quot;fab fa-github&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;hr class=&quot;bg-white-10 my-4&quot;&gt;
+&lt;div class=&quot;text-center&quot;&gt;
+&lt;p class=&quot;mb-0 text-white-50&quot;&gt;&amp;copy; 2025 TruthGuard. All rights reserved.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/footer&gt;
+&lt;script
+src=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+// Create floating particles
+function createParticles() {
+const particlesContainer = document.getElementById(&#39;particles&#39;);
+const colors = [&#39;#6366f1&#39;, &#39;#8b5cf6&#39;, &#39;#ec4899&#39;, &#39;#f59e0b&#39;, &#39;#10b981&#39;, &#39;#06b6d4&#39;];
+for (let i = 0; i &lt; 40; i++) {
+const particle = document.createElement(&#39;div&#39;);
+particle.className = &#39;particle&#39;;
+particle.style.left = Math.random() * 100 + &#39;vw&#39;;
+particle.style.animationDelay = Math.random() * 20 + &#39;s&#39;;
+particle.style.animationDuration = 15 + Math.random() * 20 + &#39;s&#39;;
+particle.style.width = particle.style.height = Math.random() * 8 + 4 + &#39;px&#39;;
+particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+particle.style.opacity = Math.random() * 0.4 + 0.2;
+particlesContainer.appendChild(particle);
+}
+}
+// Create confetti effect
+function createConfetti() {
+const container = document.querySelector(&#39;.main-card&#39;);
+const colors = [&#39;#6366f1&#39;, &#39;#8b5cf6&#39;, &#39;#ec4899&#39;, &#39;#f59e0b&#39;, &#39;#10b981&#39;];
+for (let i = 0; i &lt; 50; i++) {
+const confetti = document.createElement(&#39;div&#39;);
+confetti.style.position = &#39;absolute&#39;;
+confetti.style.width = Math.random() * 10 + 5 + &#39;px&#39;;
+confetti.style.height = Math.random() * 10 + 5 + &#39;px&#39;;
+confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+confetti.style.borderRadius = Math.random() &gt; 0.5 ? &#39;50%&#39; : &#39;0&#39;;
+confetti.style.left = Math.random() * 100 + &#39;%&#39;;
+confetti.style.top = &#39;-20px&#39;;
+confetti.style.opacity = &#39;0.8&#39;;
+confetti.style.zIndex = &#39;9998&#39;;
+container.appendChild(confetti);
+// Animate confetti
+const animation = confetti.animate([
+{ transform: &#39;translateY(0) rotate(0deg)&#39;, opacity: 1 },
+
+{ transform: `translateY(${window.innerHeight}px) rotate(${Math.random() * 720}deg)`,
+opacity: 0 }
+], {
+duration: 2000 + Math.random() * 2000,
+easing: &#39;cubic-bezier(0.215, 0.61, 0.355, 1)&#39;
+});
+animation.onfinish = () =&gt; confetti.remove();
+}
+}
+// Show/hide loading
+function showLoading(show = true) {
+document.getElementById(&#39;loading&#39;).style.display = show ? &#39;flex&#39; : &#39;none&#39;;
+}
+// Clear form
+function clearForm() {
+document.getElementById(&#39;analysisForm&#39;).reset();
+document.getElementById(&#39;results&#39;).innerHTML = &#39;&#39;;
+document.getElementById(&#39;charCount&#39;).textContent = &#39;0&#39;;
+document.getElementById(&#39;content&#39;).style.height = &#39;auto&#39;;
+createConfetti();
+}
+// Trigger confetti
+function triggerConfetti() {
+createConfetti();
+showNotification(&#39;�� Time to celebrate! Enjoy the confetti!&#39;, &#39;info&#39;);
+}
+// Load sample text
+function loadSample() {
+const sampleText = `�� BREAKING: Exciting New Health Study Reveals Benefits!
+A comprehensive new study published in the &quot;Journal of Medical Research&quot; reveals that regular
+coffee consumption may be associated with positive health outcomes. According to researchers,
+moderate coffee intake could potentially offer certain health benefits.
+The study followed a large group of participants over an extended period, examining various health
+metrics. While the findings are promising, experts emphasize that more research is needed to fully
+understand the implications.
+
+Important Note: This information is for educational purposes only. Always consult healthcare
+professionals for medical advice.`;
+document.getElementById(&#39;content&#39;).value = sampleText;
+document.getElementById(&#39;content&#39;).dispatchEvent(new Event(&#39;input&#39;));
+createConfetti();
+}
+// Character counter
+document.getElementById(&#39;content&#39;)?.addEventListener(&#39;input&#39;, function() {
+const count = this.value.length;
+const charCount = document.getElementById(&#39;charCount&#39;);
+charCount.textContent = count;
+// Auto-resize
+this.style.height = &#39;auto&#39;;
+this.style.height = Math.min(this.scrollHeight, 300) + &#39;px&#39;;
+// Color animation based on length
+charCount.style.transition = &#39;all 0.3s ease&#39;;
+if (count &lt; 50) {
+charCount.style.color = &#39;#ef4444&#39;;
+charCount.style.transform = &#39;scale(1.2)&#39;;
+charCount.innerHTML = `&lt;span class=&quot;badge bg-danger animate__animated
+animate__pulse&quot;&gt;${count}&lt;/span&gt;`;
+} else if (count &lt; 100) {
+charCount.style.color = &#39;#f59e0b&#39;;
+charCount.style.transform = &#39;scale(1.1)&#39;;
+charCount.innerHTML = `&lt;span class=&quot;badge bg-warning&quot;&gt;${count}&lt;/span&gt;`;
+} else {
+charCount.style.color = &#39;#10b981&#39;;
+charCount.style.transform = &#39;scale(1)&#39;;
+charCount.innerHTML = `&lt;span class=&quot;badge bg-success&quot;&gt;${count}&lt;/span&gt;`;
+}
+// Reset transform
+setTimeout(() =&gt; {
+charCount.style.transform = &#39;scale(1)&#39;;
+}, 300);
+});
+// Replace the entire form submission handler with this corrected version:
+document.getElementById(&#39;analysisForm&#39;).addEventListener(&#39;submit&#39;, async function(e) {
+e.preventDefault();
+
+const content = document.getElementById(&#39;content&#39;).value.trim();
+const url = document.getElementById(&#39;url&#39;).value.trim();
+if (!content &amp;&amp; !url) {
+showNotification(&#39;Please provide text or URL to analyze&#39;, &#39;warning&#39;);
+return;
+}
+if (content &amp;&amp; content.length &lt; 50) {
+showNotification(&#39;Text must be at least 50 characters&#39;, &#39;warning&#39;);
+return;
+}
+showLoading(true);
+document.getElementById(&#39;results&#39;).innerHTML = &#39;&#39;;
+createConfetti();
+try {
+// Prepare form data
+const formData = new FormData();
+formData.append(&#39;content&#39;, content);
+if (url) formData.append(&#39;url&#39;, url);
+// Make actual API call to backend
+const response = await fetch(&#39;/analyze&#39;, {
+method: &#39;POST&#39;,
+body: formData,
+headers: {
+&#39;X-Requested-With&#39;: &#39;XMLHttpRequest&#39;
+}
+});
+const data = await response.json();
+showLoading(false);
+if (data.success) {
+displayResults(data);
+showNotification(&#39;�� Analysis completed successfully! Saved to history.&#39;, &#39;success&#39;);
+createConfetti();
+// Add success animation to result card
+
+setTimeout(() =&gt; {
+const resultCard = document.querySelector(&#39;.result-card&#39;);
+if (resultCard) {
+resultCard.classList.add(&#39;animate-success&#39;);
+}
+}, 100);
+} else {
+showNotification(data.error || &#39;Analysis failed&#39;, &#39;danger&#39;);
+}
+} catch (error) {
+showLoading(false);
+showNotification(&#39;Network error. Please try again.&#39;, &#39;danger&#39;);
+console.error(&#39;Analysis error:&#39;, error);
+}
+});
+// Update the displayResults function to use real data:
+function displayResults(data) {
+const resultsDiv = document.getElementById(&#39;results&#39;);
+let badgeClass, borderClass, scoreClass, statusClass, badgeIcon, badgeGradient;
+switch(data.classification) {
+case &#39;RELIABLE&#39;:
+badgeClass = &#39;bg-success bg-opacity-20 text-success&#39;;
+borderClass = &#39;result-reliable&#39;;
+scoreClass = &#39;score-high&#39;;
+statusClass = &#39;status-reliable&#39;;
+badgeIcon = &#39;fa-check-circle&#39;;
+badgeGradient = &#39;var(--gradient-success)&#39;;
+break;
+case &#39;SUSPICIOUS&#39;:
+badgeClass = &#39;bg-warning bg-opacity-20 text-warning&#39;;
+borderClass = &#39;result-suspicious&#39;;
+scoreClass = &#39;score-medium&#39;;
+statusClass = &#39;status-suspicious&#39;;
+badgeIcon = &#39;fa-exclamation-triangle&#39;;
+badgeGradient = &#39;var(--gradient-warning)&#39;;
+break;
+case &#39;FAKE&#39;:
+badgeClass = &#39;bg-danger bg-opacity-20 text-danger&#39;;
+borderClass = &#39;result-fake&#39;;
+scoreClass = &#39;score-low&#39;;
+statusClass = &#39;status-fake&#39;;
+badgeIcon = &#39;fa-times-circle&#39;;
+badgeGradient = &#39;var(--gradient-danger)&#39;;
+
+break;
+default:
+badgeClass = &#39;bg-secondary bg-opacity-20 text-secondary&#39;;
+borderClass = &#39;result-unknown&#39;;
+scoreClass = &#39;score-low&#39;;
+statusClass = &#39;status-suspicious&#39;;
+badgeIcon = &#39;fa-question-circle&#39;;
+badgeGradient = &#39;var(--gradient-primary)&#39;;
+}
+// Enhanced finding type classes with animations
+let findingsHTML = &#39;&#39;;
+if (data.key_findings &amp;&amp; data.key_findings.length &gt; 0) {
+findingsHTML = `
+&lt;div class=&quot;mt-4&quot;&gt;
+&lt;h5 class=&quot;fw-bold mb-3 text-gradient&quot;&gt;
+&lt;i class=&quot;fas fa-search me-2&quot;&gt;&lt;/i&gt; Key Findings
+&lt;/h5&gt;
+&lt;div class=&quot;row&quot;&gt;
+${data.key_findings.map((finding, index) =&gt; {
+let findingClass = &#39;finding-positive&#39;;
+let iconColor = &#39;text-success&#39;;
+let icon = finding.icon || &#39;✅&#39;;
+if (finding.type === &#39;warning&#39; || finding.icon === &#39;⚠️&#39;) {
+findingClass = &#39;finding-warning&#39;;
+iconColor = &#39;text-warning&#39;;
+icon = finding.icon || &#39;⚠️&#39;;
+}
+if (finding.type === &#39;danger&#39; || finding.icon === &#39;��&#39;) {
+findingClass = &#39;finding-danger&#39;;
+iconColor = &#39;text-danger&#39;;
+icon = finding.icon || &#39;��&#39;;
+}
+return `
+&lt;div class=&quot;col-md-6 mb-3&quot;&gt;
+&lt;div class=&quot;finding-item ${findingClass}&quot; style=&quot;animation-delay: ${index * 0.1}s&quot;&gt;
+&lt;div class=&quot;d-flex align-items-start&quot;&gt;
+&lt;div class=&quot;emoji-badge&quot;&gt;${icon}&lt;/div&gt;
+&lt;div&gt;
+&lt;h6 class=&quot;fw-bold mb-2 ${iconColor}&quot;&gt;${finding.title || finding.type}&lt;/h6&gt;
+&lt;p class=&quot;text-muted mb-0 small&quot;&gt;${finding.description || finding.title}&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+`;
+}).join(&#39;&#39;)}
+&lt;/div&gt;
+&lt;/div&gt;
+`;
+}
+resultsDiv.innerHTML = `
+&lt;div class=&quot;result-card ${borderClass} animate-fade-in-up&quot;&gt;
+&lt;div class=&quot;result-header&quot;&gt;
+&lt;div&gt;
+&lt;h3 class=&quot;result-title mb-2&quot;&gt;Analysis Results&lt;/h3&gt;
+&lt;div class=&quot;d-flex align-items-center flex-wrap gap-2&quot;&gt;
+&lt;span class=&quot;badge ${badgeClass} badge-professional&quot; style=&quot;background:
+${badgeGradient}; color: white;&quot;&gt;
+&lt;i class=&quot;fas ${badgeIcon} me-1&quot;&gt;&lt;/i&gt;
+${data.classification}
+&lt;/span&gt;
+&lt;span class=&quot;status-indicator ${statusClass}&quot;&gt;
+${data.confidence || 0}% confidence
+&lt;/span&gt;
+${data.cached ?
+&#39;&lt;span class=&quot;badge bg-info bg-opacity-20 text-info badge-professional&quot;
+style=&quot;background: var(--gradient-info); color: white;&quot;&gt;&lt;i class=&quot;fas fa-bolt me-
+1&quot;&gt;&lt;/i&gt;Cached&lt;/span&gt;&#39; :
+&#39;&lt;span class=&quot;badge bg-primary bg-opacity-20 text-primary badge-professional&quot;
+style=&quot;background: var(--gradient-primary); color: white;&quot;&gt;&lt;i class=&quot;fas fa-sync me-
+1&quot;&gt;&lt;/i&gt;Live&lt;/span&gt;&#39;
+}
+${data.is_quick ? &#39;&lt;span class=&quot;badge bg-success bg-opacity-20 text-success badge-
+professional&quot; style=&quot;background: var(--gradient-success); color: white;&quot;&gt;&lt;i class=&quot;fas fa-bolt me-
+1&quot;&gt;&lt;/i&gt;Quick Analysis&lt;/span&gt;&#39; : &#39;&#39;}
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;performance-badge&quot;&gt;
+&lt;i class=&quot;fas fa-stopwatch me-1&quot;&gt;&lt;/i&gt; ${data.processing_ms || 0}ms
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;row align-items-center&quot;&gt;
+&lt;div class=&quot;col-md-8&quot;&gt;
+&lt;div class=&quot;stats-grid mb-4&quot;&gt;
+&lt;div class=&quot;stat-item credibility&quot;&gt;
+
+&lt;div class=&quot;stat-label&quot;&gt;
+&lt;i class=&quot;fas fa-shield-alt me-1&quot;&gt;&lt;/i&gt; Credibility
+&lt;/div&gt;
+&lt;div class=&quot;stat-value&quot;&gt;${data.credibility || 0}/10&lt;/div&gt;
+&lt;small class=&quot;text-muted&quot;&gt;Content reliability&lt;/small&gt;
+&lt;/div&gt;
+&lt;div class=&quot;stat-item sensationalism&quot;&gt;
+&lt;div class=&quot;stat-label&quot;&gt;
+&lt;i class=&quot;fas fa-exclamation-triangle me-1&quot;&gt;&lt;/i&gt; Sensationalism
+&lt;/div&gt;
+&lt;div class=&quot;stat-value&quot;&gt;${data.sensationalism || 0}/10&lt;/div&gt;
+&lt;small class=&quot;text-muted&quot;&gt;Emotional language&lt;/small&gt;
+&lt;/div&gt;
+&lt;div class=&quot;stat-item words&quot;&gt;
+&lt;div class=&quot;stat-label&quot;&gt;
+&lt;i class=&quot;fas fa-file-word me-1&quot;&gt;&lt;/i&gt; Words
+&lt;/div&gt;
+&lt;div class=&quot;stat-value&quot;&gt;${data.word_count || 0}&lt;/div&gt;
+&lt;small class=&quot;text-muted&quot;&gt;Analyzed&lt;/small&gt;
+&lt;/div&gt;
+&lt;div class=&quot;stat-item time&quot;&gt;
+&lt;div class=&quot;stat-label&quot;&gt;
+&lt;i class=&quot;fas fa-bolt me-1&quot;&gt;&lt;/i&gt; Speed
+&lt;/div&gt;
+&lt;div class=&quot;stat-value&quot;&gt;${data.processing_ms || 0}ms&lt;/div&gt;
+&lt;small class=&quot;text-muted&quot;&gt;Processing time&lt;/small&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;col-md-4 text-center&quot;&gt;
+&lt;div class=&quot;score-circle ${scoreClass} mb-3&quot;&gt;
+&lt;span&gt;${data.confidence || 0}%&lt;/span&gt;
+&lt;/div&gt;
+&lt;p class=&quot;text-muted small mb-0&quot;&gt;Confidence Score&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+${findingsHTML}
+&lt;div class=&quot;mt-4 pt-3 border-top&quot;&gt;
+&lt;div class=&quot;d-flex justify-content-between align-items-center flex-wrap gap-2&quot;&gt;
+&lt;small class=&quot;text-muted&quot;&gt;
+&lt;i class=&quot;fas fa-info-circle me-1&quot;&gt;&lt;/i&gt; Analysis completed and saved to history
+&lt;/small&gt;
+&lt;div class=&quot;d-flex gap-2&quot;&gt;
+&lt;a href=&quot;/history&quot; class=&quot;btn btn-sm btn-outline-primary&quot;&gt;
+
+&lt;i class=&quot;fas fa-history me-1&quot;&gt;&lt;/i&gt; View History
+&lt;/a&gt;
+&lt;a href=&quot;/analyze&quot; class=&quot;btn btn-sm btn-outline-secondary&quot;&gt;
+&lt;i class=&quot;fas fa-redo me-1&quot;&gt;&lt;/i&gt; New Analysis
+&lt;/a&gt;
+${data.gemini_available ?
+`&lt;button class=&quot;btn btn-sm btn-outline-success&quot;
+onclick=&quot;requestDetailedAnalysis()&quot;&gt;
+&lt;i class=&quot;fas fa-robot me-1&quot;&gt;&lt;/i&gt; Get AI Analysis
+&lt;/button&gt;` : &#39;&#39;
+}
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+`;
+}
+// Add this function for AI analysis
+function requestDetailedAnalysis() {
+const content = document.getElementById(&#39;content&#39;).value.trim();
+if (!content || content.length &lt; 50) {
+showNotification(&#39;Please provide content for AI analysis&#39;, &#39;warning&#39;);
+return;
+}
+showLoading(true);
+fetch(&#39;/api/gemini/analyze&#39;, {
+method: &#39;POST&#39;,
+headers: {
+&#39;Content-Type&#39;: &#39;application/json&#39;,
+&#39;X-Requested-With&#39;: &#39;XMLHttpRequest&#39;
+},
+body: JSON.stringify({ content: content })
+})
+.then(response =&gt; response.json())
+.then(data =&gt; {
+showLoading(false);
+if (data.success) {
+showNotification(&#39;�� Gemini AI analysis completed! Check history for details.&#39;, &#39;success&#39;);
+createConfetti();
+} else {
+showNotification(data.error || &#39;AI analysis failed&#39;, &#39;danger&#39;);
+}
+
+})
+.catch(error =&gt; {
+showLoading(false);
+showNotification(&#39;Network error. Please try again.&#39;, &#39;danger&#39;);
+console.error(&#39;AI analysis error:&#39;, error);
+});
+}
+// Display results
+function displayResults(data) {
+const resultsDiv = document.getElementById(&#39;results&#39;);
+let badgeClass, borderClass, scoreClass, statusClass, badgeIcon, badgeGradient;
+switch(data.classification) {
+case &#39;RELIABLE&#39;:
+badgeClass = &#39;bg-success bg-opacity-20 text-success&#39;;
+borderClass = &#39;result-reliable&#39;;
+scoreClass = &#39;score-high&#39;;
+statusClass = &#39;status-reliable&#39;;
+badgeIcon = &#39;fa-check-circle&#39;;
+badgeGradient = &#39;var(--gradient-success)&#39;;
+break;
+case &#39;SUSPICIOUS&#39;:
+badgeClass = &#39;bg-warning bg-opacity-20 text-warning&#39;;
+borderClass = &#39;result-suspicious&#39;;
+scoreClass = &#39;score-medium&#39;;
+statusClass = &#39;status-suspicious&#39;;
+badgeIcon = &#39;fa-exclamation-triangle&#39;;
+badgeGradient = &#39;var(--gradient-warning)&#39;;
+break;
+case &#39;FAKE&#39;:
+badgeClass = &#39;bg-danger bg-opacity-20 text-danger&#39;;
+borderClass = &#39;result-fake&#39;;
+scoreClass = &#39;score-low&#39;;
+statusClass = &#39;status-fake&#39;;
+badgeIcon = &#39;fa-times-circle&#39;;
+badgeGradient = &#39;var(--gradient-danger)&#39;;
+break;
+default:
+badgeClass = &#39;bg-secondary bg-opacity-20 text-secondary&#39;;
+borderClass = &#39;result-unknown&#39;;
+scoreClass = &#39;score-low&#39;;
+statusClass = &#39;status-suspicious&#39;;
+badgeIcon = &#39;fa-question-circle&#39;;
+badgeGradient = &#39;var(--gradient-primary)&#39;;
+}
+
+// Enhanced finding type classes with animations
+let findingsHTML = &#39;&#39;;
+if (data.key_findings &amp;&amp; data.key_findings.length &gt; 0) {
+findingsHTML = `
+&lt;div class=&quot;mt-4&quot;&gt;
+&lt;h5 class=&quot;fw-bold mb-3 text-gradient&quot;&gt;
+&lt;i class=&quot;fas fa-search me-2&quot;&gt;&lt;/i&gt; Key Findings
+&lt;/h5&gt;
+&lt;div class=&quot;row&quot;&gt;
+${data.key_findings.map((finding, index) =&gt; {
+let findingClass = &#39;finding-positive&#39;;
+let iconColor = &#39;text-success&#39;;
+if (finding.type === &#39;warning&#39;) {
+findingClass = &#39;finding-warning&#39;;
+iconColor = &#39;text-warning&#39;;
+}
+if (finding.type === &#39;danger&#39;) {
+findingClass = &#39;finding-danger&#39;;
+iconColor = &#39;text-danger&#39;;
+}
+return `
+&lt;div class=&quot;col-md-6 mb-3&quot;&gt;
+&lt;div class=&quot;finding-item ${findingClass}&quot; style=&quot;animation-delay: ${index *
+0.1}s&quot;&gt;
+&lt;div class=&quot;d-flex align-items-start&quot;&gt;
+&lt;div class=&quot;emoji-badge&quot;&gt;${finding.icon}&lt;/div&gt;
+&lt;div&gt;
+&lt;h6 class=&quot;fw-bold mb-2 ${iconColor}&quot;&gt;${finding.title}&lt;/h6&gt;
+&lt;p class=&quot;text-muted mb-0 small&quot;&gt;${finding.description}&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+`;
+}).join(&#39;&#39;)}
+&lt;/div&gt;
+&lt;/div&gt;
+`;
+}
+resultsDiv.innerHTML = `
+&lt;div class=&quot;result-card ${borderClass} animate-fade-in-up&quot;&gt;
+&lt;div class=&quot;result-header&quot;&gt;
+&lt;div&gt;
+
+&lt;h3 class=&quot;result-title mb-2&quot;&gt;Analysis Results&lt;/h3&gt;
+&lt;div class=&quot;d-flex align-items-center flex-wrap gap-2&quot;&gt;
+&lt;span class=&quot;badge ${badgeClass} badge-professional&quot; style=&quot;background:
+${badgeGradient}; color: white;&quot;&gt;
+&lt;i class=&quot;fas ${badgeIcon} me-1&quot;&gt;&lt;/i&gt;
+${data.classification}
+&lt;/span&gt;
+&lt;span class=&quot;status-indicator ${statusClass}&quot;&gt;
+${data.confidence}% confidence
+&lt;/span&gt;
+${data.cached ?
+&#39;&lt;span class=&quot;badge bg-info bg-opacity-20 text-info badge-professional&quot;
+style=&quot;background: var(--gradient-info); color: white;&quot;&gt;&lt;i class=&quot;fas fa-bolt me-
+1&quot;&gt;&lt;/i&gt;Cached&lt;/span&gt;&#39; :
+&#39;&lt;span class=&quot;badge bg-primary bg-opacity-20 text-primary badge-professional&quot;
+style=&quot;background: var(--gradient-primary); color: white;&quot;&gt;&lt;i class=&quot;fas fa-sync me-
+1&quot;&gt;&lt;/i&gt;Live&lt;/span&gt;&#39;
+}
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;performance-badge&quot;&gt;
+&lt;i class=&quot;fas fa-stopwatch me-1&quot;&gt;&lt;/i&gt; ${data.processing_ms}ms
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;row align-items-center&quot;&gt;
+&lt;div class=&quot;col-md-8&quot;&gt;
+&lt;div class=&quot;stats-grid mb-4&quot;&gt;
+&lt;div class=&quot;stat-item credibility&quot;&gt;
+&lt;div class=&quot;stat-label&quot;&gt;
+&lt;i class=&quot;fas fa-shield-alt me-1&quot;&gt;&lt;/i&gt; Credibility
+&lt;/div&gt;
+&lt;div class=&quot;stat-value&quot;&gt;${data.credibility}/10&lt;/div&gt;
+&lt;small class=&quot;text-muted&quot;&gt;Content reliability&lt;/small&gt;
+&lt;/div&gt;
+&lt;div class=&quot;stat-item sensationalism&quot;&gt;
+&lt;div class=&quot;stat-label&quot;&gt;
+&lt;i class=&quot;fas fa-exclamation-triangle me-1&quot;&gt;&lt;/i&gt; Sensationalism
+&lt;/div&gt;
+&lt;div class=&quot;stat-value&quot;&gt;${data.sensationalism}/10&lt;/div&gt;
+&lt;small class=&quot;text-muted&quot;&gt;Emotional language&lt;/small&gt;
+&lt;/div&gt;
+&lt;div class=&quot;stat-item words&quot;&gt;
+&lt;div class=&quot;stat-label&quot;&gt;
+&lt;i class=&quot;fas fa-file-word me-1&quot;&gt;&lt;/i&gt; Words
+&lt;/div&gt;
+&lt;div class=&quot;stat-value&quot;&gt;${data.word_count}&lt;/div&gt;
+
+&lt;small class=&quot;text-muted&quot;&gt;Analyzed&lt;/small&gt;
+&lt;/div&gt;
+&lt;div class=&quot;stat-item time&quot;&gt;
+&lt;div class=&quot;stat-label&quot;&gt;
+&lt;i class=&quot;fas fa-bolt me-1&quot;&gt;&lt;/i&gt; Speed
+&lt;/div&gt;
+&lt;div class=&quot;stat-value&quot;&gt;${data.processing_ms}ms&lt;/div&gt;
+&lt;small class=&quot;text-muted&quot;&gt;Processing time&lt;/small&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;col-md-4 text-center&quot;&gt;
+&lt;div class=&quot;score-circle ${scoreClass} mb-3&quot;&gt;
+&lt;span&gt;${data.confidence}%&lt;/span&gt;
+&lt;/div&gt;
+&lt;p class=&quot;text-muted small mb-0&quot;&gt;Confidence Score&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+${findingsHTML}
+&lt;div class=&quot;mt-4 pt-3 border-top&quot;&gt;
+&lt;div class=&quot;d-flex justify-content-between align-items-center flex-wrap gap-2&quot;&gt;
+&lt;small class=&quot;text-muted&quot;&gt;
+&lt;i class=&quot;fas fa-info-circle me-1&quot;&gt;&lt;/i&gt; Analysis completed successfully
+&lt;/small&gt;
+&lt;div class=&quot;d-flex gap-2&quot;&gt;
+&lt;button class=&quot;btn btn-sm btn-outline-primary&quot;
+onclick=&quot;requestDetailedAnalysis()&quot;&gt;
+&lt;i class=&quot;fas fa-chart-bar me-1&quot;&gt;&lt;/i&gt; Detailed Report
+&lt;/button&gt;
+&lt;button class=&quot;btn btn-sm btn-outline-secondary&quot; onclick=&quot;saveAnalysis()&quot;&gt;
+&lt;i class=&quot;fas fa-save me-1&quot;&gt;&lt;/i&gt; Save
+&lt;/button&gt;
+&lt;button class=&quot;btn btn-sm btn-outline-success&quot; onclick=&quot;shareResults()&quot;&gt;
+&lt;i class=&quot;fas fa-share-alt me-1&quot;&gt;&lt;/i&gt; Share
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+`;
+}
+// Show notification
+
+function showNotification(message, type = &#39;info&#39;) {
+const notification = document.createElement(&#39;div&#39;);
+const typeColors = {
+&#39;success&#39;: &#39;#10b981&#39;,
+&#39;warning&#39;: &#39;#f59e0b&#39;,
+&#39;danger&#39;: &#39;#ef4444&#39;,
+&#39;info&#39;: &#39;#6366f1&#39;
+};
+const gradients = {
+&#39;success&#39;: &#39;var(--gradient-success)&#39;,
+&#39;warning&#39;: &#39;var(--gradient-warning)&#39;,
+&#39;danger&#39;: &#39;var(--gradient-danger)&#39;,
+&#39;info&#39;: &#39;var(--gradient-primary)&#39;
+};
+notification.className = `alert alert-dismissible fade show position-fixed animate__animated
+animate__fadeInRight`;
+notification.style.cssText = `
+position: fixed;
+top: 80px;
+right: 20px;
+z-index: 9999;
+min-width: 320px;
+max-width: 400px;
+box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+border: none;
+color: white;
+background: ${gradients[type] || gradients.info};
+border-radius: 12px;
+padding: 18px;
+backdrop-filter: blur(10px);
+`;
+notification.innerHTML = `
+&lt;div class=&quot;d-flex align-items-center&quot;&gt;
+&lt;i class=&quot;fas fa-${type === &#39;success&#39; ? &#39;check-circle&#39; : type === &#39;warning&#39; ? &#39;exclamation-
+triangle&#39; : type === &#39;danger&#39; ? &#39;times-circle&#39; : &#39;info-circle&#39;} fa-2x me-3&quot;&gt;&lt;/i&gt;
+&lt;div class=&quot;flex-grow-1&quot;&gt;
+&lt;strong class=&quot;d-block mb-1&quot;&gt;${type.charAt(0).toUpperCase() + type.slice(1)}&lt;/strong&gt;
+${message}
+&lt;/div&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn-close btn-close-white&quot; data-bs-
+dismiss=&quot;alert&quot;&gt;&lt;/button&gt;
+&lt;/div&gt;
+`;
+
+document.body.appendChild(notification);
+// Remove notification after delay
+setTimeout(() =&gt; {
+notification.classList.add(&#39;animate__fadeOutRight&#39;);
+setTimeout(() =&gt; {
+if (notification.parentNode) {
+notification.remove();
+}
+}, 500);
+}, 4000);
+}
+// Request detailed analysis
+function requestDetailedAnalysis() {
+showNotification(&#39;�� Detailed analysis requested. Generating comprehensive report...&#39;, &#39;info&#39;);
+createConfetti();
+}
+// Save analysis
+function saveAnalysis() {
+showNotification(&#39;�� Analysis saved to your history&#39;, &#39;success&#39;);
+createConfetti();
+}
+// Share results
+function shareResults() {
+if (navigator.share) {
+navigator.share({
+title: &#39;TruthGuard Analysis Results&#39;,
+text: &#39;Check out these misinformation analysis results from TruthGuard&#39;,
+url: window.location.href
+});
+} else {
+navigator.clipboard.writeText(window.location.href).then(() =&gt; {
+showNotification(&#39;�� Link copied to clipboard&#39;, &#39;success&#39;);
+createConfetti();
+});
+}
+}
+// Initialize
+
+document.addEventListener(&#39;DOMContentLoaded&#39;, function() {
+console.log(&#39;�� TruthGuard Colorful Analysis Page Loaded&#39;);
+createParticles();
+// Add animation to main card
+const mainCard = document.querySelector(&#39;.main-card&#39;);
+if (mainCard) {
+mainCard.classList.add(&#39;hover-lift&#39;);
+}
+// Add initial confetti for welcome effect
+setTimeout(createConfetti, 1000);
+// Add rainbow effect to page title
+const title = document.querySelector(&#39;.text-gradient&#39;);
+if (title) {
+setInterval(() =&gt; {
+title.style.background = `linear-gradient(90deg,
+#${Math.floor(Math.random()*16777215).toString(16)},
+#${Math.floor(Math.random()*16777215).toString(16)},
+#${Math.floor(Math.random()*16777215).toString(16)}
+)`;
+title.style.webkitBackgroundClip = &#39;text&#39;;
+title.style.webkitTextFillColor = &#39;transparent&#39;;
+}, 5000);
+}
+});
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
