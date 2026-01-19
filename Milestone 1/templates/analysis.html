@@ -1,16 +1,16 @@
-&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;en&quot;&gt;
-&lt;head&gt;
-&lt;meta charset=&quot;UTF-8&quot;&gt;
-&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
-&lt;title&gt;TruthGuard - Analyze Content&lt;/title&gt;
-&lt;link href=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css&quot;
-rel=&quot;stylesheet&quot;&gt;
-&lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/font-
-awesome/6.0.0/css/all.min.css&quot;&gt;
-&lt;link rel=&quot;stylesheet&quot;
-href=&quot;https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css&quot;&gt;
-&lt;style&gt;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TruthGuard - Analyze Content</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-
+awesome/6.0.0/css/all.min.css">
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+<style>
 :root {
 --primary-color: #6366f1;
 --primary-dark: #4f46e5;
@@ -41,7 +41,7 @@ href=&quot;https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.
 body {
 background: linear-gradient(135deg, #f0f4ff 0%, #e6f7ff 100%);
 min-height: 100vh;
-font-family: &#39;Segoe UI&#39;, system-ui, -apple-system, sans-serif;
+font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
 animation: backgroundPulse 15s ease infinite;
 background-size: 200% 200%;
 
@@ -92,7 +92,7 @@ position: relative;
 overflow: hidden;
 }
 .card-header-gradient::before {
-content: &#39;&#39;;
+content: '';
 position: absolute;
 top: 0;
 left: -100%;
@@ -134,7 +134,7 @@ transform: translateY(0);
 }
 }
 .result-card::before {
-content: &#39;&#39;;
+content: '';
 position: absolute;
 top: -3px;
 left: -3px;
@@ -229,7 +229,7 @@ animation: statPulse 4s ease infinite;
 50% { transform: translateY(-5px); }
 }
 .stat-item::before {
-content: &#39;&#39;;
+content: '';
 position: absolute;
 top: 0;
 left: 0;
@@ -262,7 +262,7 @@ background: var(--gradient-primary);
 -webkit-text-fill-color: transparent;
 background-clip: text;
 margin: 10px 0;
-font-family: &#39;Inter&#39;, system-ui, -apple-system, sans-serif;
+font-family: 'Inter', system-ui, -apple-system, sans-serif;
 }
 .score-circle {
 width: 140px;
@@ -286,7 +286,7 @@ animation: scorePulse 2s ease-in-out infinite;
 50% { transform: scale(1.05); box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3); }
 }
 .score-circle::after {
-content: &#39;&#39;;
+content: '';
 position: absolute;
 inset: 5px;
 background: inherit;
@@ -330,7 +330,7 @@ transform: translateX(0);
 .finding-item:nth-child(3) { animation-delay: 0.3s; }
 .finding-item:nth-child(4) { animation-delay: 0.4s; }
 .finding-item::before {
-content: &#39;&#39;;
+content: '';
 position: absolute;
 left: 0;
 top: 0;
@@ -367,7 +367,7 @@ animation: buttonGlow 2s ease-in-out infinite;
 50% { box-shadow: 0 10px 40px rgba(99, 102, 241, 0.6); }
 }
 .btn-primary-glow::before {
-content: &#39;&#39;;
+content: '';
 position: absolute;
 top: 0;
 left: -100%;
@@ -455,7 +455,7 @@ border-bottom: 3px solid #e2e8f0;
 position: relative;
 }
 .result-header::after {
-content: &#39;&#39;;
+content: '';
 position: absolute;
 bottom: -3px;
 left: 0;
@@ -512,7 +512,7 @@ animation: featureFloat 6s ease-in-out infinite;
 50% { transform: translateY(-10px); }
 }
 .feature-card::before {
-content: &#39;&#39;;
+content: '';
 position: absolute;
 top: -3px;
 left: -3px;
@@ -577,7 +577,7 @@ position: relative;
 overflow: hidden;
 }
 .professional-divider::after {
-content: &#39;&#39;;
+content: '';
 position: absolute;
 top: 0;
 left: -100%;
@@ -678,7 +678,7 @@ position: relative;
 overflow: hidden;
 }
 .footer-professional::before {
-content: &#39;&#39;;
+content: '';
 position: absolute;
 top: 0;
 left: 0;
@@ -750,7 +750,7 @@ font-size: 16px;
 }
 /* Typography improvements */
 h1, h2, h3, h4, h5, h6 {
-font-family: &#39;Inter&#39;, system-ui, -apple-system, sans-serif;
+font-family: 'Inter', system-ui, -apple-system, sans-serif;
 font-weight: 700;
 color: var(--dark-color);
 }
@@ -775,7 +775,7 @@ position: relative;
 overflow: hidden;
 }
 .shine-effect::after {
-content: &#39;&#39;;
+content: '';
 position: absolute;
 top: -50%;
 left: -50%;
@@ -800,342 +800,342 @@ filter: brightness(1.1);
 
 transition: filter 0.3s ease;
 }
-&lt;/style&gt;
-&lt;/head&gt;
-&lt;body&gt;
-&lt;!-- Floating Particles --&gt;
-&lt;div class=&quot;floating-particles&quot; id=&quot;particles&quot;&gt;&lt;/div&gt;
-&lt;!-- Navigation --&gt;
-&lt;nav class=&quot;navbar navbar-expand-lg navbar-dark nav-gradient fixed-top&quot;&gt;
-&lt;div class=&quot;container&quot;&gt;
-&lt;a class=&quot;navbar-brand&quot; href=&quot;/&quot; style=&quot;color: white;&quot;&gt;
-&lt;i class=&quot;fas fa-shield-alt fa-lg me-2&quot;&gt;&lt;/i&gt;
-&lt;span class=&quot;fw-bold&quot; style=&quot;font-family: &#39;Inter&#39;, sans-serif;&quot;&gt;TruthGuard&lt;/span&gt;
-&lt;/a&gt;
-&lt;button class=&quot;navbar-toggler&quot; type=&quot;button&quot; data-bs-toggle=&quot;collapse&quot; data-bs-
-target=&quot;#navbarNav&quot;&gt;
-&lt;span class=&quot;navbar-toggler-icon&quot;&gt;&lt;/span&gt;
-&lt;/button&gt;
-&lt;div class=&quot;collapse navbar-collapse&quot; id=&quot;navbarNav&quot;&gt;
-&lt;ul class=&quot;navbar-nav ms-auto&quot;&gt;
-&lt;li class=&quot;nav-item&quot;&gt;
-&lt;a class=&quot;nav-link&quot; href=&quot;/dashboard&quot;&gt;
-&lt;i class=&quot;fas fa-tachometer-alt me-1&quot;&gt;&lt;/i&gt; Dashboard
-&lt;/a&gt;
-&lt;/li&gt;
-&lt;li class=&quot;nav-item&quot;&gt;
-&lt;a class=&quot;nav-link active&quot; href=&quot;/analyze&quot;&gt;
-&lt;i class=&quot;fas fa-search me-1&quot;&gt;&lt;/i&gt; Analyze
-&lt;/a&gt;
-&lt;/li&gt;
-&lt;li class=&quot;nav-item&quot;&gt;
-&lt;a class=&quot;nav-link&quot; href=&quot;/history&quot;&gt;
-&lt;i class=&quot;fas fa-history me-1&quot;&gt;&lt;/i&gt; History
-&lt;/a&gt;
-&lt;/li&gt;
-&lt;li class=&quot;nav-item&quot;&gt;
-&lt;a class=&quot;nav-link&quot; href=&quot;/profile&quot;&gt;
-&lt;i class=&quot;fas fa-user me-1&quot;&gt;&lt;/i&gt; Profile
-&lt;/a&gt;
-&lt;/li&gt;
-&lt;li class=&quot;nav-item&quot;&gt;
-&lt;a class=&quot;nav-link&quot; href=&quot;/logout&quot;&gt;
-&lt;i class=&quot;fas fa-sign-out-alt me-1&quot;&gt;&lt;/i&gt; Logout
-&lt;/a&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
+</style>
+</head>
+<body>
+<!-- Floating Particles -->
+<div class="floating-particles" id="particles"></div>
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark nav-gradient fixed-top">
+<div class="container">
+<a class="navbar-brand" href="/" style="color: white;">
+<i class="fas fa-shield-alt fa-lg me-2"></i>
+<span class="fw-bold" style="font-family: 'Inter', sans-serif;">TruthGuard</span>
+</a>
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-
+target="#navbarNav">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbarNav">
+<ul class="navbar-nav ms-auto">
+<li class="nav-item">
+<a class="nav-link" href="/dashboard">
+<i class="fas fa-tachometer-alt me-1"></i> Dashboard
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link active" href="/analyze">
+<i class="fas fa-search me-1"></i> Analyze
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="/history">
+<i class="fas fa-history me-1"></i> History
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="/profile">
+<i class="fas fa-user me-1"></i> Profile
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="/logout">
+<i class="fas fa-sign-out-alt me-1"></i> Logout
+</a>
+</li>
+</ul>
 
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/nav&gt;
-&lt;!-- Main Content --&gt;
-&lt;div class=&quot;container mt-5 pt-4&quot;&gt;
-&lt;div class=&quot;row&quot;&gt;
-&lt;div class=&quot;col-lg-10 mx-auto&quot;&gt;
-&lt;!-- Header --&gt;
-&lt;div class=&quot;text-center mb-5 animate__animated animate__fadeIn&quot;&gt;
-&lt;div class=&quot;analysis-icon&quot;&gt;
-&lt;i class=&quot;fas fa-search&quot;&gt;&lt;/i&gt;
-&lt;/div&gt;
-&lt;h1 class=&quot;display-5 fw-bold mb-3 text-gradient&quot;&gt;Analyze Content for
-Misinformation&lt;/h1&gt;
-&lt;p class=&quot;lead mb-4&quot;&gt;Paste text or a URL to get immediate analysis using our AI-powered
-detection system&lt;/p&gt;
-&lt;!-- Features --&gt;
-&lt;div class=&quot;row mb-4&quot;&gt;
-&lt;div class=&quot;col-md-4&quot;&gt;
-&lt;div class=&quot;feature-card feature-1&quot;&gt;
-&lt;div class=&quot;text-center mb-3&quot;&gt;
-&lt;i class=&quot;fas fa-bolt fa-3x feature-icon mb-3&quot;&gt;&lt;/i&gt;
-&lt;h5 class=&quot;fw-bold&quot;&gt;Ultra-Fast Analysis&lt;/h5&gt;
-&lt;/div&gt;
-&lt;p class=&quot;text-muted mb-0&quot;&gt;Get results in under 50ms with our optimized
-detection engine&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;col-md-4&quot;&gt;
-&lt;div class=&quot;feature-card feature-2&quot;&gt;
-&lt;div class=&quot;text-center mb-3&quot;&gt;
-&lt;i class=&quot;fas fa-robot fa-3x feature-icon mb-3&quot;&gt;&lt;/i&gt;
-&lt;h5 class=&quot;fw-bold&quot;&gt;AI-Powered Detection&lt;/h5&gt;
-&lt;/div&gt;
-&lt;p class=&quot;text-muted mb-0&quot;&gt;Advanced machine learning models trained on
-thousands of examples&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;col-md-4&quot;&gt;
-&lt;div class=&quot;feature-card feature-3&quot;&gt;
-&lt;div class=&quot;text-center mb-3&quot;&gt;
-&lt;i class=&quot;fas fa-chart-line fa-3x feature-icon mb-3&quot;&gt;&lt;/i&gt;
-&lt;h5 class=&quot;fw-bold&quot;&gt;Detailed Insights&lt;/h5&gt;
-&lt;/div&gt;
+</div>
+</div>
+</nav>
+<!-- Main Content -->
+<div class="container mt-5 pt-4">
+<div class="row">
+<div class="col-lg-10 mx-auto">
+<!-- Header -->
+<div class="text-center mb-5 animate__animated animate__fadeIn">
+<div class="analysis-icon">
+<i class="fas fa-search"></i>
+</div>
+<h1 class="display-5 fw-bold mb-3 text-gradient">Analyze Content for
+Misinformation</h1>
+<p class="lead mb-4">Paste text or a URL to get immediate analysis using our AI-powered
+detection system</p>
+<!-- Features -->
+<div class="row mb-4">
+<div class="col-md-4">
+<div class="feature-card feature-1">
+<div class="text-center mb-3">
+<i class="fas fa-bolt fa-3x feature-icon mb-3"></i>
+<h5 class="fw-bold">Ultra-Fast Analysis</h5>
+</div>
+<p class="text-muted mb-0">Get results in under 50ms with our optimized
+detection engine</p>
+</div>
+</div>
+<div class="col-md-4">
+<div class="feature-card feature-2">
+<div class="text-center mb-3">
+<i class="fas fa-robot fa-3x feature-icon mb-3"></i>
+<h5 class="fw-bold">AI-Powered Detection</h5>
+</div>
+<p class="text-muted mb-0">Advanced machine learning models trained on
+thousands of examples</p>
+</div>
+</div>
+<div class="col-md-4">
+<div class="feature-card feature-3">
+<div class="text-center mb-3">
+<i class="fas fa-chart-line fa-3x feature-icon mb-3"></i>
+<h5 class="fw-bold">Detailed Insights</h5>
+</div>
 
-&lt;p class=&quot;text-muted mb-0&quot;&gt;Comprehensive analysis with credibility scores and
-key findings&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;!-- Professional Divider --&gt;
-&lt;div class=&quot;professional-divider&quot;&gt;&lt;/div&gt;
-&lt;!-- Analysis Form --&gt;
-&lt;div class=&quot;main-card animate__animated animate__fadeInUp&quot;&gt;
-&lt;div class=&quot;card-header-gradient text-white&quot;&gt;
-&lt;div class=&quot;d-flex justify-content-between align-items-center&quot;&gt;
-&lt;div&gt;
-&lt;h4 class=&quot;mb-1&quot;&gt;&lt;i class=&quot;fas fa-search me-2&quot;&gt;&lt;/i&gt; Content Analysis&lt;/h4&gt;
-&lt;p class=&quot;mb-0 opacity-90&quot;&gt;Analyze articles, social media posts, or any text for
-misinformation&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;performance-badge&quot;&gt;
-&lt;i class=&quot;fas fa-rocket me-1&quot;&gt;&lt;/i&gt; Fast Analysis Mode
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;card-body p-4&quot;&gt;
-&lt;form id=&quot;analysisForm&quot;&gt;
-&lt;div class=&quot;mb-4&quot;&gt;
-&lt;label for=&quot;url&quot; class=&quot;form-label fw-bold text-dark mb-3&quot;&gt;
-&lt;i class=&quot;fas fa-link me-2 text-primary&quot;&gt;&lt;/i&gt; URL Analysis
-&lt;/label&gt;
-&lt;div class=&quot;input-group&quot;&gt;
-&lt;span class=&quot;input-group-text&quot;&gt;
-&lt;i class=&quot;fas fa-globe&quot;&gt;&lt;/i&gt;
-&lt;/span&gt;
-&lt;input type=&quot;url&quot; class=&quot;form-control form-control-glow&quot; id=&quot;url&quot; name=&quot;url&quot;
-placeholder=&quot;https://example.com/news-article&quot;&gt;
-&lt;/div&gt;
-&lt;small class=&quot;text-muted mt-2 d-block&quot;&gt;
-&lt;i class=&quot;fas fa-info-circle me-1&quot;&gt;&lt;/i&gt; We&#39;ll automatically extract and analyze
+<p class="text-muted mb-0">Comprehensive analysis with credibility scores and
+key findings</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Professional Divider -->
+<div class="professional-divider"></div>
+<!-- Analysis Form -->
+<div class="main-card animate__animated animate__fadeInUp">
+<div class="card-header-gradient text-white">
+<div class="d-flex justify-content-between align-items-center">
+<div>
+<h4 class="mb-1"><i class="fas fa-search me-2"></i> Content Analysis</h4>
+<p class="mb-0 opacity-90">Analyze articles, social media posts, or any text for
+misinformation</p>
+</div>
+<div class="performance-badge">
+<i class="fas fa-rocket me-1"></i> Fast Analysis Mode
+</div>
+</div>
+</div>
+<div class="card-body p-4">
+<form id="analysisForm">
+<div class="mb-4">
+<label for="url" class="form-label fw-bold text-dark mb-3">
+<i class="fas fa-link me-2 text-primary"></i> URL Analysis
+</label>
+<div class="input-group">
+<span class="input-group-text">
+<i class="fas fa-globe"></i>
+</span>
+<input type="url" class="form-control form-control-glow" id="url" name="url"
+placeholder="https://example.com/news-article">
+</div>
+<small class="text-muted mt-2 d-block">
+<i class="fas fa-info-circle me-1"></i> We'll automatically extract and analyze
 content from any URL
-&lt;/small&gt;
-&lt;/div&gt;
-&lt;div class=&quot;text-center my-4&quot;&gt;
-&lt;div class=&quot;professional-divider&quot; style=&quot;width: 40%; margin: 0 auto 10px;&quot;&gt;&lt;/div&gt;
-&lt;div class=&quot;my-3&quot;&gt;
+</small>
+</div>
+<div class="text-center my-4">
+<div class="professional-divider" style="width: 40%; margin: 0 auto 10px;"></div>
+<div class="my-3">
 
-&lt;span class=&quot;badge bg-secondary bg-opacity-10 text-secondary&quot; style=&quot;font-
-size: 16px; padding: 10px 20px;&quot;&gt;
-&lt;i class=&quot;fas fa-exchange-alt me-1&quot;&gt;&lt;/i&gt; OR
-&lt;/span&gt;
-&lt;/div&gt;
-&lt;div class=&quot;professional-divider&quot; style=&quot;width: 40%; margin: 10px auto 0;&quot;&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;mb-4&quot;&gt;
-&lt;label for=&quot;content&quot; class=&quot;form-label fw-bold text-dark mb-3&quot;&gt;
-&lt;i class=&quot;fas fa-align-left me-2 text-primary&quot;&gt;&lt;/i&gt; Direct Text Analysis
-&lt;/label&gt;
-&lt;textarea class=&quot;form-control form-control-glow&quot; id=&quot;content&quot; name=&quot;content&quot;
-rows=&quot;6&quot; placeholder=&quot;Paste the text you want to analyze
-here...&quot;&gt;&lt;/textarea&gt;
-&lt;div class=&quot;d-flex justify-content-between mt-2&quot;&gt;
-&lt;small class=&quot;text-muted&quot;&gt;
-&lt;i class=&quot;fas fa-info-circle me-1&quot;&gt;&lt;/i&gt; Minimum 50 characters required
-&lt;/small&gt;
-&lt;small class=&quot;text-muted&quot;&gt;
-&lt;span id=&quot;charCount&quot;&gt;0&lt;/span&gt; characters
-&lt;/small&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;d-grid gap-3 mt-4&quot;&gt;
-&lt;button type=&quot;submit&quot; class=&quot;btn btn-primary-glow&quot;&gt;
-&lt;i class=&quot;fas fa-search me-2&quot;&gt;&lt;/i&gt; Analyze Content
-&lt;small class=&quot;d-block opacity-75 mt-1&quot;&gt;Get immediate results with our
-detection engine&lt;/small&gt;
-&lt;/button&gt;
-&lt;div class=&quot;d-flex gap-2&quot;&gt;
-&lt;button type=&quot;button&quot; class=&quot;btn btn-outline-glow flex-grow-1&quot;
-onclick=&quot;clearForm()&quot;&gt;
-&lt;i class=&quot;fas fa-trash me-2&quot;&gt;&lt;/i&gt; Clear Form
-&lt;/button&gt;
-&lt;button type=&quot;button&quot; class=&quot;btn btn-outline-glow flex-grow-1&quot;
-onclick=&quot;loadSample()&quot;&gt;
-&lt;i class=&quot;fas fa-vial me-2&quot;&gt;&lt;/i&gt; Try Sample
-&lt;/button&gt;
-&lt;button type=&quot;button&quot; class=&quot;btn btn-outline-glow flex-grow-1&quot;
-onclick=&quot;triggerConfetti()&quot;&gt;
-&lt;i class=&quot;fas fa-fireworks me-2&quot;&gt;&lt;/i&gt; Celebrate
-&lt;/button&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/form&gt;
+<span class="badge bg-secondary bg-opacity-10 text-secondary" style="font-
+size: 16px; padding: 10px 20px;">
+<i class="fas fa-exchange-alt me-1"></i> OR
+</span>
+</div>
+<div class="professional-divider" style="width: 40%; margin: 10px auto 0;"></div>
+</div>
+<div class="mb-4">
+<label for="content" class="form-label fw-bold text-dark mb-3">
+<i class="fas fa-align-left me-2 text-primary"></i> Direct Text Analysis
+</label>
+<textarea class="form-control form-control-glow" id="content" name="content"
+rows="6" placeholder="Paste the text you want to analyze
+here..."></textarea>
+<div class="d-flex justify-content-between mt-2">
+<small class="text-muted">
+<i class="fas fa-info-circle me-1"></i> Minimum 50 characters required
+</small>
+<small class="text-muted">
+<span id="charCount">0</span> characters
+</small>
+</div>
+</div>
+<div class="d-grid gap-3 mt-4">
+<button type="submit" class="btn btn-primary-glow">
+<i class="fas fa-search me-2"></i> Analyze Content
+<small class="d-block opacity-75 mt-1">Get immediate results with our
+detection engine</small>
+</button>
+<div class="d-flex gap-2">
+<button type="button" class="btn btn-outline-glow flex-grow-1"
+onclick="clearForm()">
+<i class="fas fa-trash me-2"></i> Clear Form
+</button>
+<button type="button" class="btn btn-outline-glow flex-grow-1"
+onclick="loadSample()">
+<i class="fas fa-vial me-2"></i> Try Sample
+</button>
+<button type="button" class="btn btn-outline-glow flex-grow-1"
+onclick="triggerConfetti()">
+<i class="fas fa-fireworks me-2"></i> Celebrate
+</button>
+</div>
+</div>
+</form>
 
-&lt;!-- Loading Overlay --&gt;
-&lt;div id=&quot;loading&quot; class=&quot;loading-overlay&quot;&gt;
-&lt;div class=&quot;text-center&quot;&gt;
-&lt;div class=&quot;spinner-container&quot;&gt;
-&lt;div class=&quot;spinner spinner-1&quot;&gt;&lt;/div&gt;
-&lt;div class=&quot;spinner spinner-2&quot;&gt;&lt;/div&gt;
-&lt;div class=&quot;spinner spinner-3&quot;&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;h4 class=&quot;mt-4 fw-bold text-gradient&quot;&gt;Analyzing Content&lt;/h4&gt;
-&lt;p class=&quot;text-muted&quot;&gt;Our AI is scanning the content for misinformation
-indicators...&lt;/p&gt;
-&lt;div class=&quot;mt-4&quot;&gt;
-&lt;div class=&quot;professional-divider&quot; style=&quot;width: 300px; margin: 0 auto;&quot;&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;mt-4&quot;&gt;
-&lt;div class=&quot;badge-professional&quot; style=&quot;background: var(--gradient-primary);
-color: white;&quot;&gt;
-&lt;i class=&quot;fas fa-cog fa-spin me-2&quot;&gt;&lt;/i&gt; Processing Analysis
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;!-- Results Container --&gt;
-&lt;div id=&quot;results&quot; class=&quot;mt-4&quot;&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;!-- Tips Section --&gt;
-&lt;div class=&quot;main-card animate__animated animate__fadeInUp animate__delay-1s&quot;&gt;
-&lt;div class=&quot;card-body p-4&quot;&gt;
-&lt;h4 class=&quot;fw-bold mb-4 text-gradient&quot;&gt;
-&lt;i class=&quot;fas fa-lightbulb me-2&quot;&gt;&lt;/i&gt; Analysis Tips
-&lt;/h4&gt;
-&lt;div class=&quot;row&quot;&gt;
-&lt;div class=&quot;col-md-6 mb-3&quot;&gt;
-&lt;div class=&quot;d-flex align-items-start hover-lift p-3 rounded-3&quot; style=&quot;background:
+<!-- Loading Overlay -->
+<div id="loading" class="loading-overlay">
+<div class="text-center">
+<div class="spinner-container">
+<div class="spinner spinner-1"></div>
+<div class="spinner spinner-2"></div>
+<div class="spinner spinner-3"></div>
+</div>
+<h4 class="mt-4 fw-bold text-gradient">Analyzing Content</h4>
+<p class="text-muted">Our AI is scanning the content for misinformation
+indicators...</p>
+<div class="mt-4">
+<div class="professional-divider" style="width: 300px; margin: 0 auto;"></div>
+</div>
+<div class="mt-4">
+<div class="badge-professional" style="background: var(--gradient-primary);
+color: white;">
+<i class="fas fa-cog fa-spin me-2"></i> Processing Analysis
+</div>
+</div>
+</div>
+</div>
+<!-- Results Container -->
+<div id="results" class="mt-4"></div>
+</div>
+</div>
+<!-- Tips Section -->
+<div class="main-card animate__animated animate__fadeInUp animate__delay-1s">
+<div class="card-body p-4">
+<h4 class="fw-bold mb-4 text-gradient">
+<i class="fas fa-lightbulb me-2"></i> Analysis Tips
+</h4>
+<div class="row">
+<div class="col-md-6 mb-3">
+<div class="d-flex align-items-start hover-lift p-3 rounded-3" style="background:
 linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(99, 102, 241, 0.05) 100%); border: 2px solid
-rgba(99, 102, 241, 0.2);&quot;&gt;
-&lt;div class=&quot;me-3&quot;&gt;
-&lt;div class=&quot;rounded-circle d-flex align-items-center justify-content-center
-shine-effect&quot;
-style=&quot;width: 50px; height: 50px; background: var(--gradient-primary);&quot;&gt;
-&lt;i class=&quot;fas fa-check text-white&quot;&gt;&lt;/i&gt;
-&lt;/div&gt;
-&lt;/div&gt;
+rgba(99, 102, 241, 0.2);">
+<div class="me-3">
+<div class="rounded-circle d-flex align-items-center justify-content-center
+shine-effect"
+style="width: 50px; height: 50px; background: var(--gradient-primary);">
+<i class="fas fa-check text-white"></i>
+</div>
+</div>
 
-&lt;div&gt;
-&lt;h6 class=&quot;fw-bold mb-2&quot;&gt;Provide Full Context&lt;/h6&gt;
-&lt;p class=&quot;text-muted small mb-0&quot;&gt;Include headlines, main arguments, and
-conclusions for better accuracy.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;col-md-6 mb-3&quot;&gt;
-&lt;div class=&quot;d-flex align-items-start hover-lift p-3 rounded-3&quot; style=&quot;background:
+<div>
+<h6 class="fw-bold mb-2">Provide Full Context</h6>
+<p class="text-muted small mb-0">Include headlines, main arguments, and
+conclusions for better accuracy.</p>
+</div>
+</div>
+</div>
+<div class="col-md-6 mb-3">
+<div class="d-flex align-items-start hover-lift p-3 rounded-3" style="background:
 linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(16, 185, 129, 0.05) 100%); border: 2px solid
-rgba(16, 185, 129, 0.2);&quot;&gt;
-&lt;div class=&quot;me-3&quot;&gt;
-&lt;div class=&quot;rounded-circle d-flex align-items-center justify-content-center
-shine-effect&quot;
-style=&quot;width: 50px; height: 50px; background: var(--gradient-success);&quot;&gt;
-&lt;i class=&quot;fas fa-link text-white&quot;&gt;&lt;/i&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div&gt;
-&lt;h6 class=&quot;fw-bold mb-2&quot;&gt;Use URLs When Possible&lt;/h6&gt;
-&lt;p class=&quot;text-muted small mb-0&quot;&gt;We can extract and analyze content
-directly from most news websites.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;col-md-6 mb-3&quot;&gt;
-&lt;div class=&quot;d-flex align-items-start hover-lift p-3 rounded-3&quot; style=&quot;background:
+rgba(16, 185, 129, 0.2);">
+<div class="me-3">
+<div class="rounded-circle d-flex align-items-center justify-content-center
+shine-effect"
+style="width: 50px; height: 50px; background: var(--gradient-success);">
+<i class="fas fa-link text-white"></i>
+</div>
+</div>
+<div>
+<h6 class="fw-bold mb-2">Use URLs When Possible</h6>
+<p class="text-muted small mb-0">We can extract and analyze content
+directly from most news websites.</p>
+</div>
+</div>
+</div>
+<div class="col-md-6 mb-3">
+<div class="d-flex align-items-start hover-lift p-3 rounded-3" style="background:
 linear-gradient(135deg, rgba(245, 158, 11, 0.1) 0%, rgba(245, 158, 11, 0.05) 100%); border: 2px solid
-rgba(245, 158, 11, 0.2);&quot;&gt;
-&lt;div class=&quot;me-3&quot;&gt;
-&lt;div class=&quot;rounded-circle d-flex align-items-center justify-content-center
-shine-effect&quot;
-style=&quot;width: 50px; height: 50px; background: var(--gradient-warning);&quot;&gt;
-&lt;i class=&quot;fas fa-chart-bar text-white&quot;&gt;&lt;/i&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div&gt;
-&lt;h6 class=&quot;fw-bold mb-2&quot;&gt;Check Multiple Sources&lt;/h6&gt;
-&lt;p class=&quot;text-muted small mb-0&quot;&gt;Always verify suspicious content with
-trusted fact-checking sources.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;col-md-6 mb-3&quot;&gt;
-&lt;div class=&quot;d-flex align-items-start hover-lift p-3 rounded-3&quot; style=&quot;background:
+rgba(245, 158, 11, 0.2);">
+<div class="me-3">
+<div class="rounded-circle d-flex align-items-center justify-content-center
+shine-effect"
+style="width: 50px; height: 50px; background: var(--gradient-warning);">
+<i class="fas fa-chart-bar text-white"></i>
+</div>
+</div>
+<div>
+<h6 class="fw-bold mb-2">Check Multiple Sources</h6>
+<p class="text-muted small mb-0">Always verify suspicious content with
+trusted fact-checking sources.</p>
+</div>
+</div>
+</div>
+<div class="col-md-6 mb-3">
+<div class="d-flex align-items-start hover-lift p-3 rounded-3" style="background:
 linear-gradient(135deg, rgba(236, 72, 153, 0.1) 0%, rgba(236, 72, 153, 0.05) 100%); border: 2px solid
-rgba(236, 72, 153, 0.2);&quot;&gt;
-&lt;div class=&quot;me-3&quot;&gt;
+rgba(236, 72, 153, 0.2);">
+<div class="me-3">
 
-&lt;div class=&quot;rounded-circle d-flex align-items-center justify-content-center
-shine-effect&quot;
-style=&quot;width: 50px; height: 50px; background: var(--gradient-accent);&quot;&gt;
-&lt;i class=&quot;fas fa-robot text-white&quot;&gt;&lt;/i&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div&gt;
-&lt;h6 class=&quot;fw-bold mb-2&quot;&gt;Use AI Assistant&lt;/h6&gt;
-&lt;p class=&quot;text-muted small mb-0&quot;&gt;Get additional insights and explanations
-from our AI assistant.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;!-- Footer --&gt;
-&lt;footer class=&quot;footer-professional text-white mt-5 py-4&quot;&gt;
-&lt;div class=&quot;container&quot;&gt;
-&lt;div class=&quot;row align-items-center&quot;&gt;
-&lt;div class=&quot;col-md-6&quot;&gt;
-&lt;h5 class=&quot;mb-3&quot;&gt;
-&lt;i class=&quot;fas fa-shield-alt me-2 text-primary&quot;&gt;&lt;/i&gt; TruthGuard
-&lt;/h5&gt;
-&lt;p class=&quot;text-white-50 mb-0&quot;&gt;Advanced AI-powered platform to detect fake news and
-misinformation.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;col-md-6 text-md-end&quot;&gt;
-&lt;div class=&quot;social-links&quot;&gt;
-&lt;a href=&quot;#&quot; class=&quot;text-white-50 me-3 hover-lift d-inline-block&quot; style=&quot;font-size:
-22px;&quot;&gt;&lt;i class=&quot;fab fa-twitter&quot;&gt;&lt;/i&gt;&lt;/a&gt;
-&lt;a href=&quot;#&quot; class=&quot;text-white-50 me-3 hover-lift d-inline-block&quot; style=&quot;font-size:
-22px;&quot;&gt;&lt;i class=&quot;fab fa-linkedin&quot;&gt;&lt;/i&gt;&lt;/a&gt;
-&lt;a href=&quot;#&quot; class=&quot;text-white-50 hover-lift d-inline-block&quot; style=&quot;font-size: 22px;&quot;&gt;&lt;i
-class=&quot;fab fa-github&quot;&gt;&lt;/i&gt;&lt;/a&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;hr class=&quot;bg-white-10 my-4&quot;&gt;
-&lt;div class=&quot;text-center&quot;&gt;
-&lt;p class=&quot;mb-0 text-white-50&quot;&gt;&amp;copy; 2025 TruthGuard. All rights reserved.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
+<div class="rounded-circle d-flex align-items-center justify-content-center
+shine-effect"
+style="width: 50px; height: 50px; background: var(--gradient-accent);">
+<i class="fas fa-robot text-white"></i>
+</div>
+</div>
+<div>
+<h6 class="fw-bold mb-2">Use AI Assistant</h6>
+<p class="text-muted small mb-0">Get additional insights and explanations
+from our AI assistant.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<footer class="footer-professional text-white mt-5 py-4">
+<div class="container">
+<div class="row align-items-center">
+<div class="col-md-6">
+<h5 class="mb-3">
+<i class="fas fa-shield-alt me-2 text-primary"></i> TruthGuard
+</h5>
+<p class="text-white-50 mb-0">Advanced AI-powered platform to detect fake news and
+misinformation.</p>
+</div>
+<div class="col-md-6 text-md-end">
+<div class="social-links">
+<a href="#" class="text-white-50 me-3 hover-lift d-inline-block" style="font-size:
+22px;"><i class="fab fa-twitter"></i></a>
+<a href="#" class="text-white-50 me-3 hover-lift d-inline-block" style="font-size:
+22px;"><i class="fab fa-linkedin"></i></a>
+<a href="#" class="text-white-50 hover-lift d-inline-block" style="font-size: 22px;"><i
+class="fab fa-github"></i></a>
+</div>
+</div>
+</div>
+<hr class="bg-white-10 my-4">
+<div class="text-center">
+<p class="mb-0 text-white-50">&copy; 2025 TruthGuard. All rights reserved.</p>
+</div>
+</div>
 
-&lt;/footer&gt;
-&lt;script
-src=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js&quot;&gt;&lt;/script&gt;
-&lt;script&gt;
+</footer>
+<script
+src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
 // Create floating particles
 function createParticles() {
-const particlesContainer = document.getElementById(&#39;particles&#39;);
-const colors = [&#39;#6366f1&#39;, &#39;#8b5cf6&#39;, &#39;#ec4899&#39;, &#39;#f59e0b&#39;, &#39;#10b981&#39;, &#39;#06b6d4&#39;];
-for (let i = 0; i &lt; 40; i++) {
-const particle = document.createElement(&#39;div&#39;);
-particle.className = &#39;particle&#39;;
-particle.style.left = Math.random() * 100 + &#39;vw&#39;;
-particle.style.animationDelay = Math.random() * 20 + &#39;s&#39;;
-particle.style.animationDuration = 15 + Math.random() * 20 + &#39;s&#39;;
-particle.style.width = particle.style.height = Math.random() * 8 + 4 + &#39;px&#39;;
+const particlesContainer = document.getElementById('particles');
+const colors = ['#6366f1', '#8b5cf6', '#ec4899', '#f59e0b', '#10b981', '#06b6d4'];
+for (let i = 0; i < 40; i++) {
+const particle = document.createElement('div');
+particle.className = 'particle';
+particle.style.left = Math.random() * 100 + 'vw';
+particle.style.animationDelay = Math.random() * 20 + 's';
+particle.style.animationDuration = 15 + Math.random() * 20 + 's';
+particle.style.width = particle.style.height = Math.random() * 8 + 4 + 'px';
 particle.style.background = colors[Math.floor(Math.random() * colors.length)];
 particle.style.opacity = Math.random() * 0.4 + 0.2;
 particlesContainer.appendChild(particle);
@@ -1143,54 +1143,54 @@ particlesContainer.appendChild(particle);
 }
 // Create confetti effect
 function createConfetti() {
-const container = document.querySelector(&#39;.main-card&#39;);
-const colors = [&#39;#6366f1&#39;, &#39;#8b5cf6&#39;, &#39;#ec4899&#39;, &#39;#f59e0b&#39;, &#39;#10b981&#39;];
-for (let i = 0; i &lt; 50; i++) {
-const confetti = document.createElement(&#39;div&#39;);
-confetti.style.position = &#39;absolute&#39;;
-confetti.style.width = Math.random() * 10 + 5 + &#39;px&#39;;
-confetti.style.height = Math.random() * 10 + 5 + &#39;px&#39;;
+const container = document.querySelector('.main-card');
+const colors = ['#6366f1', '#8b5cf6', '#ec4899', '#f59e0b', '#10b981'];
+for (let i = 0; i < 50; i++) {
+const confetti = document.createElement('div');
+confetti.style.position = 'absolute';
+confetti.style.width = Math.random() * 10 + 5 + 'px';
+confetti.style.height = Math.random() * 10 + 5 + 'px';
 confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
-confetti.style.borderRadius = Math.random() &gt; 0.5 ? &#39;50%&#39; : &#39;0&#39;;
-confetti.style.left = Math.random() * 100 + &#39;%&#39;;
-confetti.style.top = &#39;-20px&#39;;
-confetti.style.opacity = &#39;0.8&#39;;
-confetti.style.zIndex = &#39;9998&#39;;
+confetti.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
+confetti.style.left = Math.random() * 100 + '%';
+confetti.style.top = '-20px';
+confetti.style.opacity = '0.8';
+confetti.style.zIndex = '9998';
 container.appendChild(confetti);
 // Animate confetti
 const animation = confetti.animate([
-{ transform: &#39;translateY(0) rotate(0deg)&#39;, opacity: 1 },
+{ transform: 'translateY(0) rotate(0deg)', opacity: 1 },
 
 { transform: `translateY(${window.innerHeight}px) rotate(${Math.random() * 720}deg)`,
 opacity: 0 }
 ], {
 duration: 2000 + Math.random() * 2000,
-easing: &#39;cubic-bezier(0.215, 0.61, 0.355, 1)&#39;
+easing: 'cubic-bezier(0.215, 0.61, 0.355, 1)'
 });
-animation.onfinish = () =&gt; confetti.remove();
+animation.onfinish = () => confetti.remove();
 }
 }
 // Show/hide loading
 function showLoading(show = true) {
-document.getElementById(&#39;loading&#39;).style.display = show ? &#39;flex&#39; : &#39;none&#39;;
+document.getElementById('loading').style.display = show ? 'flex' : 'none';
 }
 // Clear form
 function clearForm() {
-document.getElementById(&#39;analysisForm&#39;).reset();
-document.getElementById(&#39;results&#39;).innerHTML = &#39;&#39;;
-document.getElementById(&#39;charCount&#39;).textContent = &#39;0&#39;;
-document.getElementById(&#39;content&#39;).style.height = &#39;auto&#39;;
+document.getElementById('analysisForm').reset();
+document.getElementById('results').innerHTML = '';
+document.getElementById('charCount').textContent = '0';
+document.getElementById('content').style.height = 'auto';
 createConfetti();
 }
 // Trigger confetti
 function triggerConfetti() {
 createConfetti();
-showNotification(&#39;�� Time to celebrate! Enjoy the confetti!&#39;, &#39;info&#39;);
+showNotification('�� Time to celebrate! Enjoy the confetti!', 'info');
 }
 // Load sample text
 function loadSample() {
 const sampleText = `�� BREAKING: Exciting New Health Study Reveals Benefits!
-A comprehensive new study published in the &quot;Journal of Medical Research&quot; reveals that regular
+A comprehensive new study published in the "Journal of Medical Research" reveals that regular
 coffee consumption may be associated with positive health outcomes. According to researchers,
 moderate coffee intake could potentially offer certain health benefits.
 The study followed a large group of participants over an extended period, examining various health
@@ -1199,488 +1199,488 @@ understand the implications.
 
 Important Note: This information is for educational purposes only. Always consult healthcare
 professionals for medical advice.`;
-document.getElementById(&#39;content&#39;).value = sampleText;
-document.getElementById(&#39;content&#39;).dispatchEvent(new Event(&#39;input&#39;));
+document.getElementById('content').value = sampleText;
+document.getElementById('content').dispatchEvent(new Event('input'));
 createConfetti();
 }
 // Character counter
-document.getElementById(&#39;content&#39;)?.addEventListener(&#39;input&#39;, function() {
+document.getElementById('content')?.addEventListener('input', function() {
 const count = this.value.length;
-const charCount = document.getElementById(&#39;charCount&#39;);
+const charCount = document.getElementById('charCount');
 charCount.textContent = count;
 // Auto-resize
-this.style.height = &#39;auto&#39;;
-this.style.height = Math.min(this.scrollHeight, 300) + &#39;px&#39;;
+this.style.height = 'auto';
+this.style.height = Math.min(this.scrollHeight, 300) + 'px';
 // Color animation based on length
-charCount.style.transition = &#39;all 0.3s ease&#39;;
-if (count &lt; 50) {
-charCount.style.color = &#39;#ef4444&#39;;
-charCount.style.transform = &#39;scale(1.2)&#39;;
-charCount.innerHTML = `&lt;span class=&quot;badge bg-danger animate__animated
-animate__pulse&quot;&gt;${count}&lt;/span&gt;`;
-} else if (count &lt; 100) {
-charCount.style.color = &#39;#f59e0b&#39;;
-charCount.style.transform = &#39;scale(1.1)&#39;;
-charCount.innerHTML = `&lt;span class=&quot;badge bg-warning&quot;&gt;${count}&lt;/span&gt;`;
+charCount.style.transition = 'all 0.3s ease';
+if (count < 50) {
+charCount.style.color = '#ef4444';
+charCount.style.transform = 'scale(1.2)';
+charCount.innerHTML = `<span class="badge bg-danger animate__animated
+animate__pulse">${count}</span>`;
+} else if (count < 100) {
+charCount.style.color = '#f59e0b';
+charCount.style.transform = 'scale(1.1)';
+charCount.innerHTML = `<span class="badge bg-warning">${count}</span>`;
 } else {
-charCount.style.color = &#39;#10b981&#39;;
-charCount.style.transform = &#39;scale(1)&#39;;
-charCount.innerHTML = `&lt;span class=&quot;badge bg-success&quot;&gt;${count}&lt;/span&gt;`;
+charCount.style.color = '#10b981';
+charCount.style.transform = 'scale(1)';
+charCount.innerHTML = `<span class="badge bg-success">${count}</span>`;
 }
 // Reset transform
-setTimeout(() =&gt; {
-charCount.style.transform = &#39;scale(1)&#39;;
+setTimeout(() => {
+charCount.style.transform = 'scale(1)';
 }, 300);
 });
 // Replace the entire form submission handler with this corrected version:
-document.getElementById(&#39;analysisForm&#39;).addEventListener(&#39;submit&#39;, async function(e) {
+document.getElementById('analysisForm').addEventListener('submit', async function(e) {
 e.preventDefault();
 
-const content = document.getElementById(&#39;content&#39;).value.trim();
-const url = document.getElementById(&#39;url&#39;).value.trim();
-if (!content &amp;&amp; !url) {
-showNotification(&#39;Please provide text or URL to analyze&#39;, &#39;warning&#39;);
+const content = document.getElementById('content').value.trim();
+const url = document.getElementById('url').value.trim();
+if (!content && !url) {
+showNotification('Please provide text or URL to analyze', 'warning');
 return;
 }
-if (content &amp;&amp; content.length &lt; 50) {
-showNotification(&#39;Text must be at least 50 characters&#39;, &#39;warning&#39;);
+if (content && content.length < 50) {
+showNotification('Text must be at least 50 characters', 'warning');
 return;
 }
 showLoading(true);
-document.getElementById(&#39;results&#39;).innerHTML = &#39;&#39;;
+document.getElementById('results').innerHTML = '';
 createConfetti();
 try {
 // Prepare form data
 const formData = new FormData();
-formData.append(&#39;content&#39;, content);
-if (url) formData.append(&#39;url&#39;, url);
+formData.append('content', content);
+if (url) formData.append('url', url);
 // Make actual API call to backend
-const response = await fetch(&#39;/analyze&#39;, {
-method: &#39;POST&#39;,
+const response = await fetch('/analyze', {
+method: 'POST',
 body: formData,
 headers: {
-&#39;X-Requested-With&#39;: &#39;XMLHttpRequest&#39;
+'X-Requested-With': 'XMLHttpRequest'
 }
 });
 const data = await response.json();
 showLoading(false);
 if (data.success) {
 displayResults(data);
-showNotification(&#39;�� Analysis completed successfully! Saved to history.&#39;, &#39;success&#39;);
+showNotification('�� Analysis completed successfully! Saved to history.', 'success');
 createConfetti();
 // Add success animation to result card
 
-setTimeout(() =&gt; {
-const resultCard = document.querySelector(&#39;.result-card&#39;);
+setTimeout(() => {
+const resultCard = document.querySelector('.result-card');
 if (resultCard) {
-resultCard.classList.add(&#39;animate-success&#39;);
+resultCard.classList.add('animate-success');
 }
 }, 100);
 } else {
-showNotification(data.error || &#39;Analysis failed&#39;, &#39;danger&#39;);
+showNotification(data.error || 'Analysis failed', 'danger');
 }
 } catch (error) {
 showLoading(false);
-showNotification(&#39;Network error. Please try again.&#39;, &#39;danger&#39;);
-console.error(&#39;Analysis error:&#39;, error);
+showNotification('Network error. Please try again.', 'danger');
+console.error('Analysis error:', error);
 }
 });
 // Update the displayResults function to use real data:
 function displayResults(data) {
-const resultsDiv = document.getElementById(&#39;results&#39;);
+const resultsDiv = document.getElementById('results');
 let badgeClass, borderClass, scoreClass, statusClass, badgeIcon, badgeGradient;
 switch(data.classification) {
-case &#39;RELIABLE&#39;:
-badgeClass = &#39;bg-success bg-opacity-20 text-success&#39;;
-borderClass = &#39;result-reliable&#39;;
-scoreClass = &#39;score-high&#39;;
-statusClass = &#39;status-reliable&#39;;
-badgeIcon = &#39;fa-check-circle&#39;;
-badgeGradient = &#39;var(--gradient-success)&#39;;
+case 'RELIABLE':
+badgeClass = 'bg-success bg-opacity-20 text-success';
+borderClass = 'result-reliable';
+scoreClass = 'score-high';
+statusClass = 'status-reliable';
+badgeIcon = 'fa-check-circle';
+badgeGradient = 'var(--gradient-success)';
 break;
-case &#39;SUSPICIOUS&#39;:
-badgeClass = &#39;bg-warning bg-opacity-20 text-warning&#39;;
-borderClass = &#39;result-suspicious&#39;;
-scoreClass = &#39;score-medium&#39;;
-statusClass = &#39;status-suspicious&#39;;
-badgeIcon = &#39;fa-exclamation-triangle&#39;;
-badgeGradient = &#39;var(--gradient-warning)&#39;;
+case 'SUSPICIOUS':
+badgeClass = 'bg-warning bg-opacity-20 text-warning';
+borderClass = 'result-suspicious';
+scoreClass = 'score-medium';
+statusClass = 'status-suspicious';
+badgeIcon = 'fa-exclamation-triangle';
+badgeGradient = 'var(--gradient-warning)';
 break;
-case &#39;FAKE&#39;:
-badgeClass = &#39;bg-danger bg-opacity-20 text-danger&#39;;
-borderClass = &#39;result-fake&#39;;
-scoreClass = &#39;score-low&#39;;
-statusClass = &#39;status-fake&#39;;
-badgeIcon = &#39;fa-times-circle&#39;;
-badgeGradient = &#39;var(--gradient-danger)&#39;;
+case 'FAKE':
+badgeClass = 'bg-danger bg-opacity-20 text-danger';
+borderClass = 'result-fake';
+scoreClass = 'score-low';
+statusClass = 'status-fake';
+badgeIcon = 'fa-times-circle';
+badgeGradient = 'var(--gradient-danger)';
 
 break;
 default:
-badgeClass = &#39;bg-secondary bg-opacity-20 text-secondary&#39;;
-borderClass = &#39;result-unknown&#39;;
-scoreClass = &#39;score-low&#39;;
-statusClass = &#39;status-suspicious&#39;;
-badgeIcon = &#39;fa-question-circle&#39;;
-badgeGradient = &#39;var(--gradient-primary)&#39;;
+badgeClass = 'bg-secondary bg-opacity-20 text-secondary';
+borderClass = 'result-unknown';
+scoreClass = 'score-low';
+statusClass = 'status-suspicious';
+badgeIcon = 'fa-question-circle';
+badgeGradient = 'var(--gradient-primary)';
 }
 // Enhanced finding type classes with animations
-let findingsHTML = &#39;&#39;;
-if (data.key_findings &amp;&amp; data.key_findings.length &gt; 0) {
+let findingsHTML = '';
+if (data.key_findings && data.key_findings.length > 0) {
 findingsHTML = `
-&lt;div class=&quot;mt-4&quot;&gt;
-&lt;h5 class=&quot;fw-bold mb-3 text-gradient&quot;&gt;
-&lt;i class=&quot;fas fa-search me-2&quot;&gt;&lt;/i&gt; Key Findings
-&lt;/h5&gt;
-&lt;div class=&quot;row&quot;&gt;
-${data.key_findings.map((finding, index) =&gt; {
-let findingClass = &#39;finding-positive&#39;;
-let iconColor = &#39;text-success&#39;;
-let icon = finding.icon || &#39;✅&#39;;
-if (finding.type === &#39;warning&#39; || finding.icon === &#39;⚠️&#39;) {
-findingClass = &#39;finding-warning&#39;;
-iconColor = &#39;text-warning&#39;;
-icon = finding.icon || &#39;⚠️&#39;;
+<div class="mt-4">
+<h5 class="fw-bold mb-3 text-gradient">
+<i class="fas fa-search me-2"></i> Key Findings
+</h5>
+<div class="row">
+${data.key_findings.map((finding, index) => {
+let findingClass = 'finding-positive';
+let iconColor = 'text-success';
+let icon = finding.icon || '✅';
+if (finding.type === 'warning' || finding.icon === '⚠️') {
+findingClass = 'finding-warning';
+iconColor = 'text-warning';
+icon = finding.icon || '⚠️';
 }
-if (finding.type === &#39;danger&#39; || finding.icon === &#39;��&#39;) {
-findingClass = &#39;finding-danger&#39;;
-iconColor = &#39;text-danger&#39;;
-icon = finding.icon || &#39;��&#39;;
+if (finding.type === 'danger' || finding.icon === '��') {
+findingClass = 'finding-danger';
+iconColor = 'text-danger';
+icon = finding.icon || '��';
 }
 return `
-&lt;div class=&quot;col-md-6 mb-3&quot;&gt;
-&lt;div class=&quot;finding-item ${findingClass}&quot; style=&quot;animation-delay: ${index * 0.1}s&quot;&gt;
-&lt;div class=&quot;d-flex align-items-start&quot;&gt;
-&lt;div class=&quot;emoji-badge&quot;&gt;${icon}&lt;/div&gt;
-&lt;div&gt;
-&lt;h6 class=&quot;fw-bold mb-2 ${iconColor}&quot;&gt;${finding.title || finding.type}&lt;/h6&gt;
-&lt;p class=&quot;text-muted mb-0 small&quot;&gt;${finding.description || finding.title}&lt;/p&gt;
-&lt;/div&gt;
+<div class="col-md-6 mb-3">
+<div class="finding-item ${findingClass}" style="animation-delay: ${index * 0.1}s">
+<div class="d-flex align-items-start">
+<div class="emoji-badge">${icon}</div>
+<div>
+<h6 class="fw-bold mb-2 ${iconColor}">${finding.title || finding.type}</h6>
+<p class="text-muted mb-0 small">${finding.description || finding.title}</p>
+</div>
 
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
+</div>
+</div>
+</div>
 `;
-}).join(&#39;&#39;)}
-&lt;/div&gt;
-&lt;/div&gt;
+}).join('')}
+</div>
+</div>
 `;
 }
 resultsDiv.innerHTML = `
-&lt;div class=&quot;result-card ${borderClass} animate-fade-in-up&quot;&gt;
-&lt;div class=&quot;result-header&quot;&gt;
-&lt;div&gt;
-&lt;h3 class=&quot;result-title mb-2&quot;&gt;Analysis Results&lt;/h3&gt;
-&lt;div class=&quot;d-flex align-items-center flex-wrap gap-2&quot;&gt;
-&lt;span class=&quot;badge ${badgeClass} badge-professional&quot; style=&quot;background:
-${badgeGradient}; color: white;&quot;&gt;
-&lt;i class=&quot;fas ${badgeIcon} me-1&quot;&gt;&lt;/i&gt;
+<div class="result-card ${borderClass} animate-fade-in-up">
+<div class="result-header">
+<div>
+<h3 class="result-title mb-2">Analysis Results</h3>
+<div class="d-flex align-items-center flex-wrap gap-2">
+<span class="badge ${badgeClass} badge-professional" style="background:
+${badgeGradient}; color: white;">
+<i class="fas ${badgeIcon} me-1"></i>
 ${data.classification}
-&lt;/span&gt;
-&lt;span class=&quot;status-indicator ${statusClass}&quot;&gt;
+</span>
+<span class="status-indicator ${statusClass}">
 ${data.confidence || 0}% confidence
-&lt;/span&gt;
+</span>
 ${data.cached ?
-&#39;&lt;span class=&quot;badge bg-info bg-opacity-20 text-info badge-professional&quot;
-style=&quot;background: var(--gradient-info); color: white;&quot;&gt;&lt;i class=&quot;fas fa-bolt me-
-1&quot;&gt;&lt;/i&gt;Cached&lt;/span&gt;&#39; :
-&#39;&lt;span class=&quot;badge bg-primary bg-opacity-20 text-primary badge-professional&quot;
-style=&quot;background: var(--gradient-primary); color: white;&quot;&gt;&lt;i class=&quot;fas fa-sync me-
-1&quot;&gt;&lt;/i&gt;Live&lt;/span&gt;&#39;
+'<span class="badge bg-info bg-opacity-20 text-info badge-professional"
+style="background: var(--gradient-info); color: white;"><i class="fas fa-bolt me-
+1"></i>Cached</span>' :
+'<span class="badge bg-primary bg-opacity-20 text-primary badge-professional"
+style="background: var(--gradient-primary); color: white;"><i class="fas fa-sync me-
+1"></i>Live</span>'
 }
-${data.is_quick ? &#39;&lt;span class=&quot;badge bg-success bg-opacity-20 text-success badge-
-professional&quot; style=&quot;background: var(--gradient-success); color: white;&quot;&gt;&lt;i class=&quot;fas fa-bolt me-
-1&quot;&gt;&lt;/i&gt;Quick Analysis&lt;/span&gt;&#39; : &#39;&#39;}
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;performance-badge&quot;&gt;
-&lt;i class=&quot;fas fa-stopwatch me-1&quot;&gt;&lt;/i&gt; ${data.processing_ms || 0}ms
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;row align-items-center&quot;&gt;
-&lt;div class=&quot;col-md-8&quot;&gt;
-&lt;div class=&quot;stats-grid mb-4&quot;&gt;
-&lt;div class=&quot;stat-item credibility&quot;&gt;
+${data.is_quick ? '<span class="badge bg-success bg-opacity-20 text-success badge-
+professional" style="background: var(--gradient-success); color: white;"><i class="fas fa-bolt me-
+1"></i>Quick Analysis</span>' : ''}
+</div>
+</div>
+<div class="performance-badge">
+<i class="fas fa-stopwatch me-1"></i> ${data.processing_ms || 0}ms
+</div>
+</div>
+<div class="row align-items-center">
+<div class="col-md-8">
+<div class="stats-grid mb-4">
+<div class="stat-item credibility">
 
-&lt;div class=&quot;stat-label&quot;&gt;
-&lt;i class=&quot;fas fa-shield-alt me-1&quot;&gt;&lt;/i&gt; Credibility
-&lt;/div&gt;
-&lt;div class=&quot;stat-value&quot;&gt;${data.credibility || 0}/10&lt;/div&gt;
-&lt;small class=&quot;text-muted&quot;&gt;Content reliability&lt;/small&gt;
-&lt;/div&gt;
-&lt;div class=&quot;stat-item sensationalism&quot;&gt;
-&lt;div class=&quot;stat-label&quot;&gt;
-&lt;i class=&quot;fas fa-exclamation-triangle me-1&quot;&gt;&lt;/i&gt; Sensationalism
-&lt;/div&gt;
-&lt;div class=&quot;stat-value&quot;&gt;${data.sensationalism || 0}/10&lt;/div&gt;
-&lt;small class=&quot;text-muted&quot;&gt;Emotional language&lt;/small&gt;
-&lt;/div&gt;
-&lt;div class=&quot;stat-item words&quot;&gt;
-&lt;div class=&quot;stat-label&quot;&gt;
-&lt;i class=&quot;fas fa-file-word me-1&quot;&gt;&lt;/i&gt; Words
-&lt;/div&gt;
-&lt;div class=&quot;stat-value&quot;&gt;${data.word_count || 0}&lt;/div&gt;
-&lt;small class=&quot;text-muted&quot;&gt;Analyzed&lt;/small&gt;
-&lt;/div&gt;
-&lt;div class=&quot;stat-item time&quot;&gt;
-&lt;div class=&quot;stat-label&quot;&gt;
-&lt;i class=&quot;fas fa-bolt me-1&quot;&gt;&lt;/i&gt; Speed
-&lt;/div&gt;
-&lt;div class=&quot;stat-value&quot;&gt;${data.processing_ms || 0}ms&lt;/div&gt;
-&lt;small class=&quot;text-muted&quot;&gt;Processing time&lt;/small&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;col-md-4 text-center&quot;&gt;
-&lt;div class=&quot;score-circle ${scoreClass} mb-3&quot;&gt;
-&lt;span&gt;${data.confidence || 0}%&lt;/span&gt;
-&lt;/div&gt;
-&lt;p class=&quot;text-muted small mb-0&quot;&gt;Confidence Score&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
+<div class="stat-label">
+<i class="fas fa-shield-alt me-1"></i> Credibility
+</div>
+<div class="stat-value">${data.credibility || 0}/10</div>
+<small class="text-muted">Content reliability</small>
+</div>
+<div class="stat-item sensationalism">
+<div class="stat-label">
+<i class="fas fa-exclamation-triangle me-1"></i> Sensationalism
+</div>
+<div class="stat-value">${data.sensationalism || 0}/10</div>
+<small class="text-muted">Emotional language</small>
+</div>
+<div class="stat-item words">
+<div class="stat-label">
+<i class="fas fa-file-word me-1"></i> Words
+</div>
+<div class="stat-value">${data.word_count || 0}</div>
+<small class="text-muted">Analyzed</small>
+</div>
+<div class="stat-item time">
+<div class="stat-label">
+<i class="fas fa-bolt me-1"></i> Speed
+</div>
+<div class="stat-value">${data.processing_ms || 0}ms</div>
+<small class="text-muted">Processing time</small>
+</div>
+</div>
+</div>
+<div class="col-md-4 text-center">
+<div class="score-circle ${scoreClass} mb-3">
+<span>${data.confidence || 0}%</span>
+</div>
+<p class="text-muted small mb-0">Confidence Score</p>
+</div>
+</div>
 ${findingsHTML}
-&lt;div class=&quot;mt-4 pt-3 border-top&quot;&gt;
-&lt;div class=&quot;d-flex justify-content-between align-items-center flex-wrap gap-2&quot;&gt;
-&lt;small class=&quot;text-muted&quot;&gt;
-&lt;i class=&quot;fas fa-info-circle me-1&quot;&gt;&lt;/i&gt; Analysis completed and saved to history
-&lt;/small&gt;
-&lt;div class=&quot;d-flex gap-2&quot;&gt;
-&lt;a href=&quot;/history&quot; class=&quot;btn btn-sm btn-outline-primary&quot;&gt;
+<div class="mt-4 pt-3 border-top">
+<div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
+<small class="text-muted">
+<i class="fas fa-info-circle me-1"></i> Analysis completed and saved to history
+</small>
+<div class="d-flex gap-2">
+<a href="/history" class="btn btn-sm btn-outline-primary">
 
-&lt;i class=&quot;fas fa-history me-1&quot;&gt;&lt;/i&gt; View History
-&lt;/a&gt;
-&lt;a href=&quot;/analyze&quot; class=&quot;btn btn-sm btn-outline-secondary&quot;&gt;
-&lt;i class=&quot;fas fa-redo me-1&quot;&gt;&lt;/i&gt; New Analysis
-&lt;/a&gt;
+<i class="fas fa-history me-1"></i> View History
+</a>
+<a href="/analyze" class="btn btn-sm btn-outline-secondary">
+<i class="fas fa-redo me-1"></i> New Analysis
+</a>
 ${data.gemini_available ?
-`&lt;button class=&quot;btn btn-sm btn-outline-success&quot;
-onclick=&quot;requestDetailedAnalysis()&quot;&gt;
-&lt;i class=&quot;fas fa-robot me-1&quot;&gt;&lt;/i&gt; Get AI Analysis
-&lt;/button&gt;` : &#39;&#39;
+`<button class="btn btn-sm btn-outline-success"
+onclick="requestDetailedAnalysis()">
+<i class="fas fa-robot me-1"></i> Get AI Analysis
+</button>` : ''
 }
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
+</div>
+</div>
+</div>
+</div>
 `;
 }
 // Add this function for AI analysis
 function requestDetailedAnalysis() {
-const content = document.getElementById(&#39;content&#39;).value.trim();
-if (!content || content.length &lt; 50) {
-showNotification(&#39;Please provide content for AI analysis&#39;, &#39;warning&#39;);
+const content = document.getElementById('content').value.trim();
+if (!content || content.length < 50) {
+showNotification('Please provide content for AI analysis', 'warning');
 return;
 }
 showLoading(true);
-fetch(&#39;/api/gemini/analyze&#39;, {
-method: &#39;POST&#39;,
+fetch('/api/gemini/analyze', {
+method: 'POST',
 headers: {
-&#39;Content-Type&#39;: &#39;application/json&#39;,
-&#39;X-Requested-With&#39;: &#39;XMLHttpRequest&#39;
+'Content-Type': 'application/json',
+'X-Requested-With': 'XMLHttpRequest'
 },
 body: JSON.stringify({ content: content })
 })
-.then(response =&gt; response.json())
-.then(data =&gt; {
+.then(response => response.json())
+.then(data => {
 showLoading(false);
 if (data.success) {
-showNotification(&#39;�� Gemini AI analysis completed! Check history for details.&#39;, &#39;success&#39;);
+showNotification('�� Gemini AI analysis completed! Check history for details.', 'success');
 createConfetti();
 } else {
-showNotification(data.error || &#39;AI analysis failed&#39;, &#39;danger&#39;);
+showNotification(data.error || 'AI analysis failed', 'danger');
 }
 
 })
-.catch(error =&gt; {
+.catch(error => {
 showLoading(false);
-showNotification(&#39;Network error. Please try again.&#39;, &#39;danger&#39;);
-console.error(&#39;AI analysis error:&#39;, error);
+showNotification('Network error. Please try again.', 'danger');
+console.error('AI analysis error:', error);
 });
 }
 // Display results
 function displayResults(data) {
-const resultsDiv = document.getElementById(&#39;results&#39;);
+const resultsDiv = document.getElementById('results');
 let badgeClass, borderClass, scoreClass, statusClass, badgeIcon, badgeGradient;
 switch(data.classification) {
-case &#39;RELIABLE&#39;:
-badgeClass = &#39;bg-success bg-opacity-20 text-success&#39;;
-borderClass = &#39;result-reliable&#39;;
-scoreClass = &#39;score-high&#39;;
-statusClass = &#39;status-reliable&#39;;
-badgeIcon = &#39;fa-check-circle&#39;;
-badgeGradient = &#39;var(--gradient-success)&#39;;
+case 'RELIABLE':
+badgeClass = 'bg-success bg-opacity-20 text-success';
+borderClass = 'result-reliable';
+scoreClass = 'score-high';
+statusClass = 'status-reliable';
+badgeIcon = 'fa-check-circle';
+badgeGradient = 'var(--gradient-success)';
 break;
-case &#39;SUSPICIOUS&#39;:
-badgeClass = &#39;bg-warning bg-opacity-20 text-warning&#39;;
-borderClass = &#39;result-suspicious&#39;;
-scoreClass = &#39;score-medium&#39;;
-statusClass = &#39;status-suspicious&#39;;
-badgeIcon = &#39;fa-exclamation-triangle&#39;;
-badgeGradient = &#39;var(--gradient-warning)&#39;;
+case 'SUSPICIOUS':
+badgeClass = 'bg-warning bg-opacity-20 text-warning';
+borderClass = 'result-suspicious';
+scoreClass = 'score-medium';
+statusClass = 'status-suspicious';
+badgeIcon = 'fa-exclamation-triangle';
+badgeGradient = 'var(--gradient-warning)';
 break;
-case &#39;FAKE&#39;:
-badgeClass = &#39;bg-danger bg-opacity-20 text-danger&#39;;
-borderClass = &#39;result-fake&#39;;
-scoreClass = &#39;score-low&#39;;
-statusClass = &#39;status-fake&#39;;
-badgeIcon = &#39;fa-times-circle&#39;;
-badgeGradient = &#39;var(--gradient-danger)&#39;;
+case 'FAKE':
+badgeClass = 'bg-danger bg-opacity-20 text-danger';
+borderClass = 'result-fake';
+scoreClass = 'score-low';
+statusClass = 'status-fake';
+badgeIcon = 'fa-times-circle';
+badgeGradient = 'var(--gradient-danger)';
 break;
 default:
-badgeClass = &#39;bg-secondary bg-opacity-20 text-secondary&#39;;
-borderClass = &#39;result-unknown&#39;;
-scoreClass = &#39;score-low&#39;;
-statusClass = &#39;status-suspicious&#39;;
-badgeIcon = &#39;fa-question-circle&#39;;
-badgeGradient = &#39;var(--gradient-primary)&#39;;
+badgeClass = 'bg-secondary bg-opacity-20 text-secondary';
+borderClass = 'result-unknown';
+scoreClass = 'score-low';
+statusClass = 'status-suspicious';
+badgeIcon = 'fa-question-circle';
+badgeGradient = 'var(--gradient-primary)';
 }
 
 // Enhanced finding type classes with animations
-let findingsHTML = &#39;&#39;;
-if (data.key_findings &amp;&amp; data.key_findings.length &gt; 0) {
+let findingsHTML = '';
+if (data.key_findings && data.key_findings.length > 0) {
 findingsHTML = `
-&lt;div class=&quot;mt-4&quot;&gt;
-&lt;h5 class=&quot;fw-bold mb-3 text-gradient&quot;&gt;
-&lt;i class=&quot;fas fa-search me-2&quot;&gt;&lt;/i&gt; Key Findings
-&lt;/h5&gt;
-&lt;div class=&quot;row&quot;&gt;
-${data.key_findings.map((finding, index) =&gt; {
-let findingClass = &#39;finding-positive&#39;;
-let iconColor = &#39;text-success&#39;;
-if (finding.type === &#39;warning&#39;) {
-findingClass = &#39;finding-warning&#39;;
-iconColor = &#39;text-warning&#39;;
+<div class="mt-4">
+<h5 class="fw-bold mb-3 text-gradient">
+<i class="fas fa-search me-2"></i> Key Findings
+</h5>
+<div class="row">
+${data.key_findings.map((finding, index) => {
+let findingClass = 'finding-positive';
+let iconColor = 'text-success';
+if (finding.type === 'warning') {
+findingClass = 'finding-warning';
+iconColor = 'text-warning';
 }
-if (finding.type === &#39;danger&#39;) {
-findingClass = &#39;finding-danger&#39;;
-iconColor = &#39;text-danger&#39;;
+if (finding.type === 'danger') {
+findingClass = 'finding-danger';
+iconColor = 'text-danger';
 }
 return `
-&lt;div class=&quot;col-md-6 mb-3&quot;&gt;
-&lt;div class=&quot;finding-item ${findingClass}&quot; style=&quot;animation-delay: ${index *
-0.1}s&quot;&gt;
-&lt;div class=&quot;d-flex align-items-start&quot;&gt;
-&lt;div class=&quot;emoji-badge&quot;&gt;${finding.icon}&lt;/div&gt;
-&lt;div&gt;
-&lt;h6 class=&quot;fw-bold mb-2 ${iconColor}&quot;&gt;${finding.title}&lt;/h6&gt;
-&lt;p class=&quot;text-muted mb-0 small&quot;&gt;${finding.description}&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
+<div class="col-md-6 mb-3">
+<div class="finding-item ${findingClass}" style="animation-delay: ${index *
+0.1}s">
+<div class="d-flex align-items-start">
+<div class="emoji-badge">${finding.icon}</div>
+<div>
+<h6 class="fw-bold mb-2 ${iconColor}">${finding.title}</h6>
+<p class="text-muted mb-0 small">${finding.description}</p>
+</div>
+</div>
+</div>
+</div>
 `;
-}).join(&#39;&#39;)}
-&lt;/div&gt;
-&lt;/div&gt;
+}).join('')}
+</div>
+</div>
 `;
 }
 resultsDiv.innerHTML = `
-&lt;div class=&quot;result-card ${borderClass} animate-fade-in-up&quot;&gt;
-&lt;div class=&quot;result-header&quot;&gt;
-&lt;div&gt;
+<div class="result-card ${borderClass} animate-fade-in-up">
+<div class="result-header">
+<div>
 
-&lt;h3 class=&quot;result-title mb-2&quot;&gt;Analysis Results&lt;/h3&gt;
-&lt;div class=&quot;d-flex align-items-center flex-wrap gap-2&quot;&gt;
-&lt;span class=&quot;badge ${badgeClass} badge-professional&quot; style=&quot;background:
-${badgeGradient}; color: white;&quot;&gt;
-&lt;i class=&quot;fas ${badgeIcon} me-1&quot;&gt;&lt;/i&gt;
+<h3 class="result-title mb-2">Analysis Results</h3>
+<div class="d-flex align-items-center flex-wrap gap-2">
+<span class="badge ${badgeClass} badge-professional" style="background:
+${badgeGradient}; color: white;">
+<i class="fas ${badgeIcon} me-1"></i>
 ${data.classification}
-&lt;/span&gt;
-&lt;span class=&quot;status-indicator ${statusClass}&quot;&gt;
+</span>
+<span class="status-indicator ${statusClass}">
 ${data.confidence}% confidence
-&lt;/span&gt;
+</span>
 ${data.cached ?
-&#39;&lt;span class=&quot;badge bg-info bg-opacity-20 text-info badge-professional&quot;
-style=&quot;background: var(--gradient-info); color: white;&quot;&gt;&lt;i class=&quot;fas fa-bolt me-
-1&quot;&gt;&lt;/i&gt;Cached&lt;/span&gt;&#39; :
-&#39;&lt;span class=&quot;badge bg-primary bg-opacity-20 text-primary badge-professional&quot;
-style=&quot;background: var(--gradient-primary); color: white;&quot;&gt;&lt;i class=&quot;fas fa-sync me-
-1&quot;&gt;&lt;/i&gt;Live&lt;/span&gt;&#39;
+'<span class="badge bg-info bg-opacity-20 text-info badge-professional"
+style="background: var(--gradient-info); color: white;"><i class="fas fa-bolt me-
+1"></i>Cached</span>' :
+'<span class="badge bg-primary bg-opacity-20 text-primary badge-professional"
+style="background: var(--gradient-primary); color: white;"><i class="fas fa-sync me-
+1"></i>Live</span>'
 }
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;performance-badge&quot;&gt;
-&lt;i class=&quot;fas fa-stopwatch me-1&quot;&gt;&lt;/i&gt; ${data.processing_ms}ms
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;row align-items-center&quot;&gt;
-&lt;div class=&quot;col-md-8&quot;&gt;
-&lt;div class=&quot;stats-grid mb-4&quot;&gt;
-&lt;div class=&quot;stat-item credibility&quot;&gt;
-&lt;div class=&quot;stat-label&quot;&gt;
-&lt;i class=&quot;fas fa-shield-alt me-1&quot;&gt;&lt;/i&gt; Credibility
-&lt;/div&gt;
-&lt;div class=&quot;stat-value&quot;&gt;${data.credibility}/10&lt;/div&gt;
-&lt;small class=&quot;text-muted&quot;&gt;Content reliability&lt;/small&gt;
-&lt;/div&gt;
-&lt;div class=&quot;stat-item sensationalism&quot;&gt;
-&lt;div class=&quot;stat-label&quot;&gt;
-&lt;i class=&quot;fas fa-exclamation-triangle me-1&quot;&gt;&lt;/i&gt; Sensationalism
-&lt;/div&gt;
-&lt;div class=&quot;stat-value&quot;&gt;${data.sensationalism}/10&lt;/div&gt;
-&lt;small class=&quot;text-muted&quot;&gt;Emotional language&lt;/small&gt;
-&lt;/div&gt;
-&lt;div class=&quot;stat-item words&quot;&gt;
-&lt;div class=&quot;stat-label&quot;&gt;
-&lt;i class=&quot;fas fa-file-word me-1&quot;&gt;&lt;/i&gt; Words
-&lt;/div&gt;
-&lt;div class=&quot;stat-value&quot;&gt;${data.word_count}&lt;/div&gt;
+</div>
+</div>
+<div class="performance-badge">
+<i class="fas fa-stopwatch me-1"></i> ${data.processing_ms}ms
+</div>
+</div>
+<div class="row align-items-center">
+<div class="col-md-8">
+<div class="stats-grid mb-4">
+<div class="stat-item credibility">
+<div class="stat-label">
+<i class="fas fa-shield-alt me-1"></i> Credibility
+</div>
+<div class="stat-value">${data.credibility}/10</div>
+<small class="text-muted">Content reliability</small>
+</div>
+<div class="stat-item sensationalism">
+<div class="stat-label">
+<i class="fas fa-exclamation-triangle me-1"></i> Sensationalism
+</div>
+<div class="stat-value">${data.sensationalism}/10</div>
+<small class="text-muted">Emotional language</small>
+</div>
+<div class="stat-item words">
+<div class="stat-label">
+<i class="fas fa-file-word me-1"></i> Words
+</div>
+<div class="stat-value">${data.word_count}</div>
 
-&lt;small class=&quot;text-muted&quot;&gt;Analyzed&lt;/small&gt;
-&lt;/div&gt;
-&lt;div class=&quot;stat-item time&quot;&gt;
-&lt;div class=&quot;stat-label&quot;&gt;
-&lt;i class=&quot;fas fa-bolt me-1&quot;&gt;&lt;/i&gt; Speed
-&lt;/div&gt;
-&lt;div class=&quot;stat-value&quot;&gt;${data.processing_ms}ms&lt;/div&gt;
-&lt;small class=&quot;text-muted&quot;&gt;Processing time&lt;/small&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;col-md-4 text-center&quot;&gt;
-&lt;div class=&quot;score-circle ${scoreClass} mb-3&quot;&gt;
-&lt;span&gt;${data.confidence}%&lt;/span&gt;
-&lt;/div&gt;
-&lt;p class=&quot;text-muted small mb-0&quot;&gt;Confidence Score&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
+<small class="text-muted">Analyzed</small>
+</div>
+<div class="stat-item time">
+<div class="stat-label">
+<i class="fas fa-bolt me-1"></i> Speed
+</div>
+<div class="stat-value">${data.processing_ms}ms</div>
+<small class="text-muted">Processing time</small>
+</div>
+</div>
+</div>
+<div class="col-md-4 text-center">
+<div class="score-circle ${scoreClass} mb-3">
+<span>${data.confidence}%</span>
+</div>
+<p class="text-muted small mb-0">Confidence Score</p>
+</div>
+</div>
 ${findingsHTML}
-&lt;div class=&quot;mt-4 pt-3 border-top&quot;&gt;
-&lt;div class=&quot;d-flex justify-content-between align-items-center flex-wrap gap-2&quot;&gt;
-&lt;small class=&quot;text-muted&quot;&gt;
-&lt;i class=&quot;fas fa-info-circle me-1&quot;&gt;&lt;/i&gt; Analysis completed successfully
-&lt;/small&gt;
-&lt;div class=&quot;d-flex gap-2&quot;&gt;
-&lt;button class=&quot;btn btn-sm btn-outline-primary&quot;
-onclick=&quot;requestDetailedAnalysis()&quot;&gt;
-&lt;i class=&quot;fas fa-chart-bar me-1&quot;&gt;&lt;/i&gt; Detailed Report
-&lt;/button&gt;
-&lt;button class=&quot;btn btn-sm btn-outline-secondary&quot; onclick=&quot;saveAnalysis()&quot;&gt;
-&lt;i class=&quot;fas fa-save me-1&quot;&gt;&lt;/i&gt; Save
-&lt;/button&gt;
-&lt;button class=&quot;btn btn-sm btn-outline-success&quot; onclick=&quot;shareResults()&quot;&gt;
-&lt;i class=&quot;fas fa-share-alt me-1&quot;&gt;&lt;/i&gt; Share
-&lt;/button&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
+<div class="mt-4 pt-3 border-top">
+<div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
+<small class="text-muted">
+<i class="fas fa-info-circle me-1"></i> Analysis completed successfully
+</small>
+<div class="d-flex gap-2">
+<button class="btn btn-sm btn-outline-primary"
+onclick="requestDetailedAnalysis()">
+<i class="fas fa-chart-bar me-1"></i> Detailed Report
+</button>
+<button class="btn btn-sm btn-outline-secondary" onclick="saveAnalysis()">
+<i class="fas fa-save me-1"></i> Save
+</button>
+<button class="btn btn-sm btn-outline-success" onclick="shareResults()">
+<i class="fas fa-share-alt me-1"></i> Share
+</button>
+</div>
+</div>
+</div>
+</div>
 `;
 }
 // Show notification
 
-function showNotification(message, type = &#39;info&#39;) {
-const notification = document.createElement(&#39;div&#39;);
+function showNotification(message, type = 'info') {
+const notification = document.createElement('div');
 const typeColors = {
-&#39;success&#39;: &#39;#10b981&#39;,
-&#39;warning&#39;: &#39;#f59e0b&#39;,
-&#39;danger&#39;: &#39;#ef4444&#39;,
-&#39;info&#39;: &#39;#6366f1&#39;
+'success': '#10b981',
+'warning': '#f59e0b',
+'danger': '#ef4444',
+'info': '#6366f1'
 };
 const gradients = {
-&#39;success&#39;: &#39;var(--gradient-success)&#39;,
-&#39;warning&#39;: &#39;var(--gradient-warning)&#39;,
-&#39;danger&#39;: &#39;var(--gradient-danger)&#39;,
-&#39;info&#39;: &#39;var(--gradient-primary)&#39;
+'success': 'var(--gradient-success)',
+'warning': 'var(--gradient-warning)',
+'danger': 'var(--gradient-danger)',
+'info': 'var(--gradient-primary)'
 };
 notification.className = `alert alert-dismissible fade show position-fixed animate__animated
 animate__fadeInRight`;
@@ -1700,23 +1700,23 @@ padding: 18px;
 backdrop-filter: blur(10px);
 `;
 notification.innerHTML = `
-&lt;div class=&quot;d-flex align-items-center&quot;&gt;
-&lt;i class=&quot;fas fa-${type === &#39;success&#39; ? &#39;check-circle&#39; : type === &#39;warning&#39; ? &#39;exclamation-
-triangle&#39; : type === &#39;danger&#39; ? &#39;times-circle&#39; : &#39;info-circle&#39;} fa-2x me-3&quot;&gt;&lt;/i&gt;
-&lt;div class=&quot;flex-grow-1&quot;&gt;
-&lt;strong class=&quot;d-block mb-1&quot;&gt;${type.charAt(0).toUpperCase() + type.slice(1)}&lt;/strong&gt;
+<div class="d-flex align-items-center">
+<i class="fas fa-${type === 'success' ? 'check-circle' : type === 'warning' ? 'exclamation-
+triangle' : type === 'danger' ? 'times-circle' : 'info-circle'} fa-2x me-3"></i>
+<div class="flex-grow-1">
+<strong class="d-block mb-1">${type.charAt(0).toUpperCase() + type.slice(1)}</strong>
 ${message}
-&lt;/div&gt;
-&lt;button type=&quot;button&quot; class=&quot;btn-close btn-close-white&quot; data-bs-
-dismiss=&quot;alert&quot;&gt;&lt;/button&gt;
-&lt;/div&gt;
+</div>
+<button type="button" class="btn-close btn-close-white" data-bs-
+dismiss="alert"></button>
+</div>
 `;
 
 document.body.appendChild(notification);
 // Remove notification after delay
-setTimeout(() =&gt; {
-notification.classList.add(&#39;animate__fadeOutRight&#39;);
-setTimeout(() =&gt; {
+setTimeout(() => {
+notification.classList.add('animate__fadeOutRight');
+setTimeout(() => {
 if (notification.parentNode) {
 notification.remove();
 }
@@ -1725,55 +1725,55 @@ notification.remove();
 }
 // Request detailed analysis
 function requestDetailedAnalysis() {
-showNotification(&#39;�� Detailed analysis requested. Generating comprehensive report...&#39;, &#39;info&#39;);
+showNotification('�� Detailed analysis requested. Generating comprehensive report...', 'info');
 createConfetti();
 }
 // Save analysis
 function saveAnalysis() {
-showNotification(&#39;�� Analysis saved to your history&#39;, &#39;success&#39;);
+showNotification('�� Analysis saved to your history', 'success');
 createConfetti();
 }
 // Share results
 function shareResults() {
 if (navigator.share) {
 navigator.share({
-title: &#39;TruthGuard Analysis Results&#39;,
-text: &#39;Check out these misinformation analysis results from TruthGuard&#39;,
+title: 'TruthGuard Analysis Results',
+text: 'Check out these misinformation analysis results from TruthGuard',
 url: window.location.href
 });
 } else {
-navigator.clipboard.writeText(window.location.href).then(() =&gt; {
-showNotification(&#39;�� Link copied to clipboard&#39;, &#39;success&#39;);
+navigator.clipboard.writeText(window.location.href).then(() => {
+showNotification('�� Link copied to clipboard', 'success');
 createConfetti();
 });
 }
 }
 // Initialize
 
-document.addEventListener(&#39;DOMContentLoaded&#39;, function() {
-console.log(&#39;�� TruthGuard Colorful Analysis Page Loaded&#39;);
+document.addEventListener('DOMContentLoaded', function() {
+console.log('�� TruthGuard Colorful Analysis Page Loaded');
 createParticles();
 // Add animation to main card
-const mainCard = document.querySelector(&#39;.main-card&#39;);
+const mainCard = document.querySelector('.main-card');
 if (mainCard) {
-mainCard.classList.add(&#39;hover-lift&#39;);
+mainCard.classList.add('hover-lift');
 }
 // Add initial confetti for welcome effect
 setTimeout(createConfetti, 1000);
 // Add rainbow effect to page title
-const title = document.querySelector(&#39;.text-gradient&#39;);
+const title = document.querySelector('.text-gradient');
 if (title) {
-setInterval(() =&gt; {
+setInterval(() => {
 title.style.background = `linear-gradient(90deg,
 #${Math.floor(Math.random()*16777215).toString(16)},
 #${Math.floor(Math.random()*16777215).toString(16)},
 #${Math.floor(Math.random()*16777215).toString(16)}
 )`;
-title.style.webkitBackgroundClip = &#39;text&#39;;
-title.style.webkitTextFillColor = &#39;transparent&#39;;
+title.style.webkitBackgroundClip = 'text';
+title.style.webkitTextFillColor = 'transparent';
 }, 5000);
 }
 });
-&lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;
+</script>
+</body>
+</html>
